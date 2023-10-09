@@ -15,6 +15,7 @@
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
 </head>
 
+<!--El main no se pone hasta que está claro qué distingue el contenido de esta página del de las demás-->
 <body>
     <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
@@ -32,10 +33,10 @@
         </nav>
     </header>
 
-    <main>
+    <!--main-->
         <h3>Datos sobre mí</h3>
         <section>
-            <h3>Información personal</h3>
+            <h4>Información personal</h4>
             <p>Pablo Valdés Fernández</p>
             <p>UO282655</p>
             <p>UO282655@uniovi.es</p>
@@ -43,12 +44,12 @@
                 <source srcset="multimedia/imagenes/foto_personal_monitor.jpg" media="(min-width: 800px)"/>
                 <source srcset="multimedia/imagenes/foto_personal_tablet.jpg" media="(max-width: 799px)"/>
                 <source srcset="multimedia/imagenes/foto_personal_movil.jpg" media="(max-width: 465px)"/>
-                <img src="multimedia/imagenes/foto_personal.jpg" alt="Una foto de mi cara">
+                <img src="multimedia/imagenes/foto_personal_monitor.jpg" alt="Una foto de mi cara">
             </picture>
         </section>
-
+        
         <section>
-            <h3>Texto de presentación</h3>
+            <h4>Texto de presentación</h4>
             <p>Me llamo Pablo Valdés Fernández, tengo 20 años y estoy estudiando Ingeniería Informática del Software en la Universidad de Oviedo</p>
         </section>
         
@@ -62,8 +63,12 @@
                 <li>Juegos de mesa</li>
             </ul>
             <p>Un libro que me gustó mucho: Crónica de una muerte anunciada</p>
+            <!--TODO: Adaptar también esta foto-->
             <picture>
-                <img src="multimedia/imagenes/portada.png" alt="Crónica de una muerte anunciada"/>
+                <source srcset="multimedia/imagenes/portada_monitor.jpg" media="(min-width: 800px)"/>
+                <source srcset="multimedia/imagenes/portada_tablet.jpg" media="(max-width: 799px)"/>
+                <source srcset="multimedia/imagenes/portada_movil.jpg" media="(max-width: 465px)"/>
+                <img src="multimedia/imagenes/portada_monitor.jpg" alt="Crónica de una muerte anunciada"/>
             </picture>
             <p>Una escena de una de mis películas favoritas: Todo a la vez en todas partes</p>
             <video controls preload="auto">
@@ -118,7 +123,7 @@
                 <dd>Lo que aprendí en esta asignatura me ha sido muy útil a lo largo de toda la carrera. Aprender como funcionan por dentro las distintas estructuras de datos me ha facilitado elegir cual usar en cada contexto de manera más inteligente.</dd>
             </dl>
         </section>
-    </main>
+    <!--/main-->
 
     <aside>
         <h2>Temperaturas medias anuales</h2>
