@@ -1,1 +1,41 @@
  /* datos personales Pablo Valdés Fernández, UO282655*/
+
+
+ /* Especificidad: 001 */
+ body {
+    font-family: "Segoe UI", Arial, sans-serif;
+ }
+
+/* Especificidad: 001 */
+ h1 {
+    font-size: 3em;
+ }
+
+ /* Especificidad: 001 */
+ h2 {
+    font-size: 2em;
+    font-weight: 800;
+ }
+
+ /* Especificidad: 001 */
+ h3 {
+    font-size: 1.75em;
+    font-style: italic;
+ }
+
+ /* Especificidad: 001 */
+ h4 {
+    font-size: 1.5em;
+    text-decoration: underline;
+ }
+
+ /* Especificidad: 001 */
+ h5 {
+    font-size: 1.25em;
+ }
+
+ /* Especificidad: 001 */
+ h6 {
+    font-size: 1em;
+ }
+ 
