@@ -20,13 +20,13 @@
  /* Especificidad: 001 */
  h3 {
     font-size: 1.75em;
-    font-style: italic;
+    text-decoration: underline;
  }
 
  /* Especificidad: 001 */
  h4 {
     font-size: 1.5em;
-    text-decoration: underline;
+    font-style: italic;
  }
 
  /* Especificidad: 001 */
