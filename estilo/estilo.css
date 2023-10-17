@@ -46,4 +46,46 @@
  h6 {
     font-size: 1em;
  }
+
+ /* Especificidad: 001 */
+ a {
+   color: #050A30;
+ }
+
+ /* Especificidad: 002 */
+ nav a {
+   color: #7EC8E3;
+ }
+
+ /* Especificidad: 011 */
+ a:visited {
+   color: #FF0000;
+ }
+
+ /* Especificidad: 002 */
+ ul li {
+   font-style: italic;
+ }
+
+ /* Especificidad: 003 */
+ ol li::marker {
+   font-weight: bold;
+ }
+
+ /* Especificidad: 002 */
+ dl dt {
+   font-style: italic;
+   font-size: 1.2em;
+ }
+
+ /* Especificidad: 013 */
+ section>ul li:nth-child(3) {
+   background-color: #000000;
+   color: #7EC8E3;
+ }
+
+ /* Especificidad: 002 */
+ dl dd {
+   text-decoration: underline;
+ }
  
