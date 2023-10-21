@@ -84,6 +84,7 @@
    font-weight: bold;
  }
 
+ /* Especificidad: 014 */
  section>ul>li:nth-child(3)::marker {
   color: #000000;
 }
@@ -123,7 +124,6 @@ table>caption {
  }
 
  @media screen and (max-width: 800px) {
-
   /* Especificidad: 002, 002, 002 */
   table>thead, table>tbody, table tr {
     display: table-cell;
@@ -139,4 +139,15 @@ table>caption {
     padding: 0.5em;
     width: 3em;
   }
+ }
+
+ /* Especificidad: 001 */
+ video {
+  max-width: 100%;
+  height: auto;
+ }
+
+ /* Especificidad: 001 */
+ audio {
+  max-width: 100%;
  }
