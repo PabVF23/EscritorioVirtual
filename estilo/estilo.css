@@ -89,3 +89,41 @@
    text-decoration: underline;
  }
  
+/* Especificidad: 001 */
+table {
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: #000000;
+}
+
+/* Especificidad: 002 */
+ table th {
+  background-color: #ffffa2;
+  font-weight: bold;
+  border-style: solid;
+ }
+
+ /* Especificidad: 002 */
+ table td {
+  background-color: #FFFFFF;
+  text-align: center;
+  font-style: italic;
+  border-style: solid;
+ }
+
+ @media screen and (max-width: 800px) {
+
+  table thead, tbody, tr {
+    display: table-cell;
+    border-collapse: collapse;
+    border-style: solid;
+  }
+
+  table th, td {
+    display: block;
+    border-collapse: collapse;
+    border-style: solid;
+    padding: 0.5em;
+    width: 3em;
+  }
+ }
