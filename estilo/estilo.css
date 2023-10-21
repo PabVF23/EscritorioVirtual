@@ -79,10 +79,14 @@
  }
 
  /* Especificidad: 013 */
- section>ul li:nth-child(3) {
-   background-color: #000000;
-   color: #7EC8E3;
+ section>ul>li:nth-child(3) {
+   color: #81371C;
+   font-weight: bold;
  }
+
+ section>ul>li:nth-child(3)::marker {
+  color: #000000;
+}
 
  /* Especificidad: 002 */
  dl dd {
@@ -94,6 +98,13 @@ table {
   border-collapse: collapse;
   border-style: solid;
   border-color: #000000;
+}
+
+/* Especificidad: 002 */
+table>caption {
+  font-size: 1.1em;
+  font-style: italic;
+  text-decoration: underline;
 }
 
 /* Especificidad: 002 */
@@ -113,13 +124,15 @@ table {
 
  @media screen and (max-width: 800px) {
 
-  table thead, tbody, tr {
+  /* Especificidad: 002, 002, 002 */
+  table>thead, table>tbody, table tr {
     display: table-cell;
     border-collapse: collapse;
     border-style: solid;
   }
 
-  table th, td {
+  /* Especificidad: 002 */
+  table th, table td {
     display: block;
     border-collapse: collapse;
     border-style: solid;
