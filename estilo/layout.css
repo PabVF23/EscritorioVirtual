@@ -22,7 +22,7 @@
  header nav ul li{
     display: inline-block;
     margin-left: 0.5em;
-    padding-bottom: 0.25em;
+    padding-bottom: 0.75em;
  }
 
 @media screen and (max-width: 550px) {
