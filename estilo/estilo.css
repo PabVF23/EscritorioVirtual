@@ -51,27 +51,32 @@
 
  /* Especificidad: 001 */
  a {
+   background-color: inherit;
    color: #0000FF;
  }
 
- /* Especificidad: 002 */
- nav a {
+ /* Especificidad: 003 */
+ header nav a {
    font-size: 1.1em;
    font-weight: bold;
+   background-color: inherit;
    color: #7EC8E3;
  }
 
+ /* Especificidad: 002 */
  nav ul{
   list-style-type: none;
  }
 
  /* Especificidad: 011 */
  a:visited {
+   background-color: inherit;
    color: #FF0000;
  }
 
  /* Especificidad: 012 */
  nav a:visited {
+   background-color: inherit;
    color: #FF7B7B;
  }
 
@@ -93,12 +98,14 @@
 
  /* Especificidad: 013 */
  section>ul>li:nth-child(3) {
+   background-color: inherit;
    color: #81371C;
    font-weight: bold;
  }
 
  /* Especificidad: 014 */
  section>ul>li:nth-child(3)::marker {
+  background-color: inherit;
   color: #000000;
 }
 
@@ -124,6 +131,7 @@ table>caption {
 /* Especificidad: 002 */
  table th {
   background-color: #ffffa2;
+  color: inherit;
   font-weight: bold;
   border-style: solid;
  }
@@ -131,6 +139,7 @@ table>caption {
  /* Especificidad: 002 */
  table td {
   background-color: #FFFFFF;
+  color: inherit;
   text-align: center;
   font-style: italic;
   border-style: solid;
@@ -148,7 +157,6 @@ table>caption {
   table th, table td {
     display: block;
     border-collapse: collapse;
-    border-style: solid;
     padding: 0.5em;
     width: 3em;
   }
@@ -166,21 +174,8 @@ table>caption {
  }
 
  @media screen and (max-width: 850px) {
-  /* Especificidad: 003 */
-  header nav a{
-    font-size: 1.5em;
-  }
-
   /* Especificidad: 002 */
   nav ul{
-    list-style-type: none;
     text-align: right;
    }
- }
-
- @media screen and (max-width: 465px) {
-  /* Especificidad: 003 */
-  header nav a{
-    font-size: 1.2em;
-  }
  }
