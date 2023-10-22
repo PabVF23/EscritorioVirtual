@@ -67,6 +67,7 @@
   list-style-type: none;
  }
 
+ /* Especificidad: 004 */
  header nav ul li {
   font-style: normal;
  }
