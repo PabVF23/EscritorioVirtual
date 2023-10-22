@@ -77,6 +77,12 @@
    color: #FF0000;
  }
 
+ /* Especificidad: 012 */
+ nav a:visited {
+   background-color: inherit;
+   color: #FFF70A;
+ }
+
  /* Especificidad: 002 */
  ul li {
    font-style: italic;
