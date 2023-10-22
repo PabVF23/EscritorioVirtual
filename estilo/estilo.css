@@ -171,6 +171,7 @@ table>caption {
     font-size: 1.5em;
   }
 
+  /* Especificidad: 002 */
   nav ul{
     list-style-type: none;
     text-align: right;
@@ -178,6 +179,7 @@ table>caption {
  }
 
  @media screen and (max-width: 465px) {
+  /* Especificidad: 003 */
   header nav a{
     font-size: 1.2em;
   }

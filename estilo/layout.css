@@ -32,16 +32,19 @@
         margin-left: 1em;
     }
 
+    /* Especificidad: 002 */
     header nav{
         margin-left: 3em;  
     }
 }
 
 @media screen and (max-width: 550px) {
+    /* Especificidad: 002 */
     header h1 {
         margin-left: 0.25em;
     }
 
+    /* Especificidad: 002 */
     header nav{
         margin-left: 1.5em;  
     }
