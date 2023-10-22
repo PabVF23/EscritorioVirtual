@@ -165,23 +165,6 @@ table>caption {
   }
  }
 
- @media screen and (max-width: 799px) {
-  /* Especificidad: 002, 002, 002 */
-  table>thead, table>tbody, table tr {
-    display: table-cell;
-    border-collapse: collapse;
-    border-style: solid;
-  }
-
-  /* Especificidad: 002 */
-  table th, table td {
-    display: block;
-    border-collapse: collapse;
-    padding: 0.5em;
-    width: 3em;
-  }
- }
-
  /* Especificidad: 001 */
  video {
   max-width: 100%;
@@ -204,10 +187,5 @@ table>caption {
   /* Especificidad: 002 */
   header h1{
     font-size: 2em;
-   }
-
-   /* Especificidad: 003 */
-   header nav a {
-    font-size: 1em;
    }
  }
