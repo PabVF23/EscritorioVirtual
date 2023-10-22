@@ -21,10 +21,12 @@
  /* Especificidad: 004 */
  header nav ul li{
     display: inline-block;
-    margin-left: 0.5em;    
+    margin-left: 0.5em;
+    padding-bottom: 0.25em;
  }
 
 @media screen and (max-width: 550px) {
+
     header nav ul li {
         /* Redefinición de propiedad display */
         display: block;
