@@ -1,0 +1,49 @@
+<!-- Declaraciones de elementos -->
+<!ELEMENT rutas (ruta+)>
+<!ELEMENT ruta (fecha?, hora?, tiempo, agencia, descripcion,
+                personas, lugar, direccion, coordenadas,
+                referencias,
+                recomendacion, hitos)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT tiempo (#PCDATA)>
+<!ELEMENT agencia (#PCDATA)>
+<!ELEMENT personas (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT lugar (#PCDATA)>
+<!ELEMENT direccion (#PCDATA)>
+<!ELEMENT coordenadas EMPTY>
+<!ELEMENT referencias (referencia, referencia, referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT recomendacion EMPTY>
+<!ELEMENT hitos (hito, hito, hito+)>
+
+<!ELEMENT hito (descripcion, coordenadas, distancia, galeriaFotos, galeriaVideos?)>
+<!ELEMENT distancia (#PCDATA)>
+<!ELEMENT galeriaFotos (foto, foto?, foto?, foto?, foto?)>
+<!ELEMENT foto (#PCDATA)>
+<!ELEMENT galeriaVideos (video, video?, video?)>
+<!ELEMENT video (#PCDATA)>
+
+<!-- Declaraciones de atributos -->
+<!ATTLIST ruta
+            nombre CDATA #REQUIRED
+            tipo CDATA #REQUIRED
+            medio CDATA #REQUIRED>
+            
+<!ATTLIST coordenadas
+            longitud CDATA #REQUIRED
+            latitud CDATA #REQUIRED
+            altitud CDATA #REQUIRED>
+
+<!ATTLIST recomendacion
+            valor (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10) #REQUIRED>
+
+<!ATTLIST hito
+            nombre CDATA #REQUIRED>
+
+<!ATTLIST distancia
+            unidades CDATA #REQUIRED>
+
+<!NOTATION jpg SYSTEM "image/jpeg">
+<!NOTATION mp4 SYSTEM "video/mp4">
