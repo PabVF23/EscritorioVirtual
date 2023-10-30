@@ -9,7 +9,7 @@
         <agencia>RutasTonga</agencia>
         <descripcion>Se visitarán los lugares más destacados de la capital de la isla</descripcion>
         <personas>Se puede ir con niños</personas>
-        <lugar>ANT Bicycles Tonga</lugar>
+        <lugar>Palacio Real de Tonga</lugar>
         <direccion>VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</direccion>
         <coordenadas latitud="-175.2005886457105" longitud="-21.13117063262022" altitud="1"/>
         <referencias>
@@ -67,7 +67,7 @@
         <personas>Personas en buena forma física</personas>
         <lugar>ANT Bicycles Tonga</lugar>
         <direccion>Railway Rd, Nuku'alofa, Tonga</direccion>
-        <coordenadas latitud="-175.2005886457105" longitud="-21.13117063262022" altitud="1"/>
+        <coordenadas latitud="-175.20163424666714" longitud="-21.13718666160756" altitud="1"/>
         <referencias>
             <referencia>
                 https://www.tripadvisor.es/Attraction_Review-g317040-d315301-Reviews-Ha_atafu_Beach-Tongatapu_Island.html
@@ -83,7 +83,7 @@
         <hitos>
             <hito nombre="Ha'atafu Beach Resort">
                 <descripcion>Resort cerca de la playa de Ha'atafu (actualmente cerrado)</descripcion>
-                <coordenadas latitud="-21.070152267610222" longitud="-175.3343708409366" altitud="1"/>
+                <coordenadas latitud="-175.3343708409366" longitud="-21.070152267610222" altitud="1"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
                     <foto>resort.jpg</foto>
@@ -109,7 +109,7 @@
             </hito>
             <hito nombre="Heilala Holiday Lodge">
                 <descripcion>Resort vacacional de Heilala</descripcion>
-                <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="1"/>
+                <coordenadas latitud="-175.33522905520314" longitud="-21.07158149791907" altitud="1"/>
                 <distancia unidades="m">733.22</distancia>
                 <galeriaFotos>
                     <foto>cementerio.png</foto>
@@ -128,8 +128,8 @@
         <agencia>Nukunukumotu Tours</agencia>
         <descripcion>Una visita guiada a la isla de Nukunukumotu</descripcion>
         <personas>Se pueden llevar niños</personas>
-        <lugar>ANT Bicycles Tonga</lugar>
-        <direccion>Railway Rd, Nuku'alofa, Tonga</direccion>
+        <lugar>Palacio Real de Tonga</lugar>
+        <direccion>VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</direccion>
         <coordenadas latitud="-175.2005886457105" longitud="-21.13117063262022" altitud="1"/>
         <referencias>
             <referencia>
