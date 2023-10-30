@@ -44,6 +44,3 @@
 
 <!ATTLIST distancia
             unidades CDATA #REQUIRED>
-
-<!NOTATION jpg SYSTEM "image/jpeg">
-<!NOTATION mp4 SYSTEM "video/mp4">
