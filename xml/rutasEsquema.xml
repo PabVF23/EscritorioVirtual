@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rutas xmlns="http://www.uniovi.es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uniovi.es rutas.xsd" >
+    <ruta nombre="Ruta por Nuku'Alofa" tipo="Senderismo" medio="A pie">
+        <fecha>2023-12-15</fecha>
+        <hora>12:00:00</hora>
+        <tiempo>PT6H</tiempo>
+        <agencia>RutasTonga</agencia>
+        <descripcion>Se visitarán los lugares más destacados de la capital de la isla</descripcion>
+        <personas>Se puede ir con niños</personas>
+        <lugar>Palacio Real de Tonga</lugar>
+        <direccion>VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</direccion>
+        <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="1"/>
+        <referencias>
+            <referencia>
+                https://es.wikipedia.org/wiki/Nukualofa
+            </referencia>
+            <referencia>
+                https://es.wikipedia.org/wiki/Palacio_Real_de_Tonga
+            </referencia>
+            <referencia>
+                https://www.royalpalace.to/
+            </referencia>
+        </referencias>
+        <recomendacion>7</recomendacion>
+        <hitos>
+            <hito nombre="Palacio Real de Tonga">
+                <descripcion>Residencia de Tupou VI, Rey de Tonga</descripcion>
+                <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="1"/>
+                <distancia unidades="m">0</distancia>
+                <galeriaFotos>
+                    <foto>palacio.png</foto>
+                </galeriaFotos>
+            </hito>
+            <hito nombre="Telekava European Cemetery">
+                <descripcion>Cementerio a los caidos en la Segunda Guerra Mundial</descripcion>
+                <coordenadas latitud="-21.13421725022125" longitud="-175.20945121535524" altitud="1"/>
+                <distancia unidades="m">963.99</distancia>
+                <galeriaFotos>
+                    <foto>cementerio.png</foto>
+                </galeriaFotos>
+            </hito>
+            <hito nombre="Tonga National Museum">
+                <descripcion>Museo nacional de Tonga</descripcion>
+                <coordenadas latitud="-21.13844583593113" longitud="-175.20396822904885" altitud="1"/>
+                <distancia unidades="m">733.22</distancia>
+                <galeriaFotos>
+                    <foto>museo.png</foto>
+                </galeriaFotos>
+            </hito>
+        </hitos>
+    </ruta>
+
+    <ruta nombre="Visita Playa Ha'atafu" tipo="Paisajística" medio="En bici">
+        <fecha>2023-12-13</fecha>
+        <hora>10:00:00</hora>
+        <tiempo>PT16H</tiempo>
+        <agencia>Sin agencia</agencia>
+        <descripcion>Un viaje en bici para visitar la playa de Ha'atafu, con la posibilidad de bañarse en ella</descripcion>
+        <personas>Personas en buena forma física</personas>
+        <lugar>ANT Bicycles Tonga</lugar>
+        <direccion>Railway Rd, Nuku'alofa, Tonga</direccion>
+        <coordenadas latitud="-21.13718666160756" longitud="-175.20163424666714" altitud="1"/>
+        <referencias>
+            <referencia>
+                https://www.tripadvisor.es/Attraction_Review-g317040-d315301-Reviews-Ha_atafu_Beach-Tongatapu_Island.html
+            </referencia>
+            <referencia>
+                https://www.surfingtonga.com/index.html
+            </referencia>
+            <referencia>
+                https://www.lonelyplanet.es/oceania/tonga/imprescindible/playa-de-haatafu
+            </referencia>
+        </referencias>
+        <recomendacion>6</recomendacion>
+        <hitos>
+            <hito nombre="Ha'atafu Beach Resort">
+                <descripcion>Resort cerca de la playa de Ha'atafu (actualmente cerrado)</descripcion>
+                <coordenadas latitud="-21.070152267610222" longitud="-175.3343708409366" altitud="1"/>
+                <distancia unidades="m">0</distancia>
+                <galeriaFotos>
+                    <foto>resort.jpg</foto>
+                    <foto>resort.png</foto>
+                    <foto>resort.svg</foto>
+                    <foto>resort2.jpg</foto>
+                    <foto>resort2.png</foto>
+                </galeriaFotos>
+            </hito>
+            <hito nombre="Playa de Ha'atafu">
+                <descripcion>Playa protegida para nadar y hacer surf</descripcion>
+                <coordenadas latitud="-21.06976568669056" longitud="-175.3349976690178" altitud="1"/>
+                <distancia unidades="m">963.99</distancia>
+                <galeriaFotos>
+                    <foto>playa.png</foto>
+                    <foto>playa2.png</foto>
+                </galeriaFotos>
+                <galeriaVideos>
+                    <video>cementerio.mp4</video>
+                    <video>cementerio.mkv</video>
+                    <video>cementerio.avi</video>
+                </galeriaVideos>
+            </hito>
+            <hito nombre="Heilala Holiday Lodge">
+                <descripcion>Resort vacacional de Heilala</descripcion>
+                <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="1"/>
+                <distancia unidades="m">733.22</distancia>
+                <galeriaFotos>
+                    <foto>cementerio.png</foto>
+                </galeriaFotos>
+                <galeriaVideos>
+                    <video>cementerio.mp4</video>
+                </galeriaVideos>
+            </hito>
+        </hitos>
+    </ruta>
+
+    <ruta nombre="Visita a las islas" tipo="Senderismo" medio="A pie (con trayectos en barco entre las islas)">
+        <fecha>2023-12-19</fecha>
+        <hora>20:00:00</hora>
+        <tiempo>PT20H</tiempo>
+        <agencia>Nukunukumotu Tours</agencia>
+        <descripcion>Una visita guiada a algunas de las distintas islas que conforman Tonga</descripcion>
+        <personas>Se pueden llevar niños</personas>
+        <lugar>Palacio Real de Tonga</lugar>
+        <direccion>VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</direccion>
+        <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="1"/>
+        <referencias>
+            <referencia>
+                https://to.geoview.info/nukunukumotu_island,4032391
+            </referencia>
+            <referencia>
+                https://en.wikipedia.org/wiki/Pangaimotu_(Vava%CA%BBu)
+            </referencia>
+            <referencia>
+                https://mapcarta.com/20410440
+            </referencia>
+        </referencias>
+        <recomendacion>9</recomendacion>
+        <hitos>
+            <hito nombre="Isla de Nukunukumotu">
+                <descripcion>Isla localizada a una corta distancia al este de Nukualofa</descripcion>
+                <coordenadas latitud="-21.14200661114548" longitud="-175.1460399023326" altitud="7"/>
+                <distancia unidades="m">0</distancia>
+                <galeriaFotos>
+                    <foto>isla.jpg</foto>
+                    <foto>isla.png</foto>
+                </galeriaFotos>
+            </hito>
+            <hito nombre="Isla de Oneata">
+                <descripcion>Isla localizada al norte de Nukunukumotu</descripcion>
+                <coordenadas latitud="-21.129241417647656" longitud="-175.14618839323603" altitud="7"/>
+                <distancia unidades="km">1.46</distancia>
+                <galeriaFotos>
+                    <foto>oneata.png</foto>
+                    <foto>oneata2.png</foto>
+                </galeriaFotos>
+                <galeriaVideos>
+                    <video>oneata.mp4</video>
+                </galeriaVideos>
+            </hito>
+            <hito nombre="Isla de Pangaimotu">
+                <descripcion>Isla localizada al noroeste de Oneata</descripcion>
+                <coordenadas latitud="-21.124028934272" longitud="-175.1590628165866" altitud="7"/>
+                <distancia unidades="km">1.40</distancia>
+                <galeriaFotos>
+                    <foto>pangaimotu.png</foto>
+                </galeriaFotos>
+                <galeriaVideos>
+                    <video>pangaimotu.mp4</video>
+                    <video>pangaimotu2.avi</video>
+                </galeriaVideos>
+            </hito>
+        </hitos>
+    </ruta>
+</rutas>
