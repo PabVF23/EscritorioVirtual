@@ -50,7 +50,7 @@
 
  /* Especificidad: 001 */
  a {
-   background-color: inherit;
+  /* El background-color se hereda del elemento body: #7EC8E3 */
    color: #0000FF;
  }
 
@@ -58,7 +58,7 @@
  header nav a {
    font-size: 1.1em;
    font-weight: bold;
-   background-color: inherit;
+   /* El background-color se hereda del elemento header: #0000FF */
    color: #7EC8E3;
  }
 
@@ -74,13 +74,13 @@
 
  /* Especificidad: 011 */
  a:visited {
-   background-color: inherit;
+   /* El background-color se hereda del elemento body: #7EC8E3 */
    color: #A00000;
  }
 
  /* Especificidad: 012 */
  nav a:visited {
-   background-color: inherit;
+   /* El background-color se hereda del elemento header: #0000FF */
    color: #FFF70A;
  }
 
@@ -102,14 +102,14 @@
 
  /* Especificidad: 013 */
  section>ul>li:nth-child(3) {
-   background-color: inherit;
+   /* El background-color se hereda del elemento body: #7EC8E3 */
    color: #81371C;
    font-weight: bold;
  }
 
  /* Especificidad: 014 */
  section>ul>li:nth-child(3)::marker {
-  background-color: inherit;
+  /* El background-color se hereda del elemento body: #7EC8E3 */
   color: #000000;
 }
 
@@ -134,36 +134,19 @@ table>caption {
 
 /* Especificidad: 002 */
  table th {
+  /* El color se hereda del elemento header: #000000 */
   background-color: #ffffa2;
-  color: inherit;
   font-weight: bold;
   border-style: solid;
  }
 
  /* Especificidad: 002 */
  table td {
+  /* El color se hereda del elemento header: #000000 */
   background-color: #FFFFFF;
-  color: inherit;
   text-align: center;
   font-style: italic;
   border-style: solid;
- }
-
- @media screen and (max-width: 799px) {
-  /* Especificidad: 002, 002, 002 */
-  table>thead, table>tbody, table tr {
-    display: table-cell;
-    border-collapse: collapse;
-    border-style: solid;
-  }
-
-  /* Especificidad: 002 */
-  table th, table td {
-    display: block;
-    border-collapse: collapse;
-    padding: 0.5em;
-    width: 3em;
-  }
  }
 
  /* Especificidad: 001 */
@@ -175,18 +158,4 @@ table>caption {
  /* Especificidad: 001 */
  audio {
   max-width: 100%;
- }
-
- @media screen and (max-width: 850px) {
-  /* Especificidad: 002 */
-  nav ul{
-    text-align: right;
-   }
- }
-
- @media screen and (max-width: 550px) {
-  /* Especificidad: 002 */
-  header h1{
-    font-size: 2em;
-   }
  }
