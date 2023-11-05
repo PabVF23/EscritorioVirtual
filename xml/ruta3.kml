@@ -3,6 +3,23 @@
 	<Document>
 		<Placemark>
 			<name>Visita a las islas</name>
+			<LineString>
+				<extrude>1</extrude>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-175.2005886457105,-21.13117063262022,1
+					-175.1460399023326,-21.14200661114548,7
+					-175.14618839323603,-21.129241417647656,7
+					-175.1590628165866,-21.124028934272,7
+				</coordinates>
+				<altitudeMode>relativeToGround</altitudeMode>
+			</LineString>
+			<Style id='lineaRoja'>
+				<LineStyle>
+					<color>#ff0000ff</color>
+					<width>5</width>
+				</LineStyle>
+			</Style>
 		</Placemark>
 	</Document>
 </kml>

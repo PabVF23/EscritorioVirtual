@@ -60,8 +60,30 @@ def escribirKML(archivoXML):
         f.write('\t\t<Placemark>\n')
         nombre = ruta.attrib["nombre"]
         f.write("\t\t\t<name>{name}</name>\n".format(name = nombre))
-        
-        
+        f.write("\t\t\t<LineString>\n")
+        f.write("\t\t\t\t<extrude>1</extrude>\n")
+        f.write("\t\t\t\t<tessellate>1</tessellate>\n")
+        f.write("\t\t\t\t<coordinates>\n")
+
+        coordsXPath = ".//{" + ns + "}coordenadas"
+
+        for coord in ruta.findall(coordsXPath):
+            atributos = coord.attrib
+            latitud = atributos['latitud']
+            longitud = atributos['longitud']
+            altitud = atributos['altitud']
+
+            f.write("\t\t\t\t\t" + longitud + "," + latitud + "," + altitud + "\n")
+            
+        f.write("\t\t\t\t</coordinates>\n")
+        f.write("\t\t\t\t<altitudeMode>relativeToGround</altitudeMode>\n")
+        f.write("\t\t\t</LineString>\n")
+        f.write("\t\t\t<Style id='lineaRoja'>\n")
+        f.write("\t\t\t\t<LineStyle>\n")
+        f.write("\t\t\t\t\t<color>#ff0000ff</color>\n")
+        f.write("\t\t\t\t\t<width>5</width>\n")
+        f.write("\t\t\t\t</LineStyle>\n")
+        f.write("\t\t\t</Style>\n")
         f.write('\t\t</Placemark>\n')
         f.write('\t</Document>\n')
         f.write('</kml>\n')

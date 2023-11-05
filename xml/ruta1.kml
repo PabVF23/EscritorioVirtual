@@ -3,6 +3,23 @@
 	<Document>
 		<Placemark>
 			<name>Ruta por Nuku'Alofa</name>
+			<LineString>
+				<extrude>1</extrude>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-175.2005886457105,-21.13117063262022,1
+					-175.2005886457105,-21.13117063262022,1
+					-175.20945121535524,-21.13421725022125,1
+					-175.20396822904885,-21.13844583593113,1
+				</coordinates>
+				<altitudeMode>relativeToGround</altitudeMode>
+			</LineString>
+			<Style id='lineaRoja'>
+				<LineStyle>
+					<color>#ff0000ff</color>
+					<width>5</width>
+				</LineStyle>
+			</Style>
 		</Placemark>
 	</Document>
 </kml>

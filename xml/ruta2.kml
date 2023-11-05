@@ -3,6 +3,23 @@
 	<Document>
 		<Placemark>
 			<name>Visita Playa Ha'atafu</name>
+			<LineString>
+				<extrude>1</extrude>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-175.20163424666714,-21.13718666160756,1
+					-175.3343708409366,-21.070152267610222,1
+					-175.3349976690178,-21.06976568669056,1
+					-175.33522905520314,-21.07158149791907,1
+				</coordinates>
+				<altitudeMode>relativeToGround</altitudeMode>
+			</LineString>
+			<Style id='lineaRoja'>
+				<LineStyle>
+					<color>#ff0000ff</color>
+					<width>5</width>
+				</LineStyle>
+			</Style>
 		</Placemark>
 	</Document>
 </kml>
