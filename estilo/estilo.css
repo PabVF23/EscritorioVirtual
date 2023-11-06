@@ -3,190 +3,159 @@
 
  /* Especificidad: 001 */
  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: #000000;
-    background-color: #7EC8E3;
-    margin-top: 0em;
- }
-
- /* Especificidad: 001 */
- header {
-    color: #FFFFFF;
-    background-color: #0000FF;
- }
-
-/* Especificidad: 001 */
- h1 {
-    font-size: 2.5em;
-    font-weight: 800;
- }
-
- /* Especificidad: 001 */
- h2 {
-    font-size: 2em;
- }
-
- /* Especificidad: 001 */
- h3 {
-    font-size: 1.75em;
-    text-decoration: underline;
- }
-
- /* Especificidad: 001 */
- h4 {
-    font-size: 1.5em;
-    font-style: italic;
- }
-
- /* Especificidad: 001 */
- h5 {
-    font-size: 1.25em;
- }
-
- /* Especificidad: 001 */
- h6 {
-    font-size: 1em;
- }
-
- /* Especificidad: 001 */
- a {
-   background-color: inherit;
-   color: #0000FF;
- }
-
- /* Especificidad: 003 */
- header nav a {
-   font-size: 1.1em;
-   font-weight: bold;
-   background-color: inherit;
-   color: #7EC8E3;
- }
-
- /* Especificidad: 003 */
- header nav ul{
-  list-style-type: none;
- }
-
- /* Especificidad: 004 */
- header nav ul li {
-  font-style: normal;
- }
-
- /* Especificidad: 011 */
- a:visited {
-   background-color: inherit;
-   color: #A00000;
- }
-
- /* Especificidad: 012 */
- nav a:visited {
-   background-color: inherit;
-   color: #FFF70A;
- }
-
- /* Especificidad: 002 */
- ul li {
-   font-style: italic;
- }
-
- /* Especificidad: 003 */
- ol li::marker {
-   font-weight: bold;
- }
-
- /* Especificidad: 002 */
- dl dt {
-   font-style: italic;
-   font-size: 1.2em;
- }
-
- /* Especificidad: 013 */
- section>ul>li:nth-child(3) {
-   background-color: inherit;
-   color: #81371C;
-   font-weight: bold;
- }
-
- /* Especificidad: 014 */
- section>ul>li:nth-child(3)::marker {
-  background-color: inherit;
+  font-family: "Segoe UI", Arial, sans-serif;
   color: #000000;
+  background-color: #7EC8E3;
+  margin-top: 0em;
 }
 
- /* Especificidad: 002 */
- dl dd {
-   text-decoration: underline;
- }
- 
+/* Especificidad: 001 */
+header {
+  color: #FFFFFF;
+  background-color: #0000FF;
+}
+
+/* Especificidad: 001 */
+h1 {
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
+/* Especificidad: 001 */
+h2 {
+  font-size: 2em;
+}
+
+/* Especificidad: 001 */
+h3 {
+  font-size: 1.75em;
+  text-decoration: underline;
+}
+
+/* Especificidad: 001 */
+h4 {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+/* Especificidad: 001 */
+h5 {
+  font-size: 1.25em;
+}
+
+/* Especificidad: 001 */
+h6 {
+  font-size: 1em;
+}
+
+/* Especificidad: 001 */
+a {
+/* El background-color se hereda del elemento body: #7EC8E3 */
+ color: #0000FF;
+}
+
+/* Especificidad: 003 */
+header nav a {
+ font-size: 1.1em;
+ font-weight: bold;
+ /* El background-color se hereda del elemento header: #0000FF */
+ color: #7EC8E3;
+}
+
+/* Especificidad: 003 */
+header nav ul{
+list-style-type: none;
+}
+
+/* Especificidad: 004 */
+header nav ul li {
+font-style: normal;
+}
+
+/* Especificidad: 011 */
+a:visited {
+ /* El background-color se hereda del elemento body: #7EC8E3 */
+ color: #A00000;
+}
+
+/* Especificidad: 013 */
+header nav a:visited {
+ /* El background-color se hereda del elemento header: #0000FF */
+ color: #FFF70A;
+}
+
+/* Especificidad: 002 */
+ul li {
+ font-style: italic;
+}
+
+/* Especificidad: 003 */
+ol li::marker {
+ font-weight: bold;
+}
+
+/* Especificidad: 002 */
+dl dt {
+ font-style: italic;
+ font-size: 1.2em;
+}
+
+/* Especificidad: 013 */
+section>ul>li:nth-child(3) {
+ /* El background-color se hereda del elemento body: #7EC8E3 */
+ color: #81371C;
+ font-weight: bold;
+}
+
+/* Especificidad: 014 */
+section>ul>li:nth-child(3)::marker {
+/* El background-color se hereda del elemento body: #7EC8E3 */
+color: #000000;
+}
+
+/* Especificidad: 002 */
+dl dd {
+ text-decoration: underline;
+}
+
 /* Especificidad: 001 */
 table {
-  border-collapse: collapse;
-  border-style: solid;
-  border-color: #000000;
+border-collapse: collapse;
+border-style: solid;
+border-color: #000000;
 }
 
 /* Especificidad: 002 */
 table>caption {
-  font-size: 1.1em;
-  font-style: italic;
-  text-decoration: underline;
+font-size: 1.1em;
+font-style: italic;
+text-decoration: underline;
 }
 
 /* Especificidad: 002 */
- table th {
-  background-color: #ffffa2;
-  color: inherit;
-  font-weight: bold;
-  border-style: solid;
- }
+table th {
+/* El color se hereda del elemento body: #000000 */
+background-color: #ffffa2;
+font-weight: bold;
+border-style: solid;
+}
 
- /* Especificidad: 002 */
- table td {
-  background-color: #FFFFFF;
-  color: inherit;
-  text-align: center;
-  font-style: italic;
-  border-style: solid;
- }
+/* Especificidad: 002 */
+table td {
+/* El color se hereda del elemento body: #000000 */
+background-color: #FFFFFF;
+text-align: center;
+font-style: italic;
+border-style: solid;
+}
 
- @media screen and (max-width: 799px) {
-  /* Especificidad: 002, 002, 002 */
-  table>thead, table>tbody, table tr {
-    display: table-cell;
-    border-collapse: collapse;
-    border-style: solid;
-  }
+/* Especificidad: 001 */
+video {
+max-width: 100%;
+height: auto;
+}
 
-  /* Especificidad: 002 */
-  table th, table td {
-    display: block;
-    border-collapse: collapse;
-    padding: 0.5em;
-    width: 3em;
-  }
- }
-
- /* Especificidad: 001 */
- video {
-  max-width: 100%;
-  height: auto;
- }
-
- /* Especificidad: 001 */
- audio {
-  max-width: 100%;
- }
-
- @media screen and (max-width: 850px) {
-  /* Especificidad: 002 */
-  nav ul{
-    text-align: right;
-   }
- }
-
- @media screen and (max-width: 550px) {
-  /* Especificidad: 002 */
-  header h1{
-    font-size: 2em;
-   }
- }
+/* Especificidad: 001 */
+audio {
+max-width: 100%;
+}
