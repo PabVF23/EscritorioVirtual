@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg version="2.0" xmlns="http://www.w3.org/2000/svg">
 	<polyline points = "
-		10,159.0
-		30,159.0
-		50,159.0
-		70,159.0
-		90,160
-		10,159.0
+		50,104.0
+		130,72.0
+		210,48.0
+		290,112.0
+		370,104.0
+		370,160
+		50,160
+		50,104.0
 		" style="fill:white;stroke:red;stroke-width:4" />
-		<text x="10" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+		<text x="50" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 			ANT Bicycles Tonga
 		</text>
-		<text x="30" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Ha'atafu Beach Resort
+		<text x="130" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+			Coco de 3 cabezas
 		</text>
-		<text x="50" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Playa de Ha'atafu
-		</text>
-		<text x="70" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+		<text x="210" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 			Heilala Holiday Lodge
 		</text>
-		<text x="90" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+		<text x="290" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+			Playa de Ha'atafu
+		</text>
+		<text x="370" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 			ANT Bicycles Tonga
 		</text>
 </svg>

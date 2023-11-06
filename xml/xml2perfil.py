@@ -2,6 +2,7 @@
 
 import xml.etree.ElementTree as ET
 
+# Función para depuración
 def verXML(archivoXML):
     try:
         arbol = ET.parse(archivoXML)
@@ -31,7 +32,8 @@ def verXML(archivoXML):
         
         print("Atributos = ", hijo.attrib)
         
-def escribirKML(archivoXML):
+# Función de escritura del archivo SVG
+def escribirSVG(archivoXML):
     try:
         arbol = ET.parse(archivoXML)
     except IOError:
@@ -57,40 +59,44 @@ def escribirKML(archivoXML):
         
         
         f.write('\t<polyline points = "\n')
-        xPos = 10
+        xPos = 50
 
         coordsXPath = ".//{" + ns + "}coordenadas"
 
         for coord in ruta.findall(coordsXPath):
             atributos = coord.attrib
             altitud = atributos['altitud']
-            f.write("\t\t{0},{1}\n".format(xPos, 160 - float(altitud)))
+            f.write("\t\t{0},{1}\n".format(xPos, 160 - float(altitud)*8))
 
-            xPos += 20
-
-        f.write("\t\t{0},160\n".format(xPos))
+            xPos += 80
 
         altitudInicial = ruta.findall(coordsXPath + "[1]")[0].attrib['altitud']
 
-        f.write("\t\t10,{0}\n".format(160 - float(altitudInicial)))
+        f.write("\t\t{0},{1}\n".format(xPos, 160 - float(altitudInicial)*8))
+
+        f.write("\t\t{0},160\n".format(xPos))
+
+        f.write("\t\t50,160\n")
+
+        f.write("\t\t50,{0}\n".format(160 - float(altitudInicial)*8))
         
         f.write('\t\t" style="fill:white;stroke:red;stroke-width:4" />\n')
         
         nombre = ruta.find(".//{" + ns +"}lugar")
 
-        f.write('\t\t<text x="10" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n')
+        f.write('\t\t<text x="50" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n')
         f.write("\t\t\t" + nombre.text + "\n")
         f.write("\t\t</text>\n")
 
-        xPos = 30
+        xPos = 130
         for hito in ruta.findall(".//{" + ns + "}hito"):
-            f.write('\t\t<text x="{0}" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n'.format(xPos))
+            f.write('\t\t<text x="{0}" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n'.format(xPos))
             f.write("\t\t\t" + hito.attrib['nombre'] + "\n")
             f.write("\t\t</text>\n")
 
-            xPos += 20
+            xPos += 80
 
-        f.write('\t\t<text x="{0}" y="165" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n'.format(xPos))
+        f.write('\t\t<text x="{0}" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">\n'.format(xPos))
         f.write("\t\t\t" + nombre.text + "\n")
         f.write("\t\t</text>\n")
 
@@ -99,7 +105,7 @@ def escribirKML(archivoXML):
 def main():
     miArchivoXML = input('Introduzca un archivo XML = ')
     verXML(miArchivoXML)
-    escribirKML(miArchivoXML)
+    escribirSVG(miArchivoXML)
     
 if __name__ == "__main__":
     main()

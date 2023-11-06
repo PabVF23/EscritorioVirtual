@@ -2,6 +2,7 @@
 
 import xml.etree.ElementTree as ET
 
+# Función para depuración
 def verXML(archivoXML):
     try:
         arbol = ET.parse(archivoXML)
@@ -31,6 +32,7 @@ def verXML(archivoXML):
         
         print("Atributos = ", hijo.attrib)
         
+# Función de escritura del archivo KML
 def escribirKML(archivoXML):
     try:
         arbol = ET.parse(archivoXML)
