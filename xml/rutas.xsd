@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-targetNamespace="http://www.uniovi.es"
-xmlns="http://www.uniovi.es"
+targetNamespace="http://www.pabvf.es/rutas"
+xmlns="http://www.pabvf.es/rutas"
 elementFormDefault="qualified">
 	<xs:element name="rutas">
 		<xs:complexType>
