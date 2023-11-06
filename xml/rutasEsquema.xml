@@ -75,7 +75,7 @@
         <hitos>
             <hito nombre="Coco de 3 cabezas">
                 <descripcion>Una atracción turística muy visitada, un arbol de cocos con 3 cabezas</descripcion>
-                <coordenadas latitud="-21.157854674108894" longitud="-175.27755641907672" altitud="1"/>
+                <coordenadas latitud="-21.157854674108894" longitud="-175.27755641907672" altitud="13"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
                     <foto>coco.jpg</foto>
