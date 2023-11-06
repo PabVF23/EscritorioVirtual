@@ -8,14 +8,22 @@
     align-items: center;
  }
 
+ /* Especificidad: 002*/
+ header h1 {
+  margin-left: 5%;
+ }
+
+ /* Especificidad: 002*/
  header nav{
    display: flex;
    flex-flow: wrap;
    column-gap: 0.5em;
    align-items: flex-start;
+   margin-right: 5%;
  }
 
 @media screen and (max-width: 550px) {
+    /* Especificidad: 001*/
     header {
       /* Redefinición de propiedad flex-direction */
       flex-direction: column;
@@ -23,9 +31,12 @@
       align-items: flex-start;
     }
 
+    /* Especificidad: 002*/
     header nav {
       row-gap: 0.5em;
       /* Redefinición de propiedad flex-direction */
       flex-direction: column;
+      margin-left: 5%;
+      margin-bottom: 5%;
     }
 }
