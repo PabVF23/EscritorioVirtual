@@ -1,5 +1,5 @@
 <!-- Declaraciones de elementos -->
-<!ELEMENT rutas (ruta+)>
+<!ELEMENT rutas (ruta, ruta, ruta+)>
 <!ELEMENT ruta (fecha?, hora?, tiempo, agencia, descripcion,
                 personas, lugar, direccion, coordenadas,
                 referencias,
