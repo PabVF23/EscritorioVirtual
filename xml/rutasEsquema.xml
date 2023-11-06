@@ -73,17 +73,28 @@
         </referencias>
         <recomendacion>6</recomendacion>
         <hitos>
-            <hito nombre="Ha'atafu Beach Resort">
-                <descripcion>Resort cerca de la playa de Ha'atafu (actualmente cerrado)</descripcion>
-                <coordenadas latitud="-21.070152267610222" longitud="-175.3343708409366" altitud="1"/>
+            <hito nombre="Coco de 3 cabezas">
+                <descripcion>Una atracción turística muy visitada, un arbol de cocos con 3 cabezas</descripcion>
+                <coordenadas latitud="-21.157854674108894" longitud="-175.27755641907672" altitud="1"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
-                    <foto>resort.jpg</foto>
-                    <foto>resort.png</foto>
-                    <foto>resort.svg</foto>
-                    <foto>resort2.jpg</foto>
-                    <foto>resort2.png</foto>
+                    <foto>coco.jpg</foto>
+                    <foto>coco.png</foto>
+                    <foto>coco.svg</foto>
+                    <foto>coco2.jpg</foto>
+                    <foto>coco2.png</foto>
                 </galeriaFotos>
+            </hito>
+            <hito nombre="Heilala Holiday Lodge">
+                <descripcion>Resort vacacional de Heilala</descripcion>
+                <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="1"/>
+                <distancia unidades="m">733.22</distancia>
+                <galeriaFotos>
+                    <foto>cementerio.png</foto>
+                </galeriaFotos>
+                <galeriaVideos>
+                    <video>cementerio.mp4</video>
+                </galeriaVideos>
             </hito>
             <hito nombre="Playa de Ha'atafu">
                 <descripcion>Playa protegida para nadar y hacer surf</descripcion>
@@ -97,17 +108,6 @@
                     <video>cementerio.mp4</video>
                     <video>cementerio.mkv</video>
                     <video>cementerio.avi</video>
-                </galeriaVideos>
-            </hito>
-            <hito nombre="Heilala Holiday Lodge">
-                <descripcion>Resort vacacional de Heilala</descripcion>
-                <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="1"/>
-                <distancia unidades="m">733.22</distancia>
-                <galeriaFotos>
-                    <foto>cementerio.png</foto>
-                </galeriaFotos>
-                <galeriaVideos>
-                    <video>cementerio.mp4</video>
                 </galeriaVideos>
             </hito>
         </hitos>
