@@ -10,6 +10,7 @@ class Pais {
     }
 
     setCoordenadasCapital(longitud, latitud, altitud) {
+        this.coordenadasCapital = [3];
         this.coordenadasCapital[0] = longitud;
         this.coordenadasCapital[1] = latitud;
         this.coordenadasCapital[2] = altitud;
@@ -38,7 +39,7 @@ class Pais {
     getCoordenadas() {
         let aux = "";
 
-        aux += "Longitud: " + this.coordenadasCapital[0];
+        aux += "Longitud: " + this.coordenadasCapital;
         aux += ", latitud: " + this.coordenadasCapital[1];
         aux += ", altitud: " + this.coordenadasCapital[1];
 
@@ -60,11 +61,11 @@ class Pais {
     }
 
     escribirCoordenadas() {
-        let aux = "<h3>Coordenadas de " + this.getCapital() +"<h3>\n";
+        let aux = "<h4>Coordenadas de " + this.getCapital() +"</h4>\n";
         aux += "<ul>\n"
-        aux += "<li>Longitud: " + this.coordenadasCapital[0] + "</li>\n";
-        aux += "<li>Latitud: " + this.coordenadasCapital[1] + "</li>\n";
-        aux += "<li>Altitud: " + this.coordenadasCapital[2] + "</li>\n";
+        aux += "\t<li>Longitud: " + this.coordenadasCapital[0] + "</li>\n";
+        aux += "\t<li>Latitud: " + this.coordenadasCapital[1] + "</li>\n";
+        aux += "\t<li>Altitud: " + this.coordenadasCapital[2] + "</li>\n";
         aux += "</ul>\n";
 
         document.write(aux);
@@ -72,3 +73,6 @@ class Pais {
 }
 
 var pais = new Pais("Tonga", "Nuku'alofa", 106017)
+pais.setTipoGobierno("Monarquía")
+pais.setReligion("Cristianismo")
+pais.setCoordenadasCapital("21° 08' 03\" S", "175° 12' 01\" W", "5 m");

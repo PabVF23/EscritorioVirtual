@@ -34,18 +34,30 @@
 
     <h2>Meteorología</h2>
     <script src="js/pais.js"></script>
-    <h3>Nombre</h3>
+    <h3>Información sobre el país</h3>
+    <h4>Nombre</h4>
     <p>
         <script>
-            document.write(pais.getNombre())
+            document.write(pais.getNombre());
         </script>
     </p>
 
-    <h3>Capital</h3>
+    <h4>Capital</h4>
     <p>
         <script>
-            document.write(pais.getCapital())
+            document.write(pais.getCapital());
         </script>
     </p>
+
+    <h4>Otra Información</h4>
+    <p>
+        <script>
+            document.write(pais.getInformacionSecundaria());
+        </script>
+    </p>
+    
+    <script>
+        pais.escribirCoordenadas();
+    </script>
 </body>
 </html>
