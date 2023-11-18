@@ -1,0 +1,30 @@
+main {
+    width: 500px;
+    height: 500px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    border-top: 0.2em solid black;
+    border-bottom: 0.2em solid black;
+    border-left: 0.2em solid black;
+    border-right: 0.1em solid black;
+}
+
+p {
+    text-align: center;
+    padding: 37% 0%;
+    margin: 0%;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    border-left: 0.1em solid black;
+    border-right: 0.1em solid black;
+}
+
+p:nth-child(3n) {
+    border-right: 0.2em solid black;
+}
+
+p:nth-child(n+19):nth-child(-n+27), p:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 0.2em solid black;
+}

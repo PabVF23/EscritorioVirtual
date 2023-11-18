@@ -10,7 +10,7 @@ class Pais {
     }
 
     setCoordenadasCapital(longitud, latitud, altitud) {
-        this.coordenadasCapital = [3];
+        this.coordenadasCapital = [];
         this.coordenadasCapital[0] = longitud;
         this.coordenadasCapital[1] = latitud;
         this.coordenadasCapital[2] = altitud;

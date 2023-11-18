@@ -13,7 +13,7 @@
     
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/sudoku.css" />
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
 </head>
 
@@ -33,14 +33,30 @@
         </nav>
     </header>
 
-    <h2>Memoria</h2>
+    <script src="js/sudoku.js"></script>
+    <script>
+        sudoku.start();
+    </script>
+
+    <h2>Sudoku</h2>
     <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
     <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
 
-    <section>
-        <h3>Juego de Memoria</h3>
-        <script src="js/memoria.js"></script>
-    </section>
-
+    <main>
+        
+    </main>
 </body>
+<script>
+    sudoku.paintSudoku();
+    addEventListener("keydown", (event) => {
+        var celdaSeleccionada = document.querySelector("main > p[data-state = clicked]");
+        if (/^[1-9]$/i.test(event.key)) {
+            if (celdaSeleccionada !== null) {
+                sudoku.introduceNumber(event.key);
+            } else {
+            alert("¡Debes seleccionar una celda antes de introducir un número!")
+            }  
+        }
+    });
+</script>
 </html>
