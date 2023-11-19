@@ -16,7 +16,7 @@ section>h3 {
 /* Especificidad: 001*/
 article {
     width: 23.5%;
-    height: 20vw;
+    height: 12.5vw;
     transform: scale(1);
     margin: 0.5%;
     transition: transform .5s;
