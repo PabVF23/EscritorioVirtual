@@ -36,7 +36,7 @@ article img {
     height: 100%;
     position: absolute;
     border-radius: 5px;
-    background: #1C7CCC;
+    background-color: #0000FF;
     backface-visibility: hidden;
 }
 
@@ -47,6 +47,7 @@ article h3 {
     align-items: center;
     justify-content: center;
     font-size: 100%;
+    color: #FFFFFF;
 }
 
 /* Especificidad: 002*/

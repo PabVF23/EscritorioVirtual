@@ -20,7 +20,7 @@ class Memoria {
         this.firstCard = null;
         this.secondCard = null;
 
-        
+        console.log("Test")
         this.shuffleElements();
         this.createElements();
         this.addEventListeners();
@@ -64,13 +64,23 @@ class Memoria {
     }
 
     createElements() {
-        this.elements.forEach((element) => {
-            var aux = "<article data-element=\"" + element.element + "\">\n";
-            aux +="\t<h3>Tarjeta de memoria</h3>\n";
-            aux += "\t<img src=\"" + element.source + "\" alt = \"" + element.element + "\"/>\n";
-            aux += "</article>"
+        var section = document.querySelector("section");
 
-            document.write(aux)
+        this.elements.forEach((element) => {
+            var article = document.createElement("article");
+            article.setAttribute("data-element", element.element);
+
+            var h3 = document.createElement("h3");
+            h3.innerText = "Tarjeta de memoria";
+            article.appendChild(h3);
+
+            var img = document.createElement("img");
+            img.setAttribute("src", element.source);
+            img.setAttribute("alt", element.element);
+
+            article.appendChild(img)
+
+            section.appendChild(article);
         });
     }
 

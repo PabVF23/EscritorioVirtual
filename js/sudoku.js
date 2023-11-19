@@ -80,14 +80,10 @@ class Sudoku {
         var fila = Math.floor(pos / this.filas);
         var columna = pos % this.filas;
 
-        console.log(fila);
-        console.log(columna);
-
         var validarFila = true;
 
         for (let j = 0; j < this.columnas; j++) {
             if (this.tablero[fila][j] === key) {
-                console.log("Fila: El numero esta en [" + fila + "][" + j + "]");
                 validarFila = false;
                 break;
             }
@@ -99,7 +95,6 @@ class Sudoku {
 
         for (let i = 0; i < this.columnas; i++) {
             if (columnaTablero[i] === key) {
-                console.log("Columna: El numero esta en [" + i + "][" + columna + "]");
                 validarColumna = false;
                 break;
             }
@@ -110,13 +105,9 @@ class Sudoku {
         var subFila = Math.floor(fila/3) * 3;
         var subColumna = Math.floor(columna/3) * 3;
 
-        console.log("Subfila: " + subFila);
-        console.log("Subcolumna: " + subColumna);
-
         for (let i = subFila; i <= subFila + 2; i++) {
             for (let j = subColumna; j <= subColumna + 2; j++) {
                 if (this.tablero[i][j] === key) {
-                    console.log("Subcuadricula: El numero esta en [" + i + "][" + j + "]");
                     validarSubcuadricula = false;
                     break;
                 }
@@ -137,3 +128,4 @@ class Sudoku {
 }
 
 var sudoku = new Sudoku();
+sudoku.start();
