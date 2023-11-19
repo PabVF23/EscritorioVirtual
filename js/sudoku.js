@@ -1,11 +1,12 @@
 /*
     Ejecutar páginas web con XAMPP y Apache para JavaScript
     Validar HTML con inspector web para ver código fuente y copiar a archivo (añadir DOCTYPE manualmente)
-    Hacer volteo memoria con data-state, no classList
-    Representar casillas vacías sudoku con 0
 
-    fcu: nc - (nc mod 3)
-    ccu: nc - (nc mod 3)
+    Dudas:
+    · Unidades absolutas CSS (y height: auto)
+    · Problemas validacion tag script y ubicacion de esta
+    · Comprobar que se ha hecho todo correctamente
+    · Preguntar por llamada a constructor de Memoria
 */
 
 class Sudoku {
