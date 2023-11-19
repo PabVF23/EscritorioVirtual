@@ -20,7 +20,6 @@ class Memoria {
         this.firstCard = null;
         this.secondCard = null;
 
-        console.log("Test")
         this.shuffleElements();
         this.createElements();
         this.addEventListeners();

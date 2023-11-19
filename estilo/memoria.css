@@ -16,7 +16,7 @@ section>h3 {
 /* Especificidad: 001*/
 article {
     width: 23.5%;
-    height: 12.5vw;
+    height: 20vw;
     transform: scale(1);
     margin: 0.5%;
     transition: transform .5s;
@@ -37,6 +37,7 @@ article img {
     position: absolute;
     border-radius: 5px;
     background-color: #0000FF;
+    color: #FFFFFF;
     backface-visibility: hidden;
 }
 
@@ -47,7 +48,6 @@ article h3 {
     align-items: center;
     justify-content: center;
     font-size: 100%;
-    color: #FFFFFF;
 }
 
 /* Especificidad: 002*/
