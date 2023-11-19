@@ -6,11 +6,14 @@ section {
     flex-wrap: wrap;
 }
 
+/* Especificidad: 002*/
 section>h3 {
     width: 100%;
     display: flex;
     justify-content: center;
 }
+
+/* Especificidad: 001*/
 article {
     width: 23.5%;
     height: 12.5vw;
@@ -20,10 +23,12 @@ article {
     transform-style: preserve-3d;
 }
 
+/* Especificidad: 011*/
 article[data-state] {
     transform: rotateY(180deg);
 }
 
+/* Especificidad: 002, 002*/
 article h3,
 article img {
     margin: 0;
@@ -35,6 +40,7 @@ article img {
     backface-visibility: hidden;
 }
 
+/* Especificidad: 002*/
 article h3 {
     display: flex;
     flex-direction: row;
@@ -43,6 +49,7 @@ article h3 {
     font-size: 100%;
 }
 
+/* Especificidad: 002*/
 article img {
     transform: rotateY(180deg);
 }
