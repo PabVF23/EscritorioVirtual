@@ -1,6 +1,6 @@
 /* Especificidad: 001*/
 main {
-    width: 500px;
+    width: auto;
     height: auto;
     display: grid;
     grid-template-columns: repeat(9, 1fr);

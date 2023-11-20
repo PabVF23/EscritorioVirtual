@@ -112,5 +112,3 @@ class Memoria {
         
     }
 }
-
-var memoria = new Memoria();
