@@ -70,6 +70,32 @@ class Pais {
 
         document.write(aux);
     }
+
+    cargarDatos() {
+        var apiKey = "25b5ebb8889486ef95d199f2b80d1277";
+
+        var lat = "-21.134167"
+        var lon = "-175.200278"
+        var openWeatherMapAPI = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&lang=es";
+
+        console.log(openWeatherMapAPI)
+        $.ajax({
+            dataType: "json",
+            url: openWeatherMapAPI,
+            method: "GET",
+            success: function(datos) {
+                    //PresentaciÃ³n de los datos contenidos en JSON
+                    
+                   console.log(datos)
+            },
+            error:function(){
+                $("h3").html("¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>"); 
+                $("h4").remove();
+                $("pre").remove();
+                $("p").remove();
+                }
+        })
+    }
 }
 
 var pais = new Pais("Tonga", "Nuku'alofa", 106017)
