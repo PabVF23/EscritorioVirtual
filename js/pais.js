@@ -76,24 +76,99 @@ class Pais {
 
         var lat = "-21.134167"
         var lon = "-175.200278"
-        var openWeatherMapAPI = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&lang=es";
+        var openWeatherMapAPI = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&lang=es&units=metric";
+        var pais = this;
 
         console.log(openWeatherMapAPI)
         $.ajax({
             dataType: "json",
             url: openWeatherMapAPI,
             method: "GET",
-            success: function(datos) {
-                    //PresentaciÃ³n de los datos contenidos en JSON
-                    
-                   console.log(datos)
-            },
-            error:function(){
-                $("h3").html("¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>"); 
-                $("h4").remove();
-                $("pre").remove();
-                $("p").remove();
+            success: function(d) {
+                var datos = []
+                let date = "";
+                let counter = 0;
+
+                for (let i = 0; i < d.list.length; i++) {
+                    if (date !== d.list[i].dt_txt.split(' ')[0]) {
+                        date = d.list[i].dt_txt.split(' ')[0];
+                        datos[counter] = d.list[i]
+                        counter++;
+                    }
+
+                    if (counter === 5) {
+                        break;
+                    }
                 }
+
+                $("ul").last().after("<table></table>");
+                $("table").append("<caption>Información meteorológica sobre " + pais.getCapital() + "</caption>");
+                $("caption").after("<thead></thead>");
+                $("thead").append('<th scope="col" id="fecha">Fecha</th>');
+                for (let i = 0; i < datos.length; i++) {
+                    let date = datos[i].dt_txt.split(' ')[0];
+                    let th = '<th scope="col" headers="fecha" id="' + date + '">' + date + "</th>"
+
+                    $("thead").append(th);
+                }
+
+                $("thead").after("<tbody></tbody>");
+                $("tbody").append("<tr></tr>")
+
+                $("tr").append('<th scope="row" id="max">Temperatura máxima (°C)</th>')
+                for (let i = 0; i < datos.length; i++) {
+                    let date = datos[i].dt_txt.split(' ')[0];
+                    let max = datos[i].main.temp_max;
+                    let td = '<td scope="row" headers="' + date + ' max">' + max + "</th>"
+
+                    $("tr").append(td);
+                }
+
+                $("tr").after("<tr></tr>")
+                $("tr").last().append('<th scope="row" id="min">Temperatura mínima (°C)</th>')
+                for (let i = 0; i < datos.length; i++) {
+                    let date = datos[i].dt_txt.split(' ')[0];
+                    let min = datos[i].main.temp_min;
+                    let td = '<td scope="row" headers="' + date + ' min">' + min + "</th>"
+
+                    $("tr").last().append(td);
+                }
+
+                $("tr").last().after("<tr></tr>")
+                $("tr").last().append('<th scope="row" id="hum">Porcentaje de humedad</th>')
+                for (let i = 0; i < datos.length; i++) {
+                    let date = datos[i].dt_txt.split(' ')[0];
+                    let hum = datos[i].main.humidity;
+                    let td = '<td scope="row" headers="' + date + ' hum">' + hum + "%</th>"
+
+                    $("tr").last().append(td);
+                }
+
+                $("tr").last().after("<tr></tr>")
+                $("tr").last().append('<th scope="row" id="tiempo">Tiempo</th>')
+                for (let i = 0; i < datos.length; i++) {
+                    let date = datos[i].dt_txt.split(' ')[0];
+                    let tiempo = "http://openweathermap.org/img/w/" + datos[i].weather[0].icon + ".png";
+                    let td = '<td scope="row" headers="' + date + ' tiempo"></th>'
+
+                    $("tr").last().append(td);
+
+                    $("td[headers='" + date + " tiempo']").append('<img src="' + tiempo + '" alt="' + datos[i].weather.icon + '"/>')
+                }
+
+                $("tr").last().after("<tr></tr>")
+                $("tr").last().append('<th scope="row" id="lluvia">Cantidad de lluvia (mm)</th>')
+                for (let i = 0; i < datos.length; i++) {
+                    let date = datos[i].dt_txt.split(' ')[0];
+                    let lluvia = 0;
+                    if(typeof datos[i].rain !== 'undefined') {
+                        lluvia = datos[i].rain['3h']
+                    }
+                    let td = '<td scope="row" headers="' + date + ' lluvia">' + lluvia + " mm</th>"
+
+                    $("tr").last().append(td);
+                }
+            }
         })
     }
 }
