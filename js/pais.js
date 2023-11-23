@@ -1,3 +1,8 @@
+/*
+    Dudas:
+        · Tratamiento coordenadas
+*/
+
 class Pais {
     constructor(nombre, capital, poblacion) {
         this.nombre = nombre;
