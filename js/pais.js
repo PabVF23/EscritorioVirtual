@@ -79,7 +79,6 @@ class Pais {
         var openWeatherMapAPI = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&lang=es&units=metric";
         var pais = this;
 
-        console.log(openWeatherMapAPI)
         $.ajax({
             dataType: "json",
             url: openWeatherMapAPI,
