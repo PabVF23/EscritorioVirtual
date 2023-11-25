@@ -17,12 +17,14 @@ class Sudoku {
 
     constructor() {
         this.cadena = "3.4.69.5....27...49.2..4....2..85.198.9...2.551.39..6....8..5.32...46....4.75.9.6";
-        this.tablero = [];
+        this.tablero = [this.filas];
+        for (let i = 0; i < this.filas; i++) {
+            this.tablero[i] = [this.columnas];
+        }
     }
 
     start() {
-        for (let i = 0; i < this.filas; i++) {
-            this.tablero[i] = [];
+        for (let i = 0; i < this.filas; i++) {  
             for (let j = 0; j < this.columnas; j++) {
                 var pos = i*this.columnas + j;
                 if (this.cadena.charAt(pos) === ".") {

@@ -1,0 +1,24 @@
+/* Especificidad: 001*/
+main {
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+}
+
+/* Especificidad: 001*/
+p {
+    width: 100%;
+    text-align: center;
+    padding: 10% 0%;
+    margin: 0%;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
+    border-left: 0.1em solid black;
+    border-right: 0.1em solid black;
+}
+
+p[data-state=empty] {
+    background-color: #0000FF;
+}

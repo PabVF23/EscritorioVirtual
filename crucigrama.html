@@ -4,16 +4,19 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Escritorio Virtual - Juegos</title>
+    <title>Escritorio Virtual - Noticias</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="Una serie de juegos que los usuarios pueden jugar" />
-    <meta name ="keywords" content ="juego, juegos, jugar" />
+    <meta name ="description" content ="aquí cada documento debe tener la descripción del contenido concreto del mismo" />
+    <meta name ="keywords" content ="aquí cada documento debe tener la lista de las palabras clave del mismo separadas por comas" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/crucigrama.css" />
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/crucigrama.js"></script>
 </head>
 
 <body>
@@ -32,9 +35,25 @@
         </nav>
     </header>
 
-    <h2>Juegos</h2>
+    <h2>Crucigrama matemático</h2>
+
     <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
     <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
     <a href="crucigrama.html" accesskey="C" tabindex="10">Crucigrama matemático</a>
+
+    <main></main>
+
+    <script>
+        crucigrama.paintMathword();
+        addEventListener("keydown", (event) => {
+            if (/^[1-9]$|^[+*\/-]$/i.test(event.key)) {
+                if ($("main > p[data-state = clicked]").length > 0) {
+                    crucigrama.introduceElement(event.key);
+                } else {
+                alert("¡Debes seleccionar una celda antes de introducir un número!")
+                }  
+            }
+        });
+    </script>
 </body>
 </html>
