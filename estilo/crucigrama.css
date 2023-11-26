@@ -19,6 +19,39 @@ p {
     border-right: 0.1em solid black;
 }
 
+/* Especificidad: 011*/
 p[data-state=empty] {
     background-color: #0000FF;
+}
+
+/* Especificidad: 011*/
+section[data-type=botonera] {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    visibility: hidden;
+}
+
+/* Especificidad: 012*/
+section[data-type=botonera] h2 {
+    width: 100%;
+    text-align: center;
+}
+
+/* Especificidad: 012*/
+section[data-type=botonera] button {
+    width: calc(15% - 1em);
+    height: 4em;
+    text-align: center;
+    background-color: #000;
+    color: #FFF;
+}
+
+@media (max-width: 799px) {
+    section[data-type=botonera] {
+        visibility: visible;
+    }
+    
 }
