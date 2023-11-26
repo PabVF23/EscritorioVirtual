@@ -55,14 +55,14 @@ class Agenda {
             let coords = [2];
             coords[0] = $("Location", this).attr("lat");
             coords[1] = $("Location", this).attr("long");
-            let dia = $("Date", this).first().text();
-            let hora = new Date($("Date", this).first().text() + " " + $("Time", this).first().text()).toLocaleTimeString("es-ES");
+            let dia = $("Date:first", this).text();
+            let hora = new Date(dia + " " + $("Time", this).first().text()).toLocaleTimeString("es-ES");
             let fecha = dia + " " + hora;
 
-            $("tr").last().append('<td scope="row" headers="carrera">' + carrera + "</td>")
-            $("tr").last().append('<td scope="row" headers="circuito">' + circuito + "</td>")
-            $("tr").last().append('<td scope="row" headers="coords">' + coords[0] + ", " + coords[1] + "</td>")
-            $("tr").last().append('<td scope="row" headers="fecha">' + fecha + "</td>")
+            $("tr:last").append('<td scope="row" headers="carrera">' + carrera + "</td>")
+            $("tr:last").append('<td scope="row" headers="circuito">' + circuito + "</td>")
+            $("tr:last").append('<td scope="row" headers="coords">' + coords[0] + ", " + coords[1] + "</td>")
+            $("tr:last").append('<td scope="row" headers="fecha">' + fecha + "</td>")
         })
     }
 
