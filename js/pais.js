@@ -108,32 +108,33 @@ class Pais {
                 $("ul:last").after("<table></table>");
                 $("table").append("<caption>Información meteorológica sobre " + pais.getCapital() + "</caption>");
                 $("caption").after("<thead></thead>");
-                $("thead").append('<th scope="col" id="fecha">Fecha</th>');
+                $("thead").append("<tr></tr>")
+                $("tr").append('<th scope="col" id="fecha">Fecha</th>');
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let th = '<th scope="col" headers="fecha" id="' + date + '">' + date + "</th>"
 
-                    $("thead").append(th);
+                    $("tr").append(th);
                 }
 
                 $("thead").after("<tbody></tbody>");
                 $("tbody").append("<tr></tr>")
 
-                $("tr").append('<th scope="row" id="max">Temperatura máxima (°C)</th>')
+                $("tr:last").append('<th scope="row" id="max">Temperatura máxima (°C)</th>')
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let max = datos[i].main.temp_max;
-                    let td = '<td scope="row" headers="' + date + ' max">' + max + "</th>"
+                    let td = '<td headers="' + date + ' max">' + max + "</th>"
 
-                    $("tr").append(td);
+                    $("tr:last").append(td);
                 }
 
-                $("tr").after("<tr></tr>")
+                $("tr:last").after("<tr></tr>")
                 $("tr:last").append('<th scope="row" id="min">Temperatura mínima (°C)</th>')
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let min = datos[i].main.temp_min;
-                    let td = '<td scope="row" headers="' + date + ' min">' + min + "</th>"
+                    let td = '<td headers="' + date + ' min">' + min + "</th>"
 
                     $("tr:last").append(td);
                 }
@@ -143,7 +144,7 @@ class Pais {
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let hum = datos[i].main.humidity;
-                    let td = '<td scope="row" headers="' + date + ' hum">' + hum + "%</th>"
+                    let td = '<td headers="' + date + ' hum">' + hum + "%</th>"
 
                     $("tr:last").append(td);
                 }
@@ -153,7 +154,7 @@ class Pais {
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let tiempo = "http://openweathermap.org/img/w/" + datos[i].weather[0].icon + ".png";
-                    let td = '<td scope="row" headers="' + date + ' tiempo"></th>'
+                    let td = '<td headers="' + date + ' tiempo"></th>'
 
                     $("tr:last").append(td);
 
@@ -168,7 +169,7 @@ class Pais {
                     if(typeof datos[i].rain !== 'undefined') {
                         lluvia = datos[i].rain['3h']
                     }
-                    let td = '<td scope="row" headers="' + date + ' lluvia">' + lluvia + " mm</th>"
+                    let td = '<td headers="' + date + ' lluvia">' + lluvia + " mm</th>"
 
                     $("tr:last").append(td);
                 }

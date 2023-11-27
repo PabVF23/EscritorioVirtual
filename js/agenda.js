@@ -40,10 +40,11 @@ class Agenda {
 
         $("table").append("<caption>Carreras de Fórmula 1 de la temporada 2023</caption>");
         $("caption").after("<thead></thead>");
-        $("thead").append('<th scope="col" id="carrera">Nombre de la carrera</th>');
-        $("thead").append('<th scope="col" id="circuito">Nombre del circuito en el que se realiza</th>');
-        $("thead").append('<th scope="col" id="coords">Coordenadas del circuito</th>');
-        $("thead").append('<th scope="col" id="fecha">Fecha y hora</th>');
+        $("thead").append("<tr></tr>")
+        $("tr").append('<th scope="col" id="carrera">Nombre de la carrera</th>');
+        $("tr").append('<th scope="col" id="circuito">Nombre del circuito en el que se realiza</th>');
+        $("tr").append('<th scope="col" id="coords">Coordenadas del circuito</th>');
+        $("tr").append('<th scope="col" id="fecha">Fecha y hora</th>');
         $("thead").after("<tbody></tbody>")
 
         $("Race", datos).each(function() {
@@ -59,10 +60,10 @@ class Agenda {
             let hora = new Date(dia + " " + $("Time", this).first().text()).toLocaleTimeString("es-ES");
             let fecha = dia + " " + hora;
 
-            $("tr:last").append('<td scope="row" headers="carrera">' + carrera + "</td>")
-            $("tr:last").append('<td scope="row" headers="circuito">' + circuito + "</td>")
-            $("tr:last").append('<td scope="row" headers="coords">' + coords[0] + ", " + coords[1] + "</td>")
-            $("tr:last").append('<td scope="row" headers="fecha">' + fecha + "</td>")
+            $("tr:last").append('<td headers="carrera">' + carrera + "</td>")
+            $("tr:last").append('<td headers="circuito">' + circuito + "</td>")
+            $("tr:last").append('<td headers="coords">' + coords[0] + ", " + coords[1] + "</td>")
+            $("tr:last").append('<td headers="fecha">' + fecha + "</td>")
         })
     }
 
