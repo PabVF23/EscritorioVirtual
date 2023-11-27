@@ -1,12 +1,7 @@
 /*
     Ejecutar páginas web con XAMPP y Apache para JavaScript
-    Validar HTML con inspector web para ver código fuente y copiar a archivo (añadir DOCTYPE manualmente)
-
-    Dudas:
-    · Unidades absolutas CSS (y height: auto)
-    · Problemas validacion tag script y ubicacion de esta
-    · Comprobar que se ha hecho todo correctamente
-    · Preguntar por llamada a constructor de Memoria
+    Validar HTML con inspector web para ver código fuente y copiar a archivo (añadir DOCTYPE manualmente).
+    Validar HTML, accesibilidad y adaptabilidad con versión estática
 */
 
 class Sudoku {
