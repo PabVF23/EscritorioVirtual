@@ -52,7 +52,7 @@ class Agenda {
             let carrera = $("RaceName", this).text();
             let circuito = $("CircuitName", this).text();
 
-            let coords = [2];
+            let coords = [];
             coords[0] = $("Location", this).attr("lat");
             coords[1] = $("Location", this).attr("long");
             let dia = $("Date:first", this).text();
