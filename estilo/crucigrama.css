@@ -23,6 +23,7 @@ p {
 
 /* Especificidad: 011*/
 p[data-state=empty] {
+    /* El color se hereda del elemento body: #000000 */
     background-color: #0000FF;
 }
 
@@ -52,7 +53,9 @@ section[data-type=botonera] button {
 }
 
 @media (max-width: 799px) {
+    /* Especificidad: 011 */
     section[data-type=botonera] {
+        /* Redefinición de propiedad visibility */
         visibility: visible;
     }
     
