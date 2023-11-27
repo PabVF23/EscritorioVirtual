@@ -21,18 +21,16 @@ class Agenda {
                 dataType: "xml",
                 url: ergastAPI,
                 method: "GET",
-                async: false,
                 success: function(datos) {
                     agenda.last_api_result = datos;
+                    agenda.procesarDatos();
                 }
             })
         }
-
-        return this.last_api_result;
     }
 
     procesarDatos() {
-        var datos = this.cargarDatos();
+        var datos = this.last_api_result
 
         $("table").remove();
 
@@ -70,7 +68,3 @@ class Agenda {
 }
 
 var agenda = new Agenda();
-
-$("button").on("click", function() {
-    agenda.procesarDatos();
-})

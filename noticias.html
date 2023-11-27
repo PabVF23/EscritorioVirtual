@@ -13,7 +13,10 @@
     
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/noticias.css" />
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -32,7 +35,14 @@
         </nav>
     </header>
 
-    <h2>Noticias</h2>
-    <p>En desarrollo</p>
+    <main>
+        <h2>Noticias</h2>
+        <script>
+            var noticias = new Noticias();
+        </script>
+        <input type="file" onchange="noticias.readInputFile(this.files)">
+    </main>
+
+    
 </body>
 </html>
