@@ -7,6 +7,7 @@
         · Comprobar que no se pincha al final de la fila o la columna
         · No eliminacion evento onclick
         · Uso de removeAttr
+        · Limitaciones pruebas usabilidad
  */
 class Crucigrama {
     board;
