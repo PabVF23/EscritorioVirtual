@@ -24,7 +24,7 @@ class Noticias {
                     let texto = line[2];
                     let autor = line[3];
 
-                    $("main").append("<article></article>");
+                    $("section").before("<article></article>");
 
                     $("article:last").append("<h3>" + titular + "</h3>");
                     $("article:last").append("<h4>" + entradilla + "</h3>");
@@ -35,5 +35,19 @@ class Noticias {
 
             lector.readAsText(archivo);
         }
+    }
+
+    añadirNoticia() {
+        let titular = $("input[type='text']").eq(0).val();
+        let entradilla = $("input[type='text']").eq(1).val();
+        let texto = $("input[type='text']").eq(2).val();
+        let autor = $("input[type='text']").eq(3).val();
+
+        $("section").before("<article></article>");
+
+        $("article:last").append("<h3>" + titular + "</h3>");
+        $("article:last").append("<h4>" + entradilla + "</h3>");
+        $("article:last").append("<p>" + texto + "</p>");
+        $("article:last").append("<p>" + autor + "</p>")
     }
 }

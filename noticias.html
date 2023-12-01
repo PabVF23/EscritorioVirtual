@@ -40,9 +40,20 @@
         <script>
             var noticias = new Noticias();
         </script>
-        <input type="file" onchange="noticias.readInputFile(this.files)">
-    </main>
+        <input type="file" onchange="noticias.readInputFile(this.files)"/>
 
-    
+        <section>
+            <h4>Titular:</h4>
+            <input type="text"/>
+            <h4>Entradilla:</h4>
+            <input type="text"/>
+            <h4>Texto:</h4>
+            <input type="text"/>
+            <h4>Autor:</h4>
+            <input type="text"/>
+        </section>
+
+        <button onclick="noticias.añadirNoticia()">Añadir noticia</button>
+    </main>
 </body>
 </html>
