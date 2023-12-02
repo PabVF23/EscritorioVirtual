@@ -62,7 +62,7 @@ class Viajes {
     getMapaDinamicoGoogle() {
         var centro = {lat: 43.3672702, lng: -5.8502461};
 
-        var mapaGeoposicionado = new google.maps.Map(document.querySelector("section") , {
+        var mapaGeoposicionado = new google.maps.Map(document.getElementById("mapa") , {
             zoom: 8,
             center: centro,
             mapTypeId: google.maps.MapTypeId.ROADMAP
