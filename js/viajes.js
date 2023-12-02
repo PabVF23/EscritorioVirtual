@@ -2,6 +2,7 @@ class Viajes {
 
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));
+        this.soportaAPIFile = window.File && window.FileReader && window.FileList && window.Blob;
     }
 
     getPosicion(posicion) {
@@ -13,7 +14,6 @@ class Viajes {
         this.precisionAltitud = posicion.coords.altitudeAccuracy;
         this.rumbo = posicion.coords.heading;
         this.velocidad = posicion.coords.speed;
-        alert(this.mensaje)
     }
 
     manejarErrores(error) {
@@ -62,16 +62,11 @@ class Viajes {
     getMapaDinamicoGoogle() {
         var centro = {lat: 43.3672702, lng: -5.8502461};
 
-        console.log(typeof centro.lat);
-        console.log(typeof centro.lng);
-
         var mapaGeoposicionado = new google.maps.Map(document.querySelector("section") , {
             zoom: 8,
             center: centro,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-
-        console.log(mapaGeoposicionado)
 
         var infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
@@ -94,6 +89,132 @@ class Viajes {
             infoWindow.setPosition(mapaGeoposicionado.getCenter());
             infoWindow.setContent("Error: El navegador no soporta la geolocalización");
             infoWindow.open(mapaGeoposicionado);
+        }
+    }
+
+    leerXML(file) {
+        let archivo = $("input").prop("files")[0];
+        var tipoTexto = /text.*/;
+        if(archivo.type.match(tipoTexto) && this.soportaAPIFile) {
+            let lector = new FileReader();
+            lector.onload = function(evento) {
+                let rutas = lector.result;
+                console.log(rutas)
+                $("ruta", rutas).each(function() {
+                    let nombre = $(this).attr("nombre");
+                    $("section:last").append("<h4>" + nombre + "</h4>");
+                    $("section > h4:last").after("<ul></ul>");
+
+                    let tipo = $(this).attr("tipo")
+                    $("section > ul:last").append("<li>Tipo: " + tipo + "</li>")
+
+                    let medio = $(this).attr("medio")
+                    $("section > ul:last").append("<li>Medio: " + medio + "</li>")
+
+                    let fecha = $("fecha", this).text();
+                    $("section > ul:last").append("<li>Fecha: " + fecha + "</li>")
+
+                    let hora = $("hora", this).text();
+                    $("section > ul:last").append("<li>Hora: " + hora + "</li>")
+
+                    let duracion = $("tiempo", this).text();
+                    duracion = duracion.slice(1);
+                    duracion = duracion.trim();
+                    if (duracion.includes("T")) {
+                        var dias = duracion.split("T")[0]
+                        var horas = duracion.split("T")[1]
+                    } else {
+                        var dias = duracion;
+                        var horas = ""
+                    }
+
+                    let tiempo = ""
+
+                    if (dias.includes("Y")) {
+                        tiempo += dias.split("Y")[0] + " años ";
+                        dias = dias.split("Y")[1];
+                    }
+
+                    if (dias.includes("M")) {
+                        tiempo += dias.split("M")[0] + " meses ";
+                        dias = dias.split("M")[1];
+                    }
+
+                    if (dias.includes("D")) {
+                        tiempo += dias.split("D")[0] + " días ";
+                    }
+
+                    if (horas.length != 0) {
+                        if (horas.includes("H")) {
+                            tiempo += horas.split("H")[0] + " horas ";
+                            horas = horas.split("H")[1];
+                        }
+    
+                        if (horas.includes("M")) {
+                            tiempo += horas.split("M")[0] + " minutos ";
+                            horas = horas.split("M")[1];
+                        }
+    
+                        if (horas.includes("S")) {
+                            tiempo += horas.split("S")[0] + " segundos ";
+                        }
+                    }
+
+                    $("section > ul:last").append("<li>Tiempo: " + tiempo + "</li>")
+
+                    let agencia = $("agencia", this).text();
+                    $("section > ul:last").append("<li>Agencia: " + agencia + "</li>")
+
+                    let descripcion = $("descripcion:first", this).text();
+                    $("section > ul:last").append("<li>Descripcion: " + descripcion + "</li>")
+                    
+                    let personas = $("personas", this).text();
+                    $("section > ul:last").append("<li>Personas: " + personas + "</li>")
+
+                    let lugar = $("lugar", this).text();
+                    $("section > ul:last").append("<li>Lugar: " + lugar + "</li>")
+
+                    let direccion = $("direccion", this).text();
+                    $("section > ul:last").append("<li>Direccion: " + direccion + "</li>")
+
+                    let latitud = $("coordenadas:first", this).attr("latitud");
+                    let longitud = $("coordenadas:first", this).attr("longitud");
+                    let altitud = $("coordenadas:first", this).attr("altitud");
+                    $("section > ul:last").append("<li>Coordenadas: " + latitud + ", " + longitud  + ", " + altitud + "</li>")
+
+                    $("section > ul:last").append("<li>Referencias:</li>")
+                    $("section > ul > li:last").append("<ul></ul>")
+                    $("referencia", this).each(function() {
+                        let referencia = "<a href='" + $(this).text() + "'>" + $(this).text() + "</a>";
+                        $("section > ul > li:last > ul").append("<li>" + referencia + "</li>")
+                    })
+
+                    let recomendacion = $("recomendacion", this).text();
+                    $("section > ul:last").append("<li>Recomendación: " + recomendacion + "</li>")
+
+                    $("section > ul:last").append("<li>Hitos:</li>")
+                    $("section > ul > li:last").append("<ul></ul>")
+
+                    $("hito", this).each(function() {
+                        let nombre = $(this).attr("nombre");
+                        $("section > ul > li:last > ul").append("<li>" + nombre + "</li>")
+                        $("section > ul > li:last > ul > li:last").append("<ul></ul>")
+
+                        let descripcion = $("descripcion", this).text();
+                        $("section > ul > li:last > ul > li:last > ul").append("<li>Descripcion: " + descripcion + "</li>");
+
+                        let latitud = $("coordenadas", this).attr("latitud");
+                        let longitud = $("coordenadas", this).attr("longitud");
+                        let altitud = $("coordenadas", this).attr("altitud");
+                        $("section > ul > li:last > ul > li:last > ul").append("<li>Coordenadas: " + latitud + ", " + longitud  + ", " + altitud + "</li>");
+
+                        let distancia = $("distancia", this).text() + " " + $("distancia", this).attr("unidades");
+                        $("section > ul > li:last > ul > li:last > ul").append("<li>Distancia del último punto: " + distancia + "</li>");
+                    })
+                })
+            }
+
+            lector.readAsText(archivo);
         }
     }
 }
