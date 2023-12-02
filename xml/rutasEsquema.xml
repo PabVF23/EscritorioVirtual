@@ -78,11 +78,7 @@
                 <coordenadas latitud="-21.157854674108894" longitud="-175.27755641907672" altitud="11"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
-                    <foto>coco.jpg</foto>
                     <foto>coco.png</foto>
-                    <foto>coco.svg</foto>
-                    <foto>coco2.jpg</foto>
-                    <foto>coco2.png</foto>
                 </galeriaFotos>
             </hito>
             <hito nombre="Heilala Holiday Lodge">
@@ -90,25 +86,16 @@
                 <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="14"/>
                 <distancia unidades="m">733.22</distancia>
                 <galeriaFotos>
-                    <foto>cementerio.png</foto>
+                    <foto>heilala.png</foto>
                 </galeriaFotos>
-                <galeriaVideos>
-                    <video>cementerio.mp4</video>
-                </galeriaVideos>
             </hito>
             <hito nombre="Playa de Ha'atafu">
                 <descripcion>Playa protegida para nadar y hacer surf</descripcion>
                 <coordenadas latitud="-21.06976568669056" longitud="-175.3349976690178" altitud="6"/>
                 <distancia unidades="m">963.99</distancia>
                 <galeriaFotos>
-                    <foto>playa.png</foto>
-                    <foto>playa2.png</foto>
+                    <foto>haatafu.png</foto>
                 </galeriaFotos>
-                <galeriaVideos>
-                    <video>cementerio.mp4</video>
-                    <video>cementerio.mkv</video>
-                    <video>cementerio.avi</video>
-                </galeriaVideos>
             </hito>
         </hitos>
     </ruta>
@@ -141,8 +128,7 @@
                 <coordenadas latitud="-21.14200661114548" longitud="-175.1460399023326" altitud="7"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
-                    <foto>isla.jpg</foto>
-                    <foto>isla.png</foto>
+                    <foto>nukunukumotu.png</foto>
                 </galeriaFotos>
             </hito>
             <hito nombre="Isla de Oneata">
@@ -151,11 +137,7 @@
                 <distancia unidades="km">1.46</distancia>
                 <galeriaFotos>
                     <foto>oneata.png</foto>
-                    <foto>oneata2.png</foto>
                 </galeriaFotos>
-                <galeriaVideos>
-                    <video>oneata.mp4</video>
-                </galeriaVideos>
             </hito>
             <hito nombre="Isla de Pangaimotu">
                 <descripcion>Isla localizada al noroeste de Oneata</descripcion>
@@ -166,7 +148,6 @@
                 </galeriaFotos>
                 <galeriaVideos>
                     <video>pangaimotu.mp4</video>
-                    <video>pangaimotu2.avi</video>
                 </galeriaVideos>
             </hito>
         </hitos>

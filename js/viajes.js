@@ -95,11 +95,11 @@ class Viajes {
     leerXML(file) {
         let archivo = $("input").prop("files")[0];
         var tipoTexto = /text.*/;
+        let viajes = this;
         if(archivo.type.match(tipoTexto) && this.soportaAPIFile) {
             let lector = new FileReader();
             lector.onload = function(evento) {
                 let rutas = lector.result;
-                console.log(rutas)
                 $("ruta", rutas).each(function() {
                     let nombre = $(this).attr("nombre");
                     $("section:last").append("<h4>" + nombre + "</h4>");
@@ -210,11 +210,63 @@ class Viajes {
 
                         let distancia = $("distancia", this).text() + " " + $("distancia", this).attr("unidades");
                         $("section > ul > li:last > ul > li:last > ul").append("<li>Distancia del último punto: " + distancia + "</li>");
+
+                        $("section > ul > li:last > ul > li:last > ul").append("<li>Galería de fotos: </li>");
+                        $("section > ul > li:last > ul > li:last > ul > li:last").append("<ul></ul>")
+
+                        $("foto", this).each(function() {
+                            let foto = "<img src='multimedia/imagenes/" + $(this).text() + "' alt = '" + $(this).text() + "' />"
+                            console.log(foto)
+                            $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li>" + foto + "</li>")
+                        })
+
+                        if ($("galeriaVideos", this).length) {
+                            $("section > ul > li:last > ul > li:last > ul").append("<li>Galería de videos: </li>");
+                            $("section > ul > li:last > ul > li:last > ul > li:last").append("<ul></ul>")
+
+                            $("video", this).each(function() {
+                                $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li></li>")
+                                $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last").append('<video controls preload="auto"></video>')
+                                let src = "multimedia/videos/" + $(this).text();
+                                let type = viajes.getMimeType($(this).text().split(".")[1]);
+                                $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last > video").append("<source src='" + src + "' type='" + type + "'>");
+                            })
+                        }
+                        // TODO: Añadir fotos y videos necesarios para xml
                     })
                 })
             }
 
             lector.readAsText(archivo);
+        }
+    }
+
+    getMimeType(extension) {
+        switch (extension) {
+            case "flv":
+                return "video/x-flv"
+            case "m3u8":
+                return "application/x-mpegURL"
+            case "ts":
+                return "video/mp2t"
+            case "3gp":
+                return "video/3gpp"
+            case "3gp":
+                return "video/3gpp"
+            case "mov":
+                return "video/quicktime"
+            case "avi":
+                return "video/x-msvideo"
+            case "wmv":
+                return "video/x-ms-wmv"
+            case "mpeg":
+                return "video/mpeg"
+            case "ogv":
+                return "video/ogg"
+            case "webm":
+                return "video/webm";
+            default:
+                return "video/mp4";
         }
     }
 }
