@@ -1,5 +1,9 @@
 class Viajes {
 
+    /**
+     * Preguntar qué hacer con SVG
+     */
+
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));
         this.soportaAPIFile = window.File && window.FileReader && window.FileList && window.Blob;
@@ -46,7 +50,7 @@ class Viajes {
         return this.altitud;
     }
 
-    getMapaEstaticoGoogle() {
+    getMapaEstatico() {
         let url = "https://maps.googleapis.com/maps/api/staticmap?";
         let apiKey = "&key=AIzaSyD-7oLBwHqNquoUpIjkwg4aVXr24ZTiEM0";
         let centro = "center=" + this.latitud + "," + this.longitud;
@@ -59,42 +63,51 @@ class Viajes {
         $("main").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
     }
 
-    getMapaDinamicoGoogle() {
-        var centro = {lat: 43.3672702, lng: -5.8502461};
+    getMapaDinamico() {
+        var centro = [-5.8502461, 43.3672702];
 
-        var mapaGeoposicionado = new google.maps.Map(document.getElementById("mapa") , {
-            zoom: 8,
+        mapboxgl.accessToken = "pk.eyJ1IjoicGFidmYiLCJhIjoiY2xwcGg5eWpkMTU1NTJpcWdzeHY1YWY4NSJ9.2pTX2YTmvRYIVHh0Mx2qpA"
+        var mapaGeoposicionado = new mapboxgl.Map({
+            container: "mapa",
             center: centro,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            zoom: 14,
+            style: "mapbox://styles/mapbox/navigation-day-v1"
         });
 
-        var infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
+                let pos = [position.coords.longitude, position.coords.latitude]
 
-                infoWindow.setPosition(pos);
-                infoWindow.setContent("Localización encontrada");
-                infoWindow.open(mapaGeoposicionado);
+                let popup = new mapboxgl.Popup({closeOnClick: false})
+                    .setLngLat(pos)
+                    .setHTML("<p>Localización encontrada</p>")
+                    .addTo(mapaGeoposicionado)
+                    
                 mapaGeoposicionado.setCenter(pos);
             }, function() {
-                infoWindow.setPosition(mapaGeoposicionado.getCenter());
-                infoWindow.setContent("Error: Ha fallado la geolocalización");
-                infoWindow.open(mapaGeoposicionado);
+                let pos = mapaGeoposicionado.getCenter()
+                popup = new mapboxgl.Popup({closeOnClick: false})
+                    .setLngLat(pos)
+                    .setHTML("<p>Error: Ha fallado la geolocalización</p>")
+                    .addTo(mapaGeoposicionado)
+                    
+
+                mapaGeoposicionado.setCenter(pos);
             })
         } else {
-            infoWindow.setPosition(mapaGeoposicionado.getCenter());
-            infoWindow.setContent("Error: El navegador no soporta la geolocalización");
-            infoWindow.open(mapaGeoposicionado);
+            let pos = mapaGeoposicionado.getCenter()
+                popup = new mapboxgl.Popup({closeOnClick: false})
+                    .setLngLat(pos)
+                    .setHTML("<p>Error: El navegador no soporta la geolocalización</p>")
+                    .addTo(mapaGeoposicionado)
+                    
+                mapaGeoposicionado.setCenter(pos);
         }
     }
 
     leerXML(file) {
-        let archivo = $("input").prop("files")[0];
-        var tipoTexto = /text.*/;
+        let archivo = $("input:last").prop("files")[0];
+        let tipoTexto = /text.*/;
         let viajes = this;
         if(archivo.type.match(tipoTexto) && this.soportaAPIFile) {
             let lector = new FileReader();
@@ -216,7 +229,6 @@ class Viajes {
 
                         $("foto", this).each(function() {
                             let foto = "<img src='multimedia/imagenes/" + $(this).text() + "' alt = '" + $(this).text() + "' />"
-                            console.log(foto)
                             $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li>" + foto + "</li>")
                         })
 
@@ -232,7 +244,6 @@ class Viajes {
                                 $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last > video").append("<source src='" + src + "' type='" + type + "'>");
                             })
                         }
-                        // TODO: Añadir fotos y videos necesarios para xml
                     })
                 })
             }
@@ -269,6 +280,101 @@ class Viajes {
                 return "video/mp4";
         }
     }
+
+    añadirKMLs() {
+        $("#mapa").empty();
+        let archivos = $("input:first").prop("files");
+        let viajes = this;
+        let centro = [-5.8502461, 43.3672702];
+        var mapa = new mapboxgl.Map({
+            container: "mapa",
+            center: centro,
+            zoom: 14,
+            style: "mapbox://styles/mapbox/navigation-day-v1"
+        });
+
+        for (let i = 0; i < archivos.length; i++) {
+            let coordinates = []
+            if(this.soportaAPIFile && archivos[i].name.split(".")[1] === "kml") {
+                let lector = new FileReader();
+                lector.onload = function(evento) {
+                    let archivo = lector.result;
+                    var nombre = $("name", archivo).text();
+                    let c = $("coordinates", archivo).text().split("\n");
+                    let counter = 0;
+                    for (let i = 0; i < c.length; i++) {
+                        let coord = c[i].trim();
+
+                        if (coord.length) {
+                            let add = true;
+                            let lng = c[i].split(",")[0].trim()
+                            let lat = c[i].split(",")[1].trim()
+                            if (counter > 0) {
+                                add = viajes.differentCoords([lng, lat], coordinates[counter - 1])
+                            }
+
+                            if (add) {
+                            coordinates[counter++] = [lng, lat];
+                            }
+                        }
+                    }
+
+                    for (let i = 0; i < coordinates.length; i++) {
+                        var marker = new mapboxgl.Marker()
+                        .setLngLat(coordinates[i])
+                        .addTo(mapa);
+                    }
+                    mapa.on('load', function() {
+                        mapa.addSource(nombre, {
+                            'type': 'geojson',
+                            'data': {
+                                'type': 'Feature',
+                                'properties': {
+                                    "title": nombre
+                                },
+                                'geometry': {
+                                    'type': 'LineString',
+                                    'coordinates': coordinates
+                                }
+                            }
+                        })
+                        mapa.addLayer({
+                            'id': nombre,
+                            'type': 'line',
+                            'source': nombre,
+                            'layout': {
+                                'line-join': 'round',
+                                'line-cap': 'round'
+                            },
+                            'paint': {
+                                'line-color': "#ff0000",
+                                'line-width': 5
+                            }
+                        })
+                    })
+
+                    let mitad = [(parseFloat(coordinates[1][0]) + parseFloat(coordinates[0][0]))/2, (parseFloat(coordinates[1][1]) + parseFloat(coordinates[0][1]))/2]
+                    console.log(mitad)
+
+                    let popup = new mapboxgl.Popup({closeOnClick: false})
+                    .setLngLat(mitad)
+                    .setText(nombre)
+                    .addTo(mapa)
+
+                    mapa.setCenter(coordinates[0])
+                }
+
+                lector.readAsText(archivos[i]);
+            }
+        }
+    }
+
+    differentCoords(coordsA, coordsB) {
+        return (coordsA[0] !== coordsB[0]) && (coordsA[1] !== coordsB[1])
+    }
+
+
 }
 
 var viajes = new Viajes();
+viajes.getMapaDinamico();

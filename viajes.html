@@ -7,17 +7,17 @@
     <title>Escritorio Virtual - Viajes</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="aquí cada documento debe tener la descripción del contenido concreto del mismo" />
-    <meta name ="keywords" content ="aquí cada documento debe tener la lista de las palabras clave del mismo separadas por comas" />
+    <meta name ="description" content ="Un mapa en el que se puede ver información de rutas y de localizaciones geográficas" />
+    <meta name ="keywords" content ="mapa, mapbox, ruta, rutas, marcador, marcadores, geografica, geográficas, geolocalizacion, localizaciones, localizacion" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="stylesheet" type="text/css" href="estilo/viajes.css" />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
-    <script src="js/viajes.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU&callback=viajes.getMapaDinamicoGoogle"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
 </head>
 
 <body>
@@ -39,10 +39,13 @@
     <main>
         <h2>Viajes</h2>
         <section id="mapa"></section>
+        <h3>Subir archivos KML</h3>
+        <input type="file" onChange="viajes.añadirKMLs()" multiple/>
         <section>
             <h3>Subir archivo XML</h3>
             <input type="file" onchange="viajes.leerXML(this.files)"/>
         </section>
     </main>
+    <script src="js/viajes.js"></script>
 </body>
 </html>

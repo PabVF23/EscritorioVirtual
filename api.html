@@ -7,15 +7,16 @@
     <title>Escritorio Virtual - Juegos</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="Un sudoku" />
-    <meta name ="keywords" content ="sudoku, jugar sudoku, juego, jugar" />
+    <meta name ="description" content ="Un reproductor de música" />
+    <meta name ="keywords" content ="reproductor, reproducir, musica, cancion, escuchar, sonido" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/sudoku.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/api.css" />
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
-    <script src="js/sudoku.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/api.js"></script>
 </head>
 
 <body>
@@ -34,28 +35,21 @@
         </nav>
     </header>
 
-    <h2>Sudoku</h2>
-    
+    <h2>Reproductor de música</h2>
     <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
     <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
     <a href="crucigrama.html" accesskey="C" tabindex="10">Crucigrama matemático</a>
     <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
 
-    <main>
-    </main>
+    <h3>Arrastra el archivo que quieras reproducir aquí</h3>
+    <section ondrop="reproductor.procesarArchivo(event)" ondragover="reproductor.detectarArchivo(event)">
+    </section>
 
-    <script>
-        sudoku.paintSudoku();
-        addEventListener("keydown", (event) => {
-            var celdaSeleccionada = document.querySelector("main > p[data-state = clicked]");
-            if (/^[1-9]$/i.test(event.key)) {
-                if (celdaSeleccionada !== null) {
-                    sudoku.introduceNumber(event.key);
-                } else {
-                alert("¡Debes seleccionar una celda antes de introducir un número!")
-                }  
-            }
-        });
-    </script>
+    <h3>Selecciona un archivo mp3 (o varios) a cargar</h3>
+    <input type="file" onChange="reproductor.cargarArchivos()" multiple />
+
+    <section>
+        <h4>Tus archivos cargados se mostrarán aquí:</h4>
+    </section>
 </body>
 </html>

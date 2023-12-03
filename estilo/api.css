@@ -1,0 +1,26 @@
+section:first-of-type {
+    height: 10vw;
+    border: 0.2em solid black;
+}
+
+input {
+    padding-bottom: 2em;
+}
+
+section:last-of-type[loaded] {
+    height: 75vh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 0.2em solid black;
+}
+
+section:last-of-type h4 {
+    width: 100%;
+}
+
+section:last-of-type > p {
+    padding-right: 1em;
+    margin-right: 0.5em;
+    border: 0.1em solid black;
+}
