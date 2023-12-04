@@ -39,6 +39,8 @@
     <main>
         <h2>Viajes</h2>
         <section id="mapa"></section>
+        <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
+        <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
         <h3>Subir archivos KML</h3>
         <input type="file" onChange="viajes.añadirKMLs()" multiple/>
         <section>

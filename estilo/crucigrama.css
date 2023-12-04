@@ -2,7 +2,7 @@
 
 /* Especificidad: 001*/
 main {
-    width: auto;
+    width: 75vw;
     height: auto;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
@@ -27,7 +27,11 @@ main > p[data-state=empty] {
     background-color: #0000FF;
 }
 
-
+/* Especificidad: 012*/
+main > p[data-state=clicked] {
+    /* El color se hereda del elemento body: #000000 */
+    background-color: #0077FF;
+}
 
 /* Especificidad: 011*/
 section[data-type=botonera] {

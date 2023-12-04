@@ -1,9 +1,14 @@
 /* datos personales Pablo Valdés Fernández, UO282655*/
 
-/* Especificidad: 011*/
+/* Especificidad: 021*/
+section:first-of-type:empty {
+    width: 0%; 
+    height: 0%;
+}
+
 section:first-of-type {
-    width:75vw; 
-    height:40vw; 
+    width: 75vw;
+    height: 55vw;
 }
 
 /* Especificidad: 013 */

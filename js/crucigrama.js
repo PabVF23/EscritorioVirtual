@@ -12,8 +12,11 @@ class Crucigrama {
 
     constructor() {
         this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+        this.nivel = "Fácil";
         // this.board = "12,*,.,=,36,#,#,#,15,#,#,*,#,/,#,#,#,*,.,-,.,=,.,#,55,#,.,*,#,=,#,=,#,/,#,=,.,#,15,#,9,*,.,=,45,=,#,#,#,#,#,=,#,#,72,#,20,-,.,=,11,#,.,#,#,-,#,+,#,#,#,*,56,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,12,#,16,*,.,=,32"
+        // this.nivel = "Intermedio";
         // this.board = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72"
+        // this.nivel = "Difícil";
 
         this.tablero = [];
         for (let i = 0; i < this.filas; i++) {
@@ -77,24 +80,8 @@ class Crucigrama {
     }
 
     calculate_time_difference() {
-        let diff = this.end_time - this.init_time;
-
-        let seconds = Math.floor((diff/1000) % 60);
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-
-        let minutes = Math.floor((diff/1000/60) % 60);
-        if (minutes < 10) {
-            minutes = "0" + minutes;
-        }
-
-        let hours = Math.floor((diff/1000/3600));
-        if (hours < 10) {
-            hours = "0" + hours;
-        }
-
-        return hours + ":" + minutes + ":" + seconds;
+        let diff = Math.floor((this.end_time - this.init_time)/1000);
+        return diff;
     }
 
     introduceElement(key) {
@@ -176,8 +163,27 @@ class Crucigrama {
         if (this.check_win_condition()) {
             this.end_time = new Date();
             let diff = this.calculate_time_difference();
-            alert("¡Enhorabuena! Has completado el crucigrama en " + diff);
+            alert("¡Enhorabuena! Has completado el crucigrama en " + diff + " segundos");
+            this.createRecordForm();
         }
+    }
+
+    createRecordForm() {
+        $("main").after("<section></section>")
+
+        $("section:first").append("<h3>¡Has ganado! Introduce tus datos si quieres guardar tu resultado</h3>")
+
+        $("section:first").append("<form action='#' method='post' name='record'></form>")
+
+        $("form").append("<p>Nombre: </p>")
+        $("form").append("<input type='text' name='nombre' />")
+        $("form").append("<p>Apellidos: </p>")
+        $("form").append("<input type='text' name='apellidos' />")
+        $("form").append("<p>Nivel: </p>")
+        $("form").append("<input type='text' name='nivel' value='" + this.nivel + "' readonly />")
+        $("form").append("<p>Tiempo en segundos: </p>")
+        $("form").append("<input type='text' name='tiempo' value='" + this.calculate_time_difference() + "' readonly />")
+        $("form").append("<input type='submit' value='Confirmar' />")
     }
 }
 

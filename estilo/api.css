@@ -2,6 +2,7 @@
 
 section:first-of-type {
     height: 10vw;
+    width: 50vw;
     border: 0.2em solid black;
 }
 
@@ -22,6 +23,7 @@ section:last-of-type h4 {
 }
 
 section:last-of-type > p {
+    height: 2em;
     padding-right: 1em;
     margin-right: 0.5em;
     border: 0.1em solid black;

@@ -60,13 +60,15 @@ class Viajes {
         let sensor = "&sensor=false";
         let mapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
-        $("main").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
+        $("section:first").empty()
+        $("section:first").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
     }
 
     getMapaDinamico() {
         var centro = [-5.8502461, 43.3672702];
 
         mapboxgl.accessToken = "pk.eyJ1IjoicGFidmYiLCJhIjoiY2xwcGg5eWpkMTU1NTJpcWdzeHY1YWY4NSJ9.2pTX2YTmvRYIVHh0Mx2qpA"
+        $("section:first").empty()
         var mapaGeoposicionado = new mapboxgl.Map({
             container: "mapa",
             center: centro,
@@ -240,8 +242,7 @@ class Viajes {
                                 $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li></li>")
                                 $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last").append('<video controls preload="auto"></video>')
                                 let src = "multimedia/videos/" + $(this).text();
-                                let type = viajes.getMimeType($(this).text().split(".")[1]);
-                                $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last > video").append("<source src='" + src + "' type='" + type + "'>");
+                                $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last > video").append("<source src='" + src + "' type='video/mp4'>");
                             })
                         }
                     })
@@ -249,35 +250,6 @@ class Viajes {
             }
 
             lector.readAsText(archivo);
-        }
-    }
-
-    getMimeType(extension) {
-        switch (extension) {
-            case "flv":
-                return "video/x-flv"
-            case "m3u8":
-                return "application/x-mpegURL"
-            case "ts":
-                return "video/mp2t"
-            case "3gp":
-                return "video/3gpp"
-            case "3gp":
-                return "video/3gpp"
-            case "mov":
-                return "video/quicktime"
-            case "avi":
-                return "video/x-msvideo"
-            case "wmv":
-                return "video/x-ms-wmv"
-            case "mpeg":
-                return "video/mpeg"
-            case "ogv":
-                return "video/ogg"
-            case "webm":
-                return "video/webm";
-            default:
-                return "video/mp4";
         }
     }
 
@@ -394,4 +366,3 @@ class Viajes {
 }
 
 var viajes = new Viajes();
-viajes.getMapaDinamico();

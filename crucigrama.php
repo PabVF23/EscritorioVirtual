@@ -1,6 +1,17 @@
 <!DOCTYPE HTML>
-
 <html lang="es">
+
+<?php
+    class Record {
+        public function __construct() {
+            $this->server = "localhost";
+            $this->user = "DBUSER2023";
+            $this->pass = "DBPSWD2023";
+            $this->dbname = "records";
+        }
+    }
+?>
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -39,7 +50,7 @@
 
     <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
     <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
-    <a href="crucigrama.html" accesskey="C" tabindex="10">Crucigrama matemático</a>
+    <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
     <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
 
     <p>Este juego es un crucigrama matemático. Se mostrará un crucigrama con una serie de operaciones matemáticas parcialmente vacías que el jugador deberá completar correctamente.</p>
