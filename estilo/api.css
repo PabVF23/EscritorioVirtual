@@ -1,8 +1,8 @@
 /* datos personales Pablo Valdés Fernández, UO282655*/
 
 section:first-of-type {
-    height: 10vw;
-    width: 50vw;
+    height: 12em;
+    width: 60vw;
     border: 0.2em solid black;
 }
 
@@ -23,8 +23,12 @@ section:last-of-type h4 {
 }
 
 section:last-of-type > p {
-    height: 2em;
+    height: fit-content;
     padding-right: 1em;
     margin-right: 0.5em;
     border: 0.1em solid black;
+}
+
+section > audio {
+    height: 2em;
 }
