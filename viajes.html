@@ -43,7 +43,11 @@
         <input type="file" onChange="viajes.añadirKMLs()" multiple/>
         <section>
             <h3>Subir archivo XML</h3>
-            <input type="file" onchange="viajes.leerXML(this.files)"/>
+            <input type="file" onchange="viajes.leerXML()"/>
+        </section>
+        <section>
+            <h3>Subir archivos SVG</h3>
+            <input type="file" onchange="viajes.añadirSVG()" multiple/>
         </section>
     </main>
     <script src="js/viajes.js"></script>

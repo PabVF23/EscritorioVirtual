@@ -71,7 +71,7 @@ class Viajes {
             container: "mapa",
             center: centro,
             zoom: 14,
-            style: "mapbox://styles/mapbox/navigation-day-v1"
+            style: "mapbox://styles/mapbox/streets-v12"
         });
 
         if (navigator.geolocation) {
@@ -105,8 +105,8 @@ class Viajes {
         }
     }
 
-    leerXML(file) {
-        let archivo = $("input:last").prop("files")[0];
+    leerXML() {
+        let archivo = $("input").eq(1).prop("files")[0];
         let tipoTexto = /text.*/;
         let viajes = this;
         if(archivo.type.match(tipoTexto) && this.soportaAPIFile) {
@@ -115,7 +115,7 @@ class Viajes {
                 let rutas = lector.result;
                 $("ruta", rutas).each(function() {
                     let nombre = $(this).attr("nombre");
-                    $("section:last").append("<h4>" + nombre + "</h4>");
+                    $("section").eq(1).append("<h4>" + nombre + "</h4>");
                     $("section > h4:last").after("<ul></ul>");
 
                     let tipo = $(this).attr("tipo")
@@ -373,7 +373,24 @@ class Viajes {
         return (coordsA[0] !== coordsB[0]) && (coordsA[1] !== coordsB[1])
     }
 
+    añadirSVG() {
+        let archivos = $("input:last").prop("files");
 
+        $("section:last > svg").remove()
+
+        for (let i = 0; i < archivos.length; i++) {
+            if(this.soportaAPIFile && archivos[i].name.split(".")[1] === "svg")  {
+                let lector = new FileReader();
+
+                lector.onload = function() {
+                    let archivo = lector.result;
+                    $("section:last").append(archivo)
+                }
+
+                lector.readAsText(archivos[i])
+            }
+        }
+    }
 }
 
 var viajes = new Viajes();
