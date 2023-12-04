@@ -2,15 +2,15 @@
 
 /* Especificidad: 001*/
 main {
-    width: 75vw;
+    width: auto;
     height: auto;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
 }
 
-/* Especificidad: 001*/
-p {
+/* Especificidad: 002*/
+main > p {
     width: 100%;
     text-align: center;
     padding: 10% 0%;
@@ -21,17 +21,13 @@ p {
     border-right: 0.1em solid black;
 }
 
-/* Especificidad: 011*/
-p[data-state=empty] {
+/* Especificidad: 012*/
+main > p[data-state=empty] {
     /* El color se hereda del elemento body: #000000 */
     background-color: #0000FF;
 }
 
-/* Especificidad: 011*/
-p[data-state=clicked] {
-    /* El color se hereda del elemento body: #000000 */
-    background-color: #0077FF;
-}
+
 
 /* Especificidad: 011*/
 section[data-type=botonera] {

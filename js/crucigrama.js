@@ -48,7 +48,7 @@ class Crucigrama {
         var columnas = this.columnas;
         var tablero = this.tablero
 
-        $("p").each(function(pos, element) {
+        $("main > p").each(function(pos, element) {
             var i = Math.floor(pos / columnas);
             var j = pos % columnas;
             if (tablero[i][j] == "0") {
