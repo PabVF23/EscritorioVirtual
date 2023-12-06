@@ -2,11 +2,15 @@
 
 /* Especificidad: 001*/
 main {
-    width: 75vw;
+    width: 50vw;
     height: auto;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
+    border-top: 0.15em solid black;
+    border-bottom: 0.15em solid black;
+    border-left: 0.15em solid black;
+    border-right: 0.15em solid black;
 }
 
 /* Especificidad: 002*/
@@ -15,10 +19,12 @@ main > p {
     text-align: center;
     padding: 10% 0%;
     margin: 0%;
-    border-top: 0.1em solid black;
-    border-bottom: 0.1em solid black;
-    border-left: 0.1em solid black;
-    border-right: 0.1em solid black;
+    border-top: 0.15em solid black;
+    border-bottom: 0.15em solid black;
+    border-left: 0.15em solid black;
+    border-right: 0.15em solid black;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 /* Especificidad: 012*/
@@ -47,6 +53,8 @@ section[data-type=botonera] {
 section[data-type=botonera] h2 {
     width: 100%;
     text-align: center;
+    margin-top: 0.3em;
+    margin-bottom: 0.1em;
 }
 
 /* Especificidad: 012*/
@@ -87,5 +95,14 @@ form > input[type="submit"] {
     form > input[type="text"] {
         /* Redefinición de propiedad width */
         width: 60vw;
+    }
+
+    main {
+        width: 75vw;
+    }
+
+    main > p {
+        font-size: 1em;
+        font-weight: normal;
     }
 }
