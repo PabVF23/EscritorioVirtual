@@ -9,13 +9,34 @@
             $this->pass = "DBPSWD2023";
             $this->dbname = "records";
         }
+
+        public function insertarDatos($nombre, $apellidos, $nivel, $tiempo) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            $stmt = $db->prepare("INSERT INTO REGISTRO VALUES (?, ?, ?, ?)");
+            $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
+            $stmt->execute();
+
+            $stmt->close();
+            $db->close();
+        }
+        
+    }
+
+    if (count($_POST) > 0) {
+        $nombre = $_POST['nombre'];
+        $apellidos = $_POST['apellidos'];
+        $nivel = $_POST['nivel'];
+        $tiempo = $_POST['tiempo'];
+        $record = new Record();
+        $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
     }
 ?>
 
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Escritorio Virtual - Noticias</title>
+    <title>Escritorio Virtual - Crucigrama matemático</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
     <meta name ="description" content ="Un crucigrama matemático" />

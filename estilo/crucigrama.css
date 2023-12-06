@@ -58,6 +58,22 @@ section[data-type=botonera] button {
     color: #FFF;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+
+form > input[type="text"] {
+    width: 20vw;
+}
+
+form > input[type="submit"] {
+    width: 10em;
+    height: 2em;
+    margin-top: 2em;
+}
+
 @media (max-width: 799px) {
     /* Especificidad: 011 */
     section[data-type=botonera] {
@@ -65,4 +81,8 @@ section[data-type=botonera] button {
         visibility: visible;
     }
     
+    form > input[type="text"] {
+        /* Redefinición de propiedad width */
+        width: 60vw;
+    }
 }

@@ -6,14 +6,28 @@ class Reproductor {
 
     cargarArchivos() {
         if (this.soportaAPIFile) {
-            let archivos = $("input:last").prop("files");
-            for (let i = 0; i < archivos.length; i++) {
-                if (archivos[i].name.split(".")[archivos[i].name.split(".").length - 1] === "mp3") {
-                    $("section:last").append('<p draggable="true" ondragstart="reproductor.moverArchivo(event)">'+ archivos[i].name + '</p>');
+            let archivos = Array.prototype.slice.call($("input:last").prop("files"));
+            archivos.forEach((archivo) => {
+                if (archivo.name.split(".")[archivo.name.split(".").length - 1] === "mp3") {
+                    $("section:last").append('<p draggable="true" ondragstart="reproductor.moverArchivo(event)">'+ archivo.name + '</p>');
 
-                    $("p:last").attr("data-url", URL.createObjectURL(archivos[i]));
+                    $("section:last > p:last").attr("data-url", URL.createObjectURL(archivo));
                 }
-            }
+            })
+
+            $("section:last > p").each(function(pos, element) {
+                element.onclick = function(event) {
+                    if (element.getAttribute("data-tapped") === "true") {
+                        $("section:last > p[data-state = selected]").removeAttr("data-state");
+                        element.setAttribute("data-state", "selected");
+                        reproductor.cargarArchivo();
+                    } else {
+                        element.setAttribute("data-tapped", "true");
+                    }
+                }
+
+
+            })
 
             if (archivos.length) {
                 $("section:last").attr("loaded", "true")
@@ -33,8 +47,8 @@ class Reproductor {
 
     procesarArchivo(event) {
         event.preventDefault();
-        $("section:first").empty();
-        $("section:first").attr("has-audio", "true");
+        $(event.target).empty();
+        $(event.target).attr("has-audio", "true");
         let url = event.dataTransfer.getData("url");
         let nombre = event.dataTransfer.getData("nombre");
         $(event.target).append("<p>Actualmente reproduciendo: " + nombre + "</p")
@@ -53,6 +67,30 @@ class Reproductor {
         $(event.target).append('<input type="range" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
         let volumen = $("input", event.target).val() + "%"
         $("input", event.target).before("<p>Volumen actual: " + volumen + "</p>");
+    }
+
+    cargarArchivo() {
+        $("section:first").empty();
+        $("section:first").attr("has-audio", "true");
+
+        let url = $("section:last > p[data-state = selected]").attr("data-url");
+        let nombre = $("section:last > p[data-state = selected]").text();
+        $("section:first").append("<p>Actualmente reproduciendo: " + nombre + "</p")
+        $("section:first").append('<audio src="' + url +'"></audio>')
+        this.isPlaying = true;
+
+        let audioContext = new AudioContext();
+        this.audioElement = $("audio").get(0);
+        let track = audioContext.createMediaElementSource(this.audioElement);
+        track.connect(audioContext.destination);
+        this.audioElement.play();
+        $("section:first").append('<button onclick="reproductor.cambiarEstadoReproduccion()">Pausar</button>')
+
+        this.gainNode = audioContext.createGain();
+        track.connect(this.gainNode).connect(audioContext.destination);
+        $("section:first").append('<input type="range" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
+        let volumen = $("input", "section:first").val() + "%"
+        $("input", "section:first").before("<p>Volumen actual: " + volumen + "</p>");
     }
 
     cambiarEstadoReproduccion() {

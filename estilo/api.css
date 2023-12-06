@@ -1,15 +1,22 @@
 /* datos personales Pablo Valdés Fernández, UO282655*/
 
+/* Especificidad: 011*/
 section:first-of-type {
     height: 12em;
     width: 60vw;
     border: 0.2em solid black;
 }
 
+section:first-of-type > p {
+    margin-top: 0.1em
+}
+
+/* Especificidad: 001*/
 input {
     padding-bottom: 2em;
 }
 
+/* Especificidad: 021*/
 section:last-of-type[loaded] {
     height: 75vh;
     overflow-y: auto;
@@ -18,10 +25,12 @@ section:last-of-type[loaded] {
     border: 0.2em solid black;
 }
 
+/* Especificidad: 012*/
 section:last-of-type h4 {
     width: 100%;
 }
 
+/* Especificidad: 012*/
 section:last-of-type > p {
     height: fit-content;
     padding-right: 1em;
@@ -29,6 +38,7 @@ section:last-of-type > p {
     border: 0.1em solid black;
 }
 
+/* Especificidad: 002*/
 section > audio {
     height: 2em;
 }
