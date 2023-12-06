@@ -92,15 +92,18 @@ form > input[type="submit"] {
         visibility: visible;
     }
     
+    /* Especificidad: 012*/
     form > input[type="text"] {
         /* Redefinición de propiedad width */
         width: 60vw;
     }
 
+    /* Especificidad: 001*/
     main {
         width: 75vw;
     }
 
+    /* Especificidad: 002*/
     main > p {
         font-size: 1em;
         font-weight: normal;

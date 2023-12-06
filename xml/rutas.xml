@@ -11,7 +11,7 @@
         <personas>Se puede ir con niños</personas>
         <lugar>Palacio Real de Tonga</lugar>
         <direccion>VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</direccion>
-        <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="1"/>
+        <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="4"/>
         <referencias>
             <referencia>
                 https://es.wikipedia.org/wiki/Nukualofa
@@ -27,7 +27,7 @@
         <hitos>
             <hito nombre="Palacio Real de Tonga">
                 <descripcion>Residencia de Tupou VI, Rey de Tonga</descripcion>
-                <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="1"/>
+                <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="4"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
                     <foto>palacio.png</foto>
@@ -35,7 +35,7 @@
             </hito>
             <hito nombre="Telekava European Cemetery">
                 <descripcion>Cementerio a los caidos en la Segunda Guerra Mundial</descripcion>
-                <coordenadas latitud="-21.13421725022125" longitud="-175.20945121535524" altitud="1"/>
+                <coordenadas latitud="-21.13421725022125" longitud="-175.20945121535524" altitud="7"/>
                 <distancia unidades="m">963.99</distancia>
                 <galeriaFotos>
                     <foto>cementerio.png</foto>
@@ -43,7 +43,7 @@
             </hito>
             <hito nombre="Tonga National Museum">
                 <descripcion>Museo nacional de Tonga</descripcion>
-                <coordenadas latitud="-21.13844583593113" longitud="-175.20396822904885" altitud="1"/>
+                <coordenadas latitud="-21.13844583593113" longitud="-175.20396822904885" altitud="7"/>
                 <distancia unidades="m">733.22</distancia>
                 <galeriaFotos>
                     <foto>museo.png</foto>
@@ -61,7 +61,7 @@
         <personas>Personas en buena forma física</personas>
         <lugar>ANT Bicycles Tonga</lugar>
         <direccion>Railway Rd, Nuku'alofa, Tonga</direccion>
-        <coordenadas latitud="-21.13718666160756" longitud="-175.20163424666714" altitud="1"/>
+        <coordenadas latitud="-21.13718666160756" longitud="-175.20163424666714" altitud="7"/>
         <referencias>
             <referencia>
                 https://www.tripadvisor.es/Attraction_Review-g317040-d315301-Reviews-Ha_atafu_Beach-Tongatapu_Island.html
@@ -73,44 +73,31 @@
                 https://www.lonelyplanet.es/oceania/tonga/imprescindible/playa-de-haatafu
             </referencia>
         </referencias>
-        <recomendacion valor="10"/>
+        <recomendacion valor="10"></recomendacion>
         <hitos>
-            <hito nombre="Ha'atafu Beach Resort">
-                <descripcion>Resort cerca de la playa de Ha'atafu (actualmente cerrado)</descripcion>
-                <coordenadas latitud="-21.070152267610222" longitud="-175.3343708409366" altitud="1"/>
+            <hito nombre="Coco de 3 cabezas">
+                <descripcion>Una atracción turística muy visitada, un arbol de cocos con 3 cabezas</descripcion>
+                <coordenadas latitud="-21.157854674108894" longitud="-175.27755641907672" altitud="11"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
-                    <foto>resort.jpg</foto>
-                    <foto>resort.png</foto>
-                    <foto>resort.svg</foto>
-                    <foto>resort2.jpg</foto>
-                    <foto>resort2.png</foto>
+                    <foto>coco.png</foto>
+                </galeriaFotos>
+            </hito>
+            <hito nombre="Heilala Holiday Lodge">
+                <descripcion>Resort vacacional de Heilala</descripcion>
+                <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="14"/>
+                <distancia unidades="m">733.22</distancia>
+                <galeriaFotos>
+                    <foto>heilala.png</foto>
                 </galeriaFotos>
             </hito>
             <hito nombre="Playa de Ha'atafu">
                 <descripcion>Playa protegida para nadar y hacer surf</descripcion>
-                <coordenadas latitud="-21.06976568669056" longitud="-175.3349976690178" altitud="1"/>
+                <coordenadas latitud="-21.06976568669056" longitud="-175.3349976690178" altitud="6"/>
                 <distancia unidades="m">963.99</distancia>
                 <galeriaFotos>
-                    <foto>playa.png</foto>
-                    <foto>playa2.png</foto>
+                    <foto>haatafu.png</foto>
                 </galeriaFotos>
-                <galeriaVideos>
-                    <video>cementerio.mp4</video>
-                    <video>cementerio.mkv</video>
-                    <video>cementerio.avi</video>
-                </galeriaVideos>
-            </hito>
-            <hito nombre="Heilala Holiday Lodge">
-                <descripcion>Resort vacacional de Heilala</descripcion>
-                <coordenadas latitud="-21.07158149791907" longitud="-175.33522905520314" altitud="1"/>
-                <distancia unidades="m">733.22</distancia>
-                <galeriaFotos>
-                    <foto>cementerio.png</foto>
-                </galeriaFotos>
-                <galeriaVideos>
-                    <video>cementerio.mp4</video>
-                </galeriaVideos>
             </hito>
         </hitos>
     </ruta>
@@ -124,7 +111,7 @@
         <personas>Se pueden llevar niños</personas>
         <lugar>Palacio Real de Tonga</lugar>
         <direccion>VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</direccion>
-        <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="1"/>
+        <coordenadas latitud="-21.13117063262022" longitud="-175.2005886457105" altitud="4"/>
         <referencias>
             <referencia>
                 https://to.geoview.info/nukunukumotu_island,4032391
@@ -136,15 +123,14 @@
                 https://mapcarta.com/20410440
             </referencia>
         </referencias>
-        <recomendacion valor="10"/>
+        <recomendacion valor="9"></recomendacion>
         <hitos>
             <hito nombre="Isla de Nukunukumotu">
                 <descripcion>Isla localizada a una corta distancia al este de Nukualofa</descripcion>
                 <coordenadas latitud="-21.14200661114548" longitud="-175.1460399023326" altitud="7"/>
                 <distancia unidades="m">0</distancia>
                 <galeriaFotos>
-                    <foto>isla.jpg</foto>
-                    <foto>isla.png</foto>
+                    <foto>nukunukumotu.png</foto>
                 </galeriaFotos>
             </hito>
             <hito nombre="Isla de Oneata">
@@ -153,11 +139,7 @@
                 <distancia unidades="km">1.46</distancia>
                 <galeriaFotos>
                     <foto>oneata.png</foto>
-                    <foto>oneata2.png</foto>
                 </galeriaFotos>
-                <galeriaVideos>
-                    <video>oneata.mp4</video>
-                </galeriaVideos>
             </hito>
             <hito nombre="Isla de Pangaimotu">
                 <descripcion>Isla localizada al noroeste de Oneata</descripcion>
@@ -168,7 +150,6 @@
                 </galeriaFotos>
                 <galeriaVideos>
                     <video>pangaimotu.mp4</video>
-                    <video>pangaimotu2.avi</video>
                 </galeriaVideos>
             </hito>
         </hitos>
