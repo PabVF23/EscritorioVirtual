@@ -74,7 +74,7 @@ form > input[type="submit"] {
     margin-top: 2em;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 800px) {
     /* Especificidad: 011 */
     section[data-type=botonera] {
         /* Redefinición de propiedad visibility */

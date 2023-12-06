@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="es">
 
-<!-- <?php
+<?php
     class Record {
         public function __construct() {
             $this->server = "localhost";
@@ -31,7 +31,7 @@
         $record = new Record();
         $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
     }
-?> -->
+?>
 
 <head>
     <!-- Datos que describen el documento -->
