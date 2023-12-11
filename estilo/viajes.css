@@ -6,6 +6,7 @@ section:first-of-type:empty {
     height: 0%;
 }
 
+/* Especificidad: 011*/
 section:first-of-type {
     width: 75vw;
     height: 55vw;
@@ -25,11 +26,13 @@ section:last-of-type {
     grid-template-columns: 100%;
 }
 
+/* Especificidad: 001*/
 svg {
     width: 50em;
     height: 30em;
 }
 
+/* Especificidad: 001*/
 text {
     color: #000000;
 }
