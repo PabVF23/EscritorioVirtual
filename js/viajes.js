@@ -1,9 +1,4 @@
 class Viajes {
-
-    /**
-     * Preguntar qué hacer con SVG
-     */
-
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));
         this.soportaAPIFile = window.File && window.FileReader && window.FileList && window.Blob;

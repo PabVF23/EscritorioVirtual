@@ -13,6 +13,10 @@
         public function insertarDatos($nombre, $apellidos, $nivel, $tiempo) {
             $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
+            if($db->connect_error) {
+                exit ("<h2>ERROR de conexión:".$db->connect_error."</h2>");  
+            }
+
             $stmt = $db->prepare("INSERT INTO REGISTRO VALUES (?, ?, ?, ?)");
             $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
             $stmt->execute();
@@ -20,16 +24,50 @@
             $stmt->close();
             $db->close();
         }
-        
-    }
 
-    if (count($_POST) > 0) {
-        $nombre = $_POST['nombre'];
-        $apellidos = $_POST['apellidos'];
-        $nivel = $_POST['nivel'];
-        $tiempo = $_POST['tiempo'];
-        $record = new Record();
-        $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
+        public function mostrarRegistros() {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h2>ERROR de conexión:".$db->connect_error."</h2>");  
+            }
+
+            $query = "SELECT * FROM REGISTRO ORDER BY TIEMPO LIMIT 10";
+            $resultado = $db->query($query);
+
+            if ($resultado->fetch_assoc() != NULL) {
+                echo "<section>";
+                echo "<table>\n";
+                echo "\t<caption>10 mejores resultados en el crucigrama</caption>\t";
+                echo "\t<thead>\n";
+                echo "\t\t<tr>\n";
+                echo "\t\t\t<th scope='col' id='nombre'>Nombre</th>\n";
+                echo "\t\t\t<th scope='col' id='apellidos'>Apellidos</th>\n";
+                echo "\t\t\t<th scope='col' id='nivel'>Nivel</th>\n";
+                echo "\t\t\t<th scope='col' id='tiempo'>Tiempo</th>\n";
+                echo "\t\t</tr>\n";
+                echo "\t</thead>\n";
+                echo "\t<tbody>\n";
+
+                while ($fila = $resultado->fetch_assoc()) {
+                    $nombre = $fila['nombre'];
+                    $apellidos = $fila['apellidos'];
+                    $nivel = $fila['nivel'];
+                    $tiempo = $fila['tiempo'];
+
+                    echo "\t\t<tr>\n";
+                    echo "\t\t\t<td headers = 'nombre'>" . $nombre . "</td>\n";
+                    echo "\t\t\t<td headers = 'apellidos'>" . $apellidos . "</td>\n";
+                    echo "\t\t\t<td headers = 'nivel'>" . $nivel . "</td>\n";
+                    echo "\t\t\t<td headers = 'tiempo'>" . $tiempo . "</td>\n";
+                    echo "\t\t</tr>\n";
+                }
+
+                echo "\t<tbody>\n";
+                echo "<table>\n";
+            }
+        }
+        
     }
 ?>
 
@@ -62,22 +100,38 @@
             <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
             <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
             <a href="meteorologia.html" accesskey="M" tabindex="5">Meteorología</a>
-            <a href="viajes.html" accesskey="V" tabindex="6">Viajes</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
 
     <h2>Crucigrama matemático</h2>
 
-    <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
-    <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
-    <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
-    <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
+    <article>
+        <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
+        <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
+        <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
+        <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
+    </article>
 
     <p>Este juego es un crucigrama matemático. Se mostrará un crucigrama con una serie de operaciones matemáticas parcialmente vacías que el jugador deberá completar correctamente.</p>
     <p>En dispositivos móviles, se mostrará una botonera que el usuario podrá emplear para insertar los valores necesarios para resolver el crucigrama. </p>
 
     <main></main>
+
+    <?php
+        if (count($_POST) > 0) {
+            $nombre = $_POST['nombre'];
+            $apellidos = $_POST['apellidos'];
+            $nivel = $_POST['nivel'];
+            $tiempo = $_POST['tiempo'];
+            $record = new Record();
+            if (!empty($nombre) && !empty($apellidos)) {
+                $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
+            }
+            $record->mostrarRegistros();
+        }
+    ?>
     
     <section data-type="botonera">
         <h2>Botonera</h2>

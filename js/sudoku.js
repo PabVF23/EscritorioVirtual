@@ -1,9 +1,3 @@
-/*
-    Ejecutar páginas web con XAMPP y Apache para JavaScript
-    Validar HTML con inspector web para ver código fuente y copiar a archivo (añadir DOCTYPE manualmente).
-    Validar HTML, accesibilidad y adaptabilidad con versión estática
-*/
-
 class Sudoku {
     cadena =  "";
     filas = 9;

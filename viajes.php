@@ -1,5 +1,44 @@
 <!DOCTYPE HTML>
 
+<?php
+    class Carrusel {
+        public function __construct($pais, $capital) {
+            $this->pais = $pais;
+            $this->capital = $capital;
+        }
+
+        public function cargarDatos() {
+
+            $params = array(
+                'api_key' => 'a607c523b66a35f121c8751feb7418bb',
+                'method' => 'flickr.photos.search',
+                'tags' => $this->pais . "," . $this->capital,
+                'lat' => '-21.13117063262022',
+                'lon' => '-175.2005886457105',
+                'per_page' => "10",
+                'format' => 'json',
+                'no_json_callback' => '1'
+            );
+
+            $encoded_params = array();
+
+            foreach ($params as $k => $v){
+                $encoded_params[] = urlencode($k).'='.urlencode($v);
+            }
+
+            $url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
+
+            $fotos = file_get_contents($url);
+            $this->fotos = [];
+
+            echo 
+        }
+    }
+
+    $carrusel = new Carrusel("Tonga", "Nuku'alofa");
+    $carrusel->cargarDatos();
+?>
+
 <html lang="es">
 <head>
     <!-- Datos que describen el documento -->
@@ -31,7 +70,7 @@
             <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
             <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
             <a href="meteorologia.html" accesskey="M" tabindex="5">Meteorología</a>
-            <a href="viajes.html" accesskey="V" tabindex="6">Viajes</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>

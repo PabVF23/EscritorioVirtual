@@ -1,7 +1,3 @@
-/**
- * Dudas: Preguntar por ayudas online
- */
-
 class Crucigrama {
     board;
     columnas = 9;

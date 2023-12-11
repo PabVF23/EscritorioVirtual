@@ -1,9 +1,4 @@
 
-/*
-    Dudas:
-        · Preguntar si asignacion de onclick es correcta
-        · Preguntar por async
-*/
 class Agenda {
     last_api_call = null;
     last_api_result = null;
