@@ -9,6 +9,7 @@
 
         public function cargarDatos() {
 
+
             $params = array(
                 'api_key' => 'a607c523b66a35f121c8751feb7418bb',
                 'method' => 'flickr.photos.search',
@@ -17,7 +18,7 @@
                 'lon' => '-175.2005886457105',
                 'per_page' => "10",
                 'format' => 'json',
-                'no_json_callback' => '1'
+                'nojsoncallback' => '1'
             );
 
             $encoded_params = array();
@@ -28,13 +29,40 @@
 
             $url = "https://api.flickr.com/services/rest/?".implode('&', $encoded_params);
 
-            $fotos = file_get_contents($url);
-            $this->fotos = [];
+            $respuesta = file_get_contents($url);
+            $fotos = json_decode($respuesta);
 
-            echo 
+            if($fotos == null) {
+                echo "<h3>Error en el archivo JSON recibido</h3>";
+            }   
+
+            $this->fotos = $fotos->photos->photo;
+        }
+
+        public function imprimirFotos() {
+            echo "<article>";
+            echo "<h3>Carrusel de imágenes</h3>";
+            $i = 0;
+            foreach($this->fotos as &$foto) {
+                $i++;
+                $serverId = $foto->server;
+                $photoId = $foto->id;
+                $secret = $foto->secret;
+                $format = "png";
+                
+                $url = "https://live.staticflickr.com/" . $serverId . "/" . $photoId . "_" . $secret . "_b." . $format;
+
+                $element = "<img src='" . $url . "' alt='Imagen " . $i . " Carrusel' />";
+                echo $element;
+            }
+
+            echo('<button data-action="next"> > </button>');
+            echo('<button data-action="prev"> < </button>');
+
+            echo "</article>";
         }
     }
-
+    
     $carrusel = new Carrusel("Tonga", "Nuku'alofa");
     $carrusel->cargarDatos();
 ?>
@@ -77,6 +105,9 @@
 
     <main>
         <h2>Viajes</h2>
+        <?php
+            $carrusel->imprimirFotos();
+        ?>
         <section id="mapa"></section>
         <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
         <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>

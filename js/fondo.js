@@ -25,11 +25,12 @@ class Fondo {
                 let photoId = item.id;
                 let secret = item.secret;
                 let format = "png"
-                let url = "https://live.staticflickr.com/" + serverId + "/" + photoId + "_" + secret + "_b." + format;
+                let url = "https://live.staticflickr.com/" + serverId + "/" + photoId + "_" + secret + "_m." + format;
                 urls.push(url);
             })
 
             var url = urls[Math.floor(Math.random()*urls.length)];
+            alert(url)
             $("body").css("background-image", 'url("' + url + '")').css("background-size", "cover");
         })
         .fail(function(error) {

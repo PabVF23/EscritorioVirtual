@@ -1,3 +1,8 @@
+
+/**
+ * Importante: Preguntar duda css
+ */
+
 class Viajes {
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));
@@ -105,7 +110,6 @@ class Viajes {
     leerXML() {
         let archivo = $("input").eq(1).prop("files")[0];
         let tipoTexto = /text.*/;
-        let viajes = this;
         if(archivo.type.match(tipoTexto) && this.soportaAPIFile) {
             let lector = new FileReader();
             lector.onload = function(evento) {
@@ -358,6 +362,43 @@ class Viajes {
             }
         }
     }
+
+    configurarCarrusel() {
+        this.slides = document.querySelectorAll("img");
+        let nextSlide = document.querySelector("button[data-action='next']");
+        this.currSlide = 0;
+        this.maxSlide = this.slides.length - 1;
+
+        let viajes = this;
+
+        nextSlide.addEventListener("click", function () {
+            if (viajes.currSlide === viajes.maxSlide) {
+                viajes.currSlide = 0;
+            } else {
+                viajes.currSlide++;
+            }
+          
+            viajes.slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - viajes.currSlide);
+              $(slide).css('transform', 'translateX(' + trans + '%)');
+            });
+          });
+
+        let prevSlide = document.querySelector("button[data-action='prev']");
+        prevSlide.addEventListener("click", function () {
+            if (viajes.currSlide === 0) {
+                viajes.currSlide = viajes.maxSlide;
+            } else {
+                viajes.currSlide--;
+            }
+        
+            viajes.slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - viajes.currSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
+    }
 }
 
 var viajes = new Viajes();
+viajes.configurarCarrusel();
