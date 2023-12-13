@@ -369,33 +369,52 @@ class Viajes {
         this.currSlide = 0;
         this.maxSlide = this.slides.length - 1;
 
+        this.slides.forEach((slide) => {
+            $(slide).attr("data-visibility", "hidden");
+        });
+
+        var slide = this.slides[this.currSlide];
+        $(slide).attr("data-visibility", "visible");
+
         let viajes = this;
 
         nextSlide.addEventListener("click", function () {
+            var slide = viajes.slides[viajes.currSlide];
+            $(slide).attr("data-visibility", "hidden");
+
             if (viajes.currSlide === viajes.maxSlide) {
                 viajes.currSlide = 0;
             } else {
                 viajes.currSlide++;
             }
           
-            viajes.slides.forEach((slide, indx) => {
-                var trans = 100 * (indx - viajes.currSlide);
-              $(slide).css('transform', 'translateX(' + trans + '%)');
-            });
+            // viajes.slides.forEach((slide, indx) => {
+            //     var trans = 100 * (indx - viajes.currSlide);
+            //   $(slide).css('transform', 'translateX(' + trans + '%)');
+            // });
+
+            slide = viajes.slides[viajes.currSlide];
+            $(slide).attr("data-visibility", "visible");
           });
 
         let prevSlide = document.querySelector("button[data-action='prev']");
         prevSlide.addEventListener("click", function () {
+            var slide = viajes.slides[viajes.currSlide];
+            $(slide).attr("data-visibility", "hidden");
+
             if (viajes.currSlide === 0) {
                 viajes.currSlide = viajes.maxSlide;
             } else {
                 viajes.currSlide--;
             }
         
-            viajes.slides.forEach((slide, indx) => {
-                var trans = 100 * (indx - viajes.currSlide);
-                $(slide).css('transform', 'translateX(' + trans + '%)')
-            });
+            // viajes.slides.forEach((slide, indx) => {
+            //     var trans = 100 * (indx - viajes.currSlide);
+            //     $(slide).css('transform', 'translateX(' + trans + '%)')
+            // });
+
+            slide = viajes.slides[viajes.currSlide];
+            $(slide).attr("data-visibility", "visible");
         });
     }
 }
