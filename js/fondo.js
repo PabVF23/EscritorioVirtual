@@ -30,7 +30,6 @@ class Fondo {
             })
 
             var url = urls[Math.floor(Math.random()*urls.length)];
-            alert(url)
             $("body").css("background-image", 'url("' + url + '")').css("background-size", "cover");
         })
         .fail(function(error) {
