@@ -37,6 +37,7 @@
 
             if ($resultado->fetch_assoc() != NULL) {
                 echo "<section>";
+                echo "<h3>Records</h3>";
                 echo "<table>\n";
                 echo "\t<caption>10 mejores resultados en el crucigrama</caption>\t";
                 echo "\t<thead>\n";
@@ -63,8 +64,9 @@
                     echo "\t\t</tr>\n";
                 }
 
-                echo "\t<tbody>\n";
-                echo "<table>\n";
+                echo "\t</tbody>\n";
+                echo "</table>\n";
+                echo "</section>\n";
             }
         }
         
@@ -108,6 +110,7 @@
     <h2>Crucigrama matemático</h2>
 
     <article>
+        <h3>Otros juegos</h3>
         <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
         <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
         <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
@@ -126,9 +129,7 @@
             $nivel = $_POST['nivel'];
             $tiempo = $_POST['tiempo'];
             $record = new Record();
-            if (!empty($nombre) && !empty($apellidos)) {
-                $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
-            }
+            $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
             $record->mostrarRegistros();
         }
     ?>
