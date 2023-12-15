@@ -108,7 +108,9 @@
         <?php
             $carrusel->imprimirFotos();
         ?>
-        <section id="mapa"></section>
+        <section id="mapa">
+            <h3>Cargar mapa</h3>
+        </section>
         <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
         <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
         <h3>Subir archivos KML</h3>

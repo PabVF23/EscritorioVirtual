@@ -47,7 +47,7 @@ def escribirKML(archivoXML):
     
     index = 0
     
-    ns = "http://www.uniovi.es"
+    ns = "http://www.pabvf.es/rutas"
     rutaXPath = ".//{" + ns + "}ruta"
     
     for ruta in raiz.findall(rutaXPath):

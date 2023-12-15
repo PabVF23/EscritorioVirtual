@@ -7,6 +7,7 @@ class Viajes {
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));
         this.soportaAPIFile = window.File && window.FileReader && window.FileList && window.Blob;
+        mapboxgl.accessToken = "pk.eyJ1IjoicGFidmYiLCJhIjoiY2xwcGg5eWpkMTU1NTJpcWdzeHY1YWY4NSJ9.2pTX2YTmvRYIVHh0Mx2qpA"
     }
 
     getPosicion(posicion) {
@@ -61,13 +62,13 @@ class Viajes {
         let mapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
         $("section:first").empty()
+        $("section:first").append("<h3>Mapa estático</h3>");
         $("section:first").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
     }
 
     getMapaDinamico() {
         var centro = [-5.8502461, 43.3672702];
 
-        mapboxgl.accessToken = "pk.eyJ1IjoicGFidmYiLCJhIjoiY2xwcGg5eWpkMTU1NTJpcWdzeHY1YWY4NSJ9.2pTX2YTmvRYIVHh0Mx2qpA"
         $("section:first").empty()
         var mapaGeoposicionado = new mapboxgl.Map({
             container: "mapa",
@@ -105,6 +106,8 @@ class Viajes {
                     
                 mapaGeoposicionado.setCenter(pos);
         }
+
+        $("section:first").prepend("<h3>Mapa dinámico</h3>");
     }
 
     leerXML() {
@@ -253,7 +256,8 @@ class Viajes {
     }
 
     añadirKMLs() {
-        $("#mapa").empty();
+        $("section:first").empty();
+
         let archivos = $("input:first").prop("files");
         let viajes = this;
         let centro = [-5.8502461, 43.3672702];
@@ -290,11 +294,13 @@ class Viajes {
                         }
                     }
 
-                    for (let i = 0; i < coordinates.length; i++) {
-                        var marker = new mapboxgl.Marker()
-                        .setLngLat(coordinates[i])
-                        .addTo(mapa);
-                    }
+                    // for (let i = 0; i < coordinates.length; i++) {
+                    //     var marker = new mapboxgl.Marker({
+                    //         scale: 0.25
+                    //     })
+                    //     .setLngLat(coordinates[i])
+                    //     .addTo(mapa);
+                    // }
                     mapa.on('load', function() {
                         mapa.addSource(nombre, {
                             'type': 'geojson',
@@ -387,11 +393,6 @@ class Viajes {
             } else {
                 viajes.currSlide++;
             }
-          
-            // viajes.slides.forEach((slide, indx) => {
-            //     var trans = 100 * (indx - viajes.currSlide);
-            //   $(slide).css('transform', 'translateX(' + trans + '%)');
-            // });
 
             slide = viajes.slides[viajes.currSlide];
             $(slide).attr("data-visibility", "visible");
@@ -407,12 +408,6 @@ class Viajes {
             } else {
                 viajes.currSlide--;
             }
-        
-            // viajes.slides.forEach((slide, indx) => {
-            //     var trans = 100 * (indx - viajes.currSlide);
-            //     $(slide).css('transform', 'translateX(' + trans + '%)')
-            // });
-
             slide = viajes.slides[viajes.currSlide];
             $(slide).attr("data-visibility", "visible");
         });

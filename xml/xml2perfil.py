@@ -47,15 +47,15 @@ def escribirSVG(archivoXML):
     
     index = 0
     
-    ns = "http://www.uniovi.es"
+    ns = "http://www.pabvf.es/rutas"
     rutaXPath = ".//{" + ns + "}ruta"
     
     for ruta in raiz.findall(rutaXPath):
         index += 1
         filename = "perfil" + str(index) + ".svg"
-        f = open(filename, "w")
+        f = open(filename, "w+")
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        f.write('<svg version="2.0" xmlns="http://www.w3.org/2000/svg">\n')
+        f.write('<svg version="1.1" xmlns="http://www.w3.org/2000/svg">\n')
         
         
         f.write('\t<polyline points = "\n')

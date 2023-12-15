@@ -10,6 +10,8 @@ section:first-of-type:empty {
 section:first-of-type {
     width: 75vw;
     height: 55vw;
+    display: grid;
+    grid-template-rows: 10% 90%
 }
 
 /* Especificidad: 013 */
@@ -38,6 +40,7 @@ text {
     color: #000000;
 }
 
+/* Especificidad: 001*/
 article {
     width: 100%;
     max-width: 100vh;
@@ -48,6 +51,7 @@ article {
     padding-bottom: 1em;
 }
 
+/* Especificidad: 002*/
 article h3 {
     width: 100%;
     text-align: center;
@@ -55,6 +59,7 @@ article h3 {
     font-size: 2em;
 }
 
+/* Especificidad: 002*/
 article > img {
     width: 100vh;
     height: 60vh;
@@ -63,10 +68,12 @@ article > img {
     border-radius: 0.5em;
 }
 
+/* Especificidad: 012*/
 article > img[data-visibility="hidden"] {
     visibility: hidden;
 }
 
+/* Especificidad: 002*/
 article > button {
     position: absolute;
     width: 2em;
@@ -81,15 +88,18 @@ article > button {
     font-size: 1em;
   }
 
+  /* Especificidad: 012*/
   article > button:active {
     transform: scale(1.1);
   }
   
+  /* Especificidad: 012*/
   article > button[data-action=prev] {
     top: 50%;
     left: 2%;
   }
   
+  /* Especificidad: 012*/
   article > button[data-action=next] {
     top: 50%;
     right: 2%;
