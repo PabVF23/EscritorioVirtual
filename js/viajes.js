@@ -61,17 +61,16 @@ class Viajes {
         let sensor = "&sensor=false";
         let mapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
-        $("section:first > h3").text("Mapa estático");
-        $("section:first > div").empty()
-        $("section:first > div").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
+        $("body > h3").first().text("Mapa estático");
+        $("main").empty()
+        $("main").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
     }
 
     getMapaDinamico() {
         var centro = [-5.8502461, 43.3672702];
 
-        $("section:first > h3").text("Mapa dinamico");
+        $("body > h3").first().text("Mapa dinámico");
 
-        $("section:first > div").empty()
         var mapaGeoposicionado = new mapboxgl.Map({
             container: "mapa",
             center: centro,
@@ -256,9 +255,8 @@ class Viajes {
     }
 
     añadirKMLs() {
-        $("section:first > h3").text("Mapa dinamico");
+        $("body > h3").first().text("Mapa dinámico");   
 
-        $("section:first > div").empty();
         let archivos = $("input:first").prop("files");
         let viajes = this;
         let centro = [-5.8502461, 43.3672702];

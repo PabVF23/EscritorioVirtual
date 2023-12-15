@@ -19,6 +19,7 @@ class Agenda {
                 success: function(datos) {
                     agenda.last_api_result = datos;
                     agenda.procesarDatos();
+                    console.log("Miau")
                 }
             })
         }

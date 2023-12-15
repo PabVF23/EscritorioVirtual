@@ -104,31 +104,28 @@
         </nav>
     </header>
 
-    <main>
-        <h2>Viajes</h2>
+    <h2>Viajes</h2>
         <?php
             $carrusel = new Carrusel("Tonga", "Nuku'alofa");
             $carrusel->cargarDatos();
             $carrusel->imprimirFotos();
         ?>
-        <section>
-            <h3>Cargar mapa</h3>
-            <!--Se emplea aquí un div para introducir los mapas en este, ya que, si se introduce el mapa dinámico directamente, se superpondría sobre el elemento h3-->
-            <div id="mapa"></div>
-        </section>
-        <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
-        <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
-        <h3>Subir archivos KML</h3>
-        <input type="file" onChange="viajes.añadirKMLs()" multiple/>
-        <section>
-            <h3>Subir archivo XML</h3>
-            <input type="file" onchange="viajes.leerXML()"/>
-        </section>
-        <section>
-            <h3>Subir archivos SVG</h3>
-            <input type="file" onchange="viajes.añadirSVG()" multiple/>
-        </section>
+
+    <h3>Cargar mapa</h3>
+    <main id="mapa">
     </main>
+    <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
+    <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
+    <h3>Subir archivos KML</h3>
+    <input type="file" onChange="viajes.añadirKMLs()" multiple/>
+    <section>
+        <h3>Subir archivo XML</h3>
+        <input type="file" onchange="viajes.leerXML()"/>
+    </section>
+    <section>
+        <h3>Subir archivos SVG</h3>
+        <input type="file" onchange="viajes.añadirSVG()" multiple/>
+    </section>
     <script src="js/viajes.js"></script>
 </body>
 </html>
