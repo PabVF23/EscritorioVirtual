@@ -64,7 +64,7 @@
     }
 
     class Moneda {
-
+        // Usar Forex como API
     }
 ?>
 
