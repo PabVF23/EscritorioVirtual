@@ -57,7 +57,9 @@ p:nth-child(n+19):nth-child(-n+27), p:nth-child(n+46):nth-child(-n+54) {
 
 @media (max-width: 800px) {
     main {
+        /* Redefinición de propiedad width */
         width: 80vw;
+        /* Redefinición de propiedad height */
         height: 40vh;
     }
 }

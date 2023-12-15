@@ -112,12 +112,15 @@ form > input[type="submit"] {
 
     /* Especificidad: 001*/
     main {
+        /* Redefinición de propiedad width */
         width: 75vw;
     }
 
     /* Especificidad: 002*/
     main > p {
+        /* Redefinición de propiedad font-size */
         font-size: 1em;
+        /* Redefinición de propiedad font-weight */
         font-weight: normal;
     }
 }
