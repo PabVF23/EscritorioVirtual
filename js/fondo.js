@@ -25,7 +25,7 @@ class Fondo {
                 let photoId = item.id;
                 let secret = item.secret;
                 let format = "png"
-                let url = "https://live.staticflickr.com/" + serverId + "/" + photoId + "_" + secret + "_m." + format;
+                let url = "https://live.staticflickr.com/" + serverId + "/" + photoId + "_" + secret + "_b." + format;
                 urls.push(url);
             })
 
