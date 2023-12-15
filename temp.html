@@ -2,19 +2,19 @@
 <html lang="es"><head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8">
-    <title>Escritorio Virtual - Reproductor de música</title>
+    <title>Escritorio Virtual - Noticias</title>
 
     <meta name="author" content="Pablo Valdés Fernández">
-    <meta name="description" content="Un reproductor de música">
-    <meta name="keywords" content="reproductor, reproducir, musica, cancion, escuchar, sonido">
+    <meta name="description" content="aquí cada documento debe tener la descripción del contenido concreto del mismo">
+    <meta name="keywords" content="aquí cada documento debe tener la lista de las palabras clave del mismo separadas por comas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
     <link rel="stylesheet" type="text/css" href="estilo/layout.css">
-    <link rel="stylesheet" type="text/css" href="estilo/api.css">
+    <link rel="stylesheet" type="text/css" href="estilo/noticias.css">
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="js/api.js"></script>
+    <script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -33,22 +33,25 @@
         </nav>
     </header>
 
-    <h2>Reproductor de música</h2>
-    <article>
-        <h3>Otros juegos</h3>
-        <a href="memoria.html" accesskey="M" tabindex="8">Memoria</a>
-        <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
-        <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
-        <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
-    </article>
+    <main>
+        <h2>Noticias</h2>
+        <script>
+            var noticias = new Noticias();
+        </script>
+        <input type="file" onchange="noticias.readInputFile(this.files)">
 
-    <section ondrop="reproductor.procesarArchivo(event)" ondragover="reproductor.detectarArchivo(event)"><h3>Arrastra el archivo que quieras reproducir aquí</h3><p>Actualmente reproduciendo: This_Charming_Man.mp3</p><audio src="blob:http://localhost/386cb453-f70b-4ac7-b5f4-9f0b670fc937"></audio><button onclick="reproductor.cambiarEstadoReproduccion()">Pausar</button><p>Volumen actual: 50%</p><input type="range" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()"></section>
+        <article><h3>El aumento de la producción científica desborda de papeleo a la Universidad</h3><h4>El Rector promete cambiar el servicio de gestión y contratar personal</h4><p>A la Universidad de Oviedo le desborda el papeleo por el gran salto dado en investigación</p><p>Mónica Salas</p></article><article><h3>La Universidad presume de equipos deportivos en una jornada ilusionante</h3><h4>La presentación tuvo lugar en el polideportivo universitario</h4><p>Ayer, por primera vez, todos los equipos deportivos de la Universidad de Oviedo realizaron una presentación conjunta</p><p>Juan Sanchez</p></article><article><h3>Investigadores que se van por unos meses al otro lado, a la empresa</h3><h4>Deberían hacerlo todos los científicos, afirman un psicólogo y una informática</h4><p>Una cosa es colaborar con una empresa y otra bien diferente es poder trabajar en ella durante unos meses</p><p>Manuel Rodriguez</p></article><section>
+            <h4>Titular:</h4>
+            <input type="text">
+            <h4>Entradilla:</h4>
+            <input type="text">
+            <h4>Texto:</h4>
+            <input type="text">
+            <h4>Autor:</h4>
+            <input type="text">
+        </section>
 
-    <h3>Selecciona un archivo mp3 (o varios) a cargar</h3>
-    <input type="file" onchange="reproductor.cargarArchivos()" multiple="">
-
-    <section data-loaded="true"><h4>Archivos cargados</h4>
-        
-    <p draggable="true" ondragstart="reproductor.moverArchivo(event)" data-url="blob:http://localhost/386cb453-f70b-4ac7-b5f4-9f0b670fc937" data-tapped="true" data-state="selected">This_Charming_Man.mp3</p></section>
+        <button onclick="noticias.añadirNoticia()">Añadir noticia</button>
+    </main>
 
 </body></html>
