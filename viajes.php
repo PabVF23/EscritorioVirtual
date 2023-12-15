@@ -105,15 +105,15 @@
     </header>
 
     <h2>Viajes</h2>
-        <?php
-            $carrusel = new Carrusel("Tonga", "Nuku'alofa");
-            $carrusel->cargarDatos();
-            $carrusel->imprimirFotos();
-        ?>
-
+    <?php
+        $carrusel = new Carrusel("Tonga", "Nuku'alofa");
+        $carrusel->cargarDatos();
+        $carrusel->imprimirFotos();
+    ?>
     <h3>Cargar mapa</h3>
-    <main id="mapa">
-    </main>
+
+    <main id="mapa"></main>
+
     <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
     <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
     <h3>Subir archivos KML</h3>

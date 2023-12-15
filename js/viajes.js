@@ -61,7 +61,7 @@ class Viajes {
         let sensor = "&sensor=false";
         let mapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
 
-        $("body > h3").first().text("Mapa estático");
+        $("body > h3").first().text("Mapa estatico");
         $("main").empty()
         $("main").append("<img src='" + mapa + "' alt='Mapa estático de Google' />");
     }
@@ -255,7 +255,7 @@ class Viajes {
     }
 
     añadirKMLs() {
-        $("body > h3").first().text("Mapa dinámico");   
+        $("body > h3").first().text("Mapa dinámico");
 
         let archivos = $("input:first").prop("files");
         let viajes = this;
