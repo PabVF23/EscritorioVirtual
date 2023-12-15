@@ -30,8 +30,9 @@ class Reproductor {
             })
 
             if (archivos.length) {
-                $("section:last").attr("loaded", "true")
+                $("section:last").attr("data-loaded", "true")
                 $("section:last h4").remove();
+                $("section:last").prepend("<h4>Archivos cargados</h4>")
             }
         }
     }
@@ -48,7 +49,7 @@ class Reproductor {
     procesarArchivo(event) {
         event.preventDefault();
         $(event.target).empty();
-        $(event.target).attr("has-audio", "true");
+        $(event.target).append("<h3>Arrastra el archivo que quieras reproducir aquí</h3>");
         let url = event.dataTransfer.getData("url");
         let nombre = event.dataTransfer.getData("nombre");
         $(event.target).append("<p>Actualmente reproduciendo: " + nombre + "</p")
@@ -71,7 +72,7 @@ class Reproductor {
 
     cargarArchivo() {
         $("section:first").empty();
-        $("section:first").attr("has-audio", "true");
+        $("section:first").append("<h3>Arrastra el archivo que quieras reproducir aquí</h3>");
 
         let url = $("section:last > p[data-state = selected]").attr("data-url");
         let nombre = $("section:last > p[data-state = selected]").text();

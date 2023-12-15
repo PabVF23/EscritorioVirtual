@@ -3,8 +3,15 @@
 /* Especificidad: 001*/
 article {
     display: flex;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+    align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Especificidad: 002*/
+article>h3 {
+    width:100%;
 }
 
 /* Especificidad: 002*/
@@ -14,7 +21,7 @@ article>a {
 
 /* Especificidad: 011*/
 section:first-of-type {
-    height: 12em;
+    height: 20em;
     width: 60vw;
     border: 0.2em solid black;
 }
@@ -30,7 +37,7 @@ input {
 }
 
 /* Especificidad: 021*/
-section:last-of-type[loaded] {
+section:last-of-type[data-loaded] {
     height: 75vh;
     overflow-y: auto;
     display: flex;

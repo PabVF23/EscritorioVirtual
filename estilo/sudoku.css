@@ -9,6 +9,7 @@ article {
     flex-wrap: wrap;
 }
 
+/* Especificidad: 002*/
 article>h3 {
     width:100%;
 }
