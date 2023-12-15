@@ -62,9 +62,10 @@
             echo "</article>";
         }
     }
-    
-    $carrusel = new Carrusel("Tonga", "Nuku'alofa");
-    $carrusel->cargarDatos();
+
+    class Moneda {
+
+    }
 ?>
 
 <html lang="es">
@@ -106,10 +107,14 @@
     <main>
         <h2>Viajes</h2>
         <?php
+            $carrusel = new Carrusel("Tonga", "Nuku'alofa");
+            $carrusel->cargarDatos();
             $carrusel->imprimirFotos();
         ?>
-        <section id="mapa">
+        <section>
             <h3>Cargar mapa</h3>
+            <!--Se emplea aquí un div para introducir los mapas en este, ya que, si se introduce el mapa dinámico directamente, se superpondría sobre el elemento h3-->
+            <div id="mapa"></div>
         </section>
         <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
         <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
