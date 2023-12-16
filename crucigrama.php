@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-<html lang="es">
 
 <?php
     class Record {
@@ -22,6 +21,9 @@
                 $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
                 $stmt->execute();
                 $stmt->close();
+                $this->insercionRealizada = TRUE;
+            } else {
+                $this->insercionRealizada = FALSE;
             }
 
             $db->close();
@@ -37,9 +39,17 @@
             $query = "SELECT * FROM REGISTRO ORDER BY TIEMPO LIMIT 10";
             $resultado = $db->query($query);
 
-            if ($resultado->fetch_assoc() != NULL) {
+            $fila = $resultado->fetch_assoc();
+            if ($fila != NULL) {
                 echo "<section>";
                 echo "<h3>Records</h3>";
+
+                if ($this->insercionRealizada) {
+                    echo "<p>¡Datos insertados correctamente!</p>";
+                } else {
+                    echo "<p>Advertencia: No deben quedar campos en blanco en el formulario</p>";
+                }
+
                 echo "<table>\n";
                 echo "\t<caption>10 mejores resultados en el crucigrama</caption>\t";
                 echo "\t<thead>\n";
@@ -52,7 +62,7 @@
                 echo "\t</thead>\n";
                 echo "\t<tbody>\n";
 
-                while ($fila = $resultado->fetch_assoc()) {
+                do {
                     $nombre = $fila['nombre'];
                     $apellidos = $fila['apellidos'];
                     $nivel = $fila['nivel'];
@@ -64,7 +74,7 @@
                     echo "\t\t\t<td headers = 'nivel'>" . $nivel . "</td>\n";
                     echo "\t\t\t<td headers = 'tiempo'>" . $tiempo . "</td>\n";
                     echo "\t\t</tr>\n";
-                }
+                } while ($fila = $resultado->fetch_assoc());
 
                 echo "\t</tbody>\n";
                 echo "</table>\n";
@@ -75,6 +85,7 @@
     }
 ?>
 
+<html lang="es">
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
