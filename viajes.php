@@ -103,29 +103,32 @@
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
+    <main>
+        <h2>Viajes</h2>
+        <?php
+            $carrusel = new Carrusel("Tonga", "Nuku'alofa");
+            $carrusel->cargarDatos();
+            $carrusel->imprimirFotos();
+        ?>
 
-    <h2>Viajes</h2>
-    <?php
-        $carrusel = new Carrusel("Tonga", "Nuku'alofa");
-        $carrusel->cargarDatos();
-        $carrusel->imprimirFotos();
-    ?>
-    <h3>Cargar mapa</h3>
+        <section>
+            <h3>Cargar mapa</h3>
+            <figure id="mapa"></figure>
+        </section>
 
-    <main id="mapa"></main>
-
-    <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
-    <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
-    <h3>Subir archivos KML</h3>
-    <input type="file" onChange="viajes.añadirKMLs()" multiple/>
-    <section>
-        <h3>Subir archivo XML</h3>
-        <input type="file" onchange="viajes.leerXML()"/>
-    </section>
-    <section>
-        <h3>Subir archivos SVG</h3>
-        <input type="file" onchange="viajes.añadirSVG()" multiple/>
-    </section>
+        <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
+        <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
+        <h3>Subir archivos KML</h3>
+        <input type="file" onChange="viajes.añadirKMLs()" multiple/>
+        <section>
+            <h3>Subir archivo XML</h3>
+            <input type="file" onchange="viajes.leerXML()"/>
+        </section>
+        <section>
+            <h3>Subir archivos SVG</h3>
+            <input type="file" onchange="viajes.añadirSVG()" multiple/>
+        </section>
+    </main>
     <script src="js/viajes.js"></script>
 </body>
 </html>
