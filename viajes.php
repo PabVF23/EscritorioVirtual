@@ -66,12 +66,24 @@
         // Usar Forex como API
 
         public function __construct($local, $extranjera) {
-            $this->local;
-            $this->extranjera;
+            $this->local = $local;
+            $this->extranjera = $extranjera;
         }
 
         public function obtenerCambio() {
-            // TODO: Implementar
+            $apiKey = "4f560b96b1498125fea155c9";
+            $url = "https://v6.exchangerate-api.com/v6/" . $apiKey . "/pair/" . $this->local . "/" . $this->extranjera;
+
+            $respuesta = file_get_contents($url);
+            $resultado = json_decode($respuesta);
+
+            if ($resultado == NULL) {
+                echo "<h3>Error en el archivo JSON recibido</h3>";
+            } else {
+                $tasa = $resultado->conversion_rate;
+
+                echo "<p>Tasa de cambio obtenida: 1 " . $this->local . " = " . $tasa . " " . $this->extranjera . "</p>";
+            }
         }
     }
 ?>
@@ -113,11 +125,27 @@
     </header>
     <main>
         <h2>Viajes</h2>
+
         <?php
             $carrusel = new Carrusel("Tonga", "Nuku'alofa");
             $carrusel->cargarDatos();
             $carrusel->imprimirFotos();
         ?>
+
+        <section>
+            <h3>Tipo de cambio</h3>
+
+            <?php
+                if (isset($_POST["obtenerTipo"])) {
+                    $moneda = new Moneda("EUR", "TOP");
+                    $moneda->obtenerCambio();
+                }
+            ?>
+
+            <form action='#' method='post' name='cambio'>
+                <button type="submit" name="obtenerTipo" value="Obtener tipo">Obtener tipo de cambio</button>
+            </form>
+        </section>
 
         <section>
             <h3>Cargar mapa</h3>
