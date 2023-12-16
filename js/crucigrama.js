@@ -160,26 +160,7 @@ class Crucigrama {
             this.end_time = new Date();
             let diff = this.calculate_time_difference();
             alert("¡Enhorabuena! Has completado el crucigrama en " + diff + " segundos");
-            this.createRecordForm();
         }
-    }
-
-    createRecordForm() {
-        $("main").after("<section></section>")
-
-        $("section:first").append("<h3>¡Has ganado! Introduce tus datos si quieres guardar tu resultado</h3>")
-
-        $("section:first").append("<form action='#' method='post' name='record'></form>")
-
-        $("form").append("<p>Nombre: </p>")
-        $("form").append("<input type='text' name='nombre' />")
-        $("form").append("<p>Apellidos: </p>")
-        $("form").append("<input type='text' name='apellidos' />")
-        $("form").append("<p>Nivel: </p>")
-        $("form").append("<input type='text' name='nivel' value='" + this.nivel + "' readonly />")
-        $("form").append("<p>Tiempo en segundos: </p>")
-        $("form").append("<input type='text' name='tiempo' value='" + this.calculate_time_difference() + "' readonly />")
-        $("form").append("<input type='submit' value='Confirmar' />")
     }
 }
 

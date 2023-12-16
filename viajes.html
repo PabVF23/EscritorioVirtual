@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>Escritorio Virtual - Viajes</title>
+
+    <meta name ="author" content ="Pablo Valdés Fernández" />
+    <meta name ="description" content ="Un mapa en el que se puede ver información de rutas y de localizaciones geográficas" />
+    <meta name ="keywords" content ="mapa, mapbox, ruta, rutas, marcador, marcadores, geografica, geográficas, geolocalizacion, localizaciones, localizacion" />
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/viajes.css" />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+    <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+</head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+        <h1>Escritorio Virtual</h1>
+
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorologia.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Viajes</h2>
+        <section>
+            <h3>Cargar mapa</h3>
+            <figure id="mapa"></figure>
+        </section>
+
+        <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
+        <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
+        <h3>Subir archivos KML</h3>
+        <input type="file" onChange="viajes.añadirKMLs()" multiple/>
+        <section>
+            <h3>Subir archivo XML</h3>
+            <input type="file" onchange="viajes.leerXML()"/>
+        </section>
+        <section>
+            <h3>Subir archivos SVG</h3>
+            <input type="file" onchange="viajes.añadirSVG()" multiple/>
+        </section>
+    </main>
+    <script src="js/viajes.js"></script>
+</body>
+</html>
