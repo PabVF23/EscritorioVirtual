@@ -76,7 +76,7 @@ class Pais {
 
         var lat = "-21.134167"
         var lon = "-175.200278"
-        var openWeatherMapAPI = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&lang=es&units=metric";
+        var openWeatherMapAPI = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&lang=es&units=metric";
         var pais = this;
 
         $.ajax({
@@ -148,7 +148,7 @@ class Pais {
                 $("tr:last").append('<th scope="row" id="tiempo">Tiempo</th>')
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
-                    let tiempo = "http://openweathermap.org/img/w/" + datos[i].weather[0].icon + ".png";
+                    let tiempo = "https://openweathermap.org/img/w/" + datos[i].weather[0].icon + ".png";
                     let td = '<td headers="' + date + ' tiempo"></th>'
 
                     $("tr:last").append(td);

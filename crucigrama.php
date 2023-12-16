@@ -62,7 +62,7 @@
                 echo "\t</thead>\n";
                 echo "\t<tbody>\n";
 
-                do {
+                while ($fila) {
                     $nombre = $fila['nombre'];
                     $apellidos = $fila['apellidos'];
                     $nivel = $fila['nivel'];
@@ -74,7 +74,9 @@
                     echo "\t\t\t<td headers = 'nivel'>" . $nivel . "</td>\n";
                     echo "\t\t\t<td headers = 'tiempo'>" . $tiempo . "</td>\n";
                     echo "\t\t</tr>\n";
-                } while ($fila = $resultado->fetch_assoc());
+
+                    $fila = $resultado->fetch_assoc();
+                }
 
                 echo "\t</tbody>\n";
                 echo "</table>\n";

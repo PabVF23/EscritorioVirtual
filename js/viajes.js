@@ -330,7 +330,6 @@ class Viajes {
                     })
 
                     let mitad = [(parseFloat(coordinates[1][0]) + parseFloat(coordinates[0][0]))/2, (parseFloat(coordinates[1][1]) + parseFloat(coordinates[0][1]))/2]
-                    console.log(mitad)
 
                     let popup = new mapboxgl.Popup({closeOnClick: false})
                     .setLngLat(mitad)

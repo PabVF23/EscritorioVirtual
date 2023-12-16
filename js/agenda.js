@@ -11,7 +11,7 @@ class Agenda {
         if (diff >= 10) {
             this.last_api_call = currDate
 
-            var ergastAPI = "http://ergast.com/api/f1/2023"
+            var ergastAPI = "https://ergast.com/api/f1/2023"
             $.ajax({
                 dataType: "xml",
                 url: ergastAPI,
@@ -19,7 +19,6 @@ class Agenda {
                 success: function(datos) {
                     agenda.last_api_result = datos;
                     agenda.procesarDatos();
-                    console.log("Miau")
                 }
             })
         }
