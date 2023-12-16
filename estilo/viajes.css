@@ -2,8 +2,8 @@
 
 /* Especificidad: 011*/
 section:first-of-type {
-    width: 75vw;
-    height: 63vh;
+    width: 45%;
+    height: 45%;
     margin-bottom: 2em;
 }
 
@@ -14,7 +14,6 @@ section:first-of-type > h3 {
 
 /* Especificidad: 012*/
 section:first-of-type > figure {
-    width: 95%;
     height: 95%;
 }
 
@@ -113,4 +112,12 @@ article > button {
   article > button[data-action=next] {
     top: 50%;
     right: 2%;
+  }
+
+  @media (max-width: 800px) {
+    /* Especificidad: 011*/
+    section:first-of-type {
+        width: 100%;
+        height: 100%;
+    }
   }

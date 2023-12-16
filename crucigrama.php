@@ -17,11 +17,13 @@
                 exit ("<h2>ERROR de conexión:".$db->connect_error."</h2>");  
             }
 
-            $stmt = $db->prepare("INSERT INTO REGISTRO VALUES (?, ?, ?, ?)");
-            $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
-            $stmt->execute();
+            if (!empty($nombre) && !empty($apellidos)) {
+                $stmt = $db->prepare("INSERT INTO REGISTRO VALUES (?, ?, ?, ?)");
+                $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
+                $stmt->execute();
+                $stmt->close();
+            }
 
-            $stmt->close();
             $db->close();
         }
 

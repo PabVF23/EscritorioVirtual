@@ -9,7 +9,6 @@
 
         public function cargarDatos() {
 
-
             $params = array(
                 'api_key' => 'a607c523b66a35f121c8751feb7418bb',
                 'method' => 'flickr.photos.search',
@@ -65,6 +64,15 @@
 
     class Moneda {
         // Usar Forex como API
+
+        public function __construct($local, $extranjera) {
+            $this->local;
+            $this->extranjera;
+        }
+
+        public function obtenerCambio() {
+            // TODO: Implementar
+        }
     }
 ?>
 
