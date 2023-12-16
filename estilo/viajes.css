@@ -7,15 +7,18 @@ section:first-of-type {
     margin-bottom: 2em;
 }
 
+/* Especificidad: 012*/
 section:first-of-type > h3 {
     margin-bottom: 0.2em;
 }
 
+/* Especificidad: 012*/
 section:first-of-type > figure {
     width: 95%;
     height: 95%;
 }
 
+/* Especificidad: 013*/
 section:first-of-type > figure > img {
     width: 100%;
     height: 100%;
