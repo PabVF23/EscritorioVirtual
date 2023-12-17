@@ -171,13 +171,13 @@ class Crucigrama {
 
         $("section:first").append("<form action='#' method='post' name='record'></form>")
 
-        $("form").append("<p>Nombre: </p>")
+        $("form").append("<label for='nombre'>Nombre: </label>")
         $("form").append("<input type='text' name='nombre' />")
-        $("form").append("<p>Apellidos: </p>")
+        $("form").append("<label for='apellidos'>Apellidos: </label for='nombre'>")
         $("form").append("<input type='text' name='apellidos' />")
-        $("form").append("<p>Nivel: </p>")
+        $("form").append("<label for='nivel'>Nivel: </label for='nombre'>")
         $("form").append("<input type='text' name='nivel' value='" + this.nivel + "' readonly />")
-        $("form").append("<p>Tiempo en segundos: </p>")
+        $("form").append("<label for='tiempo'>Tiempo en segundos: </label for='nombre'>")
         $("form").append("<input type='text' name='tiempo' value='" + this.calculate_time_difference() + "' readonly />")
         $("form").append("<input type='submit' value='Confirmar' />")
     }

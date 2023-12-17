@@ -1,0 +1,56 @@
+/* Especificidad: 001*/
+article {
+    display: flex;
+    margin-bottom: 1.5em;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Especificidad: 002*/
+article>h3 {
+    width:100%;
+}
+
+/* Especificidad: 002*/
+article>a {
+    margin-right: 1em;
+}
+
+/* Especificidad: 001*/
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+
+/* Especificidad: 002*/
+form > input {
+    margin-bottom: 1em;
+}
+
+/* Especificidad: 012*/
+form > input[type="text"] {
+    width: 20em;
+}
+
+/* Especificidad: 012*/
+form > input[type="number"] {
+    width: 3em;
+}
+
+/* Especificidad: 012*/
+form > input[type="date"] {
+    width: 8em;
+}
+
+/* Especificidad: 012*/
+form > input[type="checkbox"] {
+    width: 1em;
+}
+
+/* Especificidad: 012*/
+form > input[type="submit"] {
+    width: 10em;
+    height: 2em;
+}

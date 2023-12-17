@@ -130,6 +130,7 @@
         <a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
         <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
         <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
+        <a href="php/biblioteca.php" accesskey="B" tabindex="12">Gestor de biblioteca</a>
     </article>
 
     <p>Este juego es un crucigrama matemático. Se mostrará un crucigrama con una serie de operaciones matemáticas parcialmente vacías que el jugador deberá completar correctamente.</p>

@@ -63,8 +63,6 @@
     }
 
     class Moneda {
-        // Usar Forex como API
-
         public function __construct($local, $extranjera) {
             $this->local = $local;
             $this->extranjera = $extranjera;
@@ -136,15 +134,9 @@
             <h3>Tipo de cambio</h3>
 
             <?php
-                if (isset($_POST["obtenerTipo"])) {
-                    $moneda = new Moneda("EUR", "TOP");
-                    $moneda->obtenerCambio();
-                }
+                $moneda = new Moneda("EUR", "TOP");
+                $moneda->obtenerCambio();
             ?>
-
-            <form action='#' method='post' name='cambio'>
-                <button type="submit" name="obtenerTipo" value="Obtener tipo">Obtener tipo de cambio</button>
-            </form>
         </section>
 
         <section>
