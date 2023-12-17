@@ -10,11 +10,11 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Escritorio Virtual - Biblioteca</title>
+    <title>Escritorio Virtual - Importar info a la biblioteca</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="Una página en la que se gestiona una biblioteca" />
-    <meta name ="keywords" content ="biblioteca, libros, libro, sacar libro, devolver libro, pedir libro" />
+    <meta name ="description" content ="Importar info a la BD de la biblioteca" />
+    <meta name ="keywords" content ="biblioteca, libros, libro, importar libro, importar cliente, importar empleado, importar prestamo, importar devolucion, importar" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
@@ -50,7 +50,7 @@
             <a href="biblioteca.php" accesskey="B" tabindex="12">Gestor de biblioteca</a>
         </article>
 
-        <p>Bienvenido al simulador de gestión de una biblioteca.</p>
+        <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Aquí puedes importar datos mediante un archivo CSV.</p>
         <p>El archivo debe estar en el mismo directorio que los archivos de la página y deberá llamarse "biblioteca.csv".</p>
 

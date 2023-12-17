@@ -10,11 +10,11 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Escritorio Virtual - Insertar en biblioteca</title>
+    <title>Escritorio Virtual - Insertar info en biblioteca</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="Una página en la que se gestiona una biblioteca" />
-    <meta name ="keywords" content ="biblioteca, libros, libro, sacar libro, devolver libro, pedir libro" />
+    <meta name ="description" content ="Insertar info a la BD de la biblioteca" />
+    <meta name ="keywords" content ="biblioteca, libros, libro, insertar libro, insertar cliente, insertar empleado, insertar prestamo, insertar devolucion, insertar" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />

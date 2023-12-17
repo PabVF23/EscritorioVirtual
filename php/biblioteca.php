@@ -15,7 +15,7 @@
     <title>Escritorio Virtual - Biblioteca</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="Una página en la que se gestiona una biblioteca" />
+    <meta name ="description" content ="Un gestor de una biblioteca" />
     <meta name ="keywords" content ="biblioteca, libros, libro, sacar libro, devolver libro, pedir libro" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
@@ -52,7 +52,7 @@
             <a href="biblioteca.php" accesskey="B" tabindex="12">Gestor de biblioteca</a>
         </article>
 
-        <p>Bienvenido al simulador de gestión de una biblioteca.</p>
+        <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Se ha reiniciado la BD correctamente.</p>
         <p>Por favor, seleccione lo que desee hacer:</p>
 

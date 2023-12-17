@@ -10,11 +10,11 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Escritorio Virtual - Biblioteca</title>
+    <title>Escritorio Virtual - Exportar info de iblioteca</title>
 
     <meta name ="author" content ="Pablo Valdés Fernández" />
-    <meta name ="description" content ="Una página en la que se gestiona una biblioteca" />
-    <meta name ="keywords" content ="biblioteca, libros, libro, sacar libro, devolver libro, pedir libro" />
+    <meta name ="description" content ="Exportar info de la BD de la biblioteca" />
+    <meta name ="keywords" content ="biblioteca, libros, libro, exportar libro, exportar cliente, exportar empleado, exportar prestamo, exportar devolucion, exportar" />
     <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
@@ -50,7 +50,7 @@
             <a href="biblioteca.php" accesskey="B" tabindex="12">Gestor de biblioteca</a>
         </article>
 
-        <p>Bienvenido al simulador de gestión de una biblioteca.</p>
+        <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Aquí puedes exportar datos a un archivo CSV.</p>
         <p>El archivo estará en el mismo directorio que los archivos de la página y se llamará "biblioteca.csv".</p>
 
