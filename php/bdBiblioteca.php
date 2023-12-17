@@ -690,8 +690,147 @@
 
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha) && $sancion >= 0) {
                 try {
-                    $stmt = $db->prepare("INSERT INTO DEVOLUCIONES VALUES (?, ?, ?, ?, ?, ?)");
-                    $stmt->bind_param('sssssi', $dniCliente, $idEmpleado, $autor, $titulo, $fecha, $sancion);
+                    $stmt = $db->prepare("UPDATE DEVOLUCIONES SET FECHA=?, SANCION=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('sissss', $fecha, $sancion, $dniCliente, $idEmpleado, $autor, $titulo);
+                    $stmt->execute();
+                    $stmt->close();
+                    $message = '<p>Datos actualizados correctamente</p>';
+                } catch (Exception $e) {
+                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos</p>';
+                }
+            } else {
+                if ($sancion < 0) {
+                    $message = '<p>Advertencia: El valor de la sanción no puede ser menor que 0</p>';
+                } else {
+                    $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+                }
+            }
+
+            $this->consultarDevoluciones();
+            echo $message;
+
+            $db->close();
+        }
+
+        public function borrarLibro($autor, $titulo) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            if(!empty($autor) && !empty($titulo)) {
+                try{
+                    $stmt = $db->prepare("DELETE FROM LIBROS WHERE AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('ss', $autor, $titulo);
+                    $stmt->execute();
+                    $stmt->close();
+                    $message = '<p>Datos actualizados correctamente</p>';
+                } catch (Exception $e) {
+                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos, es posible que haya conflicto con claves externas</p>';
+                }
+            } else {
+                $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+            
+            $this->consultarLibros();
+            echo $message;
+
+            $db->close();
+        }
+
+        public function borrarCliente($dni) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            if(!empty($dni)) {
+                try {
+                    $stmt = $db->prepare("DELETE FROM CLIENTES WHERE DNI=?");
+                    $stmt->bind_param('s', $dni);
+                    $stmt->execute();
+                    $stmt->close();
+                    $message = '<p>Datos actualizados correctamente</p>';
+                } catch (Exception $e) {
+                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos, es posible que haya conflicto con claves externas</p>';
+                }
+            } else {
+                $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            $this->consultarClientes();
+            echo $message;
+
+            $db->close();
+        }
+
+        public function borrarEmpleado($idEmpleado) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            if(!empty($idEmpleado)) {
+                try {
+                    $stmt = $db->prepare("DELETE FROM EMPLEADOS WHERE IDEMPLEADO=?");
+                    $stmt->bind_param('s', $idEmpleado);
+                    $stmt->execute();
+                    $stmt->close();
+                    $message = '<p>Datos actualizados correctamente</p>';
+                } catch (Exception $e) {
+                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos, es posible que haya conflicto con claves externas</p>';
+                }
+            } else {
+                $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            $this->consultarEmpleados();
+            echo $message;
+
+            $db->close();
+        }
+
+        public function borrarPrestamo($dniCliente, $idEmpleado, $autor, $titulo,) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo)) {
+                try {
+                    $stmt = $db->prepare("DELETE FROM PRESTAMOS WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('ssss', $dniCliente, $idEmpleado, $autor, $titulo);
+                    $stmt->execute();
+                    $stmt->close();
+                    $message = '<p>Datos actualizados correctamente</p>';
+                } catch (Exception $e) {
+                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos</p>';
+                }
+            } else {
+                $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            $this->consultarPrestamos();
+            echo $message;
+
+            $db->close();
+        }
+
+        public function borrarDevolucion($dniCliente, $idEmpleado, $autor, $titulo) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo)) {
+                try {
+                    $stmt = $db->prepare("DELETE FROM DEVOLUCIONES WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('ssss', $dniCliente, $idEmpleado, $autor, $titulo);
                     $stmt->execute();
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
