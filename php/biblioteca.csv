@@ -1,0 +1,14 @@
+/Libros
+"Edgar Allan Poe","El Cuervo",Poesía,1845
+
+/Clientes
+27342158U,Paco,"Florez Sanz"
+
+/Empleados
+912734586,Antonio,"Pérez Ayala"
+
+/Prestamos
+27342158U,912734586,"Edgar Allan Poe","El Cuervo",2023-08-22,1
+
+/Devoluciones
+27342158U,912734586,"Edgar Allan Poe","El Cuervo",2023-11-13,15

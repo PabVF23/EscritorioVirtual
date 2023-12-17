@@ -850,6 +850,200 @@
 
             $db->close();
         }
+
+        public function importarBiblioteca() {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            $message = 'Datos insertados correctamente';
+            $stmt = NULL;
+
+            if (($archivo = fopen('biblioteca.csv', 'r')) !== FALSE) {
+                while (($linea = fgetcsv($archivo, 1000, ',')) !== FALSE) {
+                        if (!empty(trim($linea[0]))) {
+                            if (substr($linea[0], 0, 1) == '/') {
+                                $tabla = str_replace('/', '', $linea[0]);
+                            } else {
+                                $this->hayEntrada($tabla, $linea);
+                                try {
+                                    if (!$this->hayEntrada($tabla, $linea)) {
+                                        switch ($tabla) {
+                                            case 'Libros':
+                                                $año = intval($linea[3]);
+                                                $stmt = $db->prepare("INSERT INTO LIBROS VALUES (?,?,?,?)");
+                                                $stmt->bind_param('sssi', $linea[0], $linea[1], $linea[2], $año);
+                                                break;
+                                            
+                                            case 'Clientes':
+                                                $stmt = $db->prepare("INSERT INTO CLIENTES VALUES (?,?,?)");
+                                                $stmt->bind_param('sss', $linea[0], $linea[1], $linea[2]);
+                                                break;
+        
+                                            case 'Empleados':
+                                                $stmt = $db->prepare("INSERT INTO EMPLEADOS VALUES (?,?,?)");
+                                                $stmt->bind_param('sss', $linea[0], $linea[1], $linea[2]);
+                                                break;
+        
+                                            case 'Prestamos':
+                                                $devuelto = boolval($linea[5]);
+                                                $stmt = $db->prepare("INSERT INTO PRESTAMOS VALUES (?,?,?,?,?,?)");
+                                                $stmt->bind_param('sssssi', $linea[0], $linea[1], $linea[2], $linea[3], $linea[4], $devuelto);
+                                                break;
+                                            
+                                            case 'Devoluciones':
+                                                $sancion = intval($linea[5]);
+                                                $stmt = $db->prepare("INSERT INTO DEVOLUCIONES VALUES (?,?,?,?,?,?)");
+                                                $stmt->bind_param('sssssi', $linea[0], $linea[1], $linea[2], $linea[3], $linea[4], $sancion);
+                                                break;
+                                        }
+        
+                                        $stmt->execute();
+                                    }
+                                } catch (Exception $e) {
+                                    $message = 'Error al insertar los datos, por favor compruebe que el csv está formateado correctamente o intente reiniciar la base ';
+                                }
+                            }
+                    }
+                }
+            } else {
+                $message = 'Error al encontrar y abrir el archivo';
+            }
+
+            echo $message;
+            $this->consultarBD();
+
+            if($stmt != NULL) {
+                $stmt->close();
+            }
+            $db->close();
+        }
+
+        public function hayEntrada($tabla, $linea) {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            switch ($tabla) {
+                case 'Libros':
+                    $stmt = $db->prepare("SELECT * FROM LIBROS WHERE AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('ss', $linea[0], $linea[1]);
+                    break;
+                
+                case 'Clientes':
+                    $stmt = $db->prepare("SELECT * FROM CLIENTES WHERE DNI=?");
+                    $stmt->bind_param('s', $linea[0]);
+                    break;
+
+                case 'Empleados':
+                    $stmt = $db->prepare("SELECT * FROM EMPLEADOS WHERE IDEMPLEADO=?");
+                    $stmt->bind_param('s', $linea[0]);
+                    break;
+
+                case 'Prestamos':
+                    $devuelto = boolval($linea[5]);
+                    $stmt = $db->prepare("SELECT * FROM PRESTAMOS WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('ssss', $linea[0], $linea[1], $linea[2], $linea[3]);
+                    break;
+                
+                case 'Devoluciones':
+                    $sancion = intval($linea[5]);
+                    $stmt = $db->prepare("SELECT * FROM DEVOLUCIONES WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt->bind_param('ssss', $linea[0], $linea[1], $linea[2], $linea[3]);
+                    break;
+            }
+            
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            $pass = $resultado->num_rows > 0;
+            $stmt->close();
+            $db->close();
+
+            return $pass;
+        }
+
+        public function exportarBiblioteca() {
+            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+            if($db->connect_error) {
+                exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
+            }
+
+            $message = 'Datos insertados correctamente';
+
+            if (($archivo = fopen('biblioteca.csv', 'w')) !== FALSE) {
+                $str = "/Libros\n";
+                fwrite($archivo, $str);
+                $query1 = "SELECT * FROM LIBROS";
+
+                $resultado = $db->query($query1);
+
+                $fila = $resultado->fetch_assoc();
+
+                while ($fila) {
+                    fputcsv($archivo, $fila);
+                    $fila = $resultado->fetch_assoc();
+                }
+
+                $str = "\n/Clientes\n";
+                fwrite($archivo, $str);
+                $query1 = "SELECT * FROM CLIENTES";
+
+                $resultado = $db->query($query1);
+
+                $fila = $resultado->fetch_assoc();
+
+                while ($fila) {
+                    fputcsv($archivo, $fila);
+                    $fila = $resultado->fetch_assoc();
+                }
+
+                $str = "\n/Empleados\n";
+                fwrite($archivo, $str);
+                $query1 = "SELECT * FROM EMPLEADOS";
+
+                $resultado = $db->query($query1);
+
+                $fila = $resultado->fetch_assoc();
+
+                while ($fila) {
+                    fputcsv($archivo, $fila);
+                    $fila = $resultado->fetch_assoc();
+                }
+
+                $str = "\n/Prestamos\n";
+                fwrite($archivo, $str);
+                $query1 = "SELECT * FROM PRESTAMOS";
+
+                $resultado = $db->query($query1);
+
+                $fila = $resultado->fetch_assoc();
+
+                while ($fila) {
+                    fputcsv($archivo, $fila);
+                    $fila = $resultado->fetch_assoc();
+                }
+
+                $str = "\n/Devoluciones\n";
+                fwrite($archivo, $str);
+                $query1 = "SELECT * FROM DEVOLUCIONES";
+
+                $resultado = $db->query($query1);
+
+                $fila = $resultado->fetch_assoc();
+
+                while ($fila) {
+                    fputcsv($archivo, $fila);
+                    $fila = $resultado->fetch_assoc();
+                }
+            } else {
+                $message = 'Error al encontrar y abrir el archivo';
+            }
+        }
     }
 
 ?>
