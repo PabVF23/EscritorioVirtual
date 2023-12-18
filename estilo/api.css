@@ -38,7 +38,7 @@ input {
 
 /* Especificidad: 021*/
 section:last-of-type[data-loaded] {
-    height: 75vh;
+    height: 35vh;
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
