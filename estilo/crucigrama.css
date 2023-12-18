@@ -55,7 +55,7 @@ main > p[data-state=empty] {
 /* Especificidad: 012*/
 main > p[data-state=clicked] {
     /* El color se hereda del elemento body: #000000 */
-    background-color: #0077FF;
+    background-color: #0099FF;
 }
 
 /* Especificidad: 011*/
