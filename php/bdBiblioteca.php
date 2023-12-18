@@ -851,18 +851,20 @@
             $db->close();
         }
 
-        public function importarBiblioteca() {
+        public function importarBiblioteca($nombreArchivo, $extension) {
             $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
             if($db->connect_error) {
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $message = 'Datos insertados correctamente';
-            $stmt = NULL;
 
-            if (($archivo = fopen('biblioteca.csv', 'r')) !== FALSE) {
-                while (($linea = fgetcsv($archivo, 1000, ',')) !== FALSE) {
+            if ($extension == "csv") {
+                $message = 'Datos importados correctamente';
+                $stmt = NULL;
+
+                if (($archivo = fopen($nombreArchivo, 'r')) !== FALSE) {
+                    while (($linea = fgetcsv($archivo, 1000, ',')) !== FALSE) {
                         if (!empty(trim($linea[0]))) {
                             if (substr($linea[0], 0, 1) == '/') {
                                 $tabla = str_replace('/', '', $linea[0]);
@@ -906,19 +908,22 @@
                                     $message = 'Error al insertar los datos, por favor compruebe que el csv está formateado correctamente o intente reiniciar la base ';
                                 }
                             }
+                        }
                     }
+                } else {
+                    $message = 'Error al encontrar y abrir el archivo';
                 }
+        
+                echo $message;
+                $this->consultarBD();
+    
+                if($stmt != NULL) {
+                    $stmt->close();
+                }
+                $db->close();
             } else {
-                $message = 'Error al encontrar y abrir el archivo';
+                echo "Error: el archivo a importar debe ser un archivo .csv";
             }
-
-            echo $message;
-            $this->consultarBD();
-
-            if($stmt != NULL) {
-                $stmt->close();
-            }
-            $db->close();
         }
 
         public function hayEntrada($tabla, $linea) {
@@ -973,9 +978,12 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $message = 'Datos insertados correctamente';
+            $path = getenv("HOMEDRIVE") . getenv("HOMEPATH") . '\Downloads\biblioteca.csv';
 
-            if (($archivo = fopen('biblioteca.csv', 'w')) !== FALSE) {
+            $message = 'Datos exportados correctamente';
+            $stmt = NULL;
+
+            if (($archivo = fopen($path, 'w')) !== FALSE) {
                 $str = "/Libros\n";
                 fwrite($archivo, $str);
                 $query1 = "SELECT * FROM LIBROS";
@@ -1043,6 +1051,12 @@
             } else {
                 $message = 'Error al encontrar y abrir el archivo';
             }
+
+            echo $message;
+            if($stmt != NULL) {
+                $stmt->close();
+            }
+            $db->close();
         }
     }
 

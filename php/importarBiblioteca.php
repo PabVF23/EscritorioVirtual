@@ -53,7 +53,6 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Aquí puedes importar datos mediante un archivo CSV.</p>
-        <p>El archivo debe estar en el mismo directorio que los archivos de la página y deberá llamarse "biblioteca.csv".</p>
 
         <article>
             <h3>Opciones</h3>
@@ -68,14 +67,19 @@
 
         <section>
             <h3>Cargar el archivo .csv</h3>
-            <form action='#' method='post' name='devolucion'>
+
+            <form action='#' method='post' name='devolucion' enctype='multipart/form-data'>
+                <label for="archivoSeleccionado">Selecciona el archivo a cargar:</label>
+                <input type="file" name="archivoSeleccionado" id="archivoSeleccionado"/>
                 <input type="submit" name="cargarArchivo" value='Cargar archivo'/>
             </form>
         </section>
 
         <?php
             if (isset($_POST['cargarArchivo'])) {
-                $biblioteca->importarBiblioteca();
+                $nombreArchivo = $_FILES["archivoSeleccionado"]["tmp_name"];
+                $extension = explode('.', $_FILES["archivoSeleccionado"]["name"])[count(explode('.', $_FILES["archivoSeleccionado"]["name"])) - 1];
+                $biblioteca->importarBiblioteca($nombreArchivo, $extension);
             }
         ?>
     </main>

@@ -53,7 +53,7 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Aquí puedes exportar datos a un archivo CSV.</p>
-        <p>El archivo estará en el mismo directorio que los archivos de la página y se llamará "biblioteca.csv".</p>
+        <p>El archivo estará en el directorio de descargas del usuario y se llamará "biblioteca.csv".</p>
 
         <article>
             <h3>Opciones</h3>
@@ -77,6 +77,8 @@
             if (isset($_POST['exportarArchivo'])) {
                 $biblioteca->exportarBiblioteca();
             }
+
+            $biblioteca->consultarBD();
         ?>
     </main>
 
