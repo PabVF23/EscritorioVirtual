@@ -14,23 +14,23 @@ main {
 }
 
 /* Especificidad: 001*/
-article {
+/* article {
     display: flex;
     margin-bottom: 1.5em;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}
+} */
 
 /* Especificidad: 002*/
-article>h3 {
+/* article>h3 {
     width:100%;
-}
+} */
 
 /* Especificidad: 002*/
-article>a {
+/* article>a {
     margin-right: 1em;
-}
+} */
 
 /* Especificidad: 002*/
 main > p {
