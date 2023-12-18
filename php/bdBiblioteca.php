@@ -232,8 +232,8 @@
                 echo "\t<thead>\n";
                 echo "\t\t<tr>\n";
                 echo "\t\t\t<th scope='col' id='dni'>DNI</th>\n";
-                echo "\t\t\t<th scope='col' id='nombre'>Nombre</th>\n";
-                echo "\t\t\t<th scope='col' id='genero'>Apellidos</th>\n";
+                echo "\t\t\t<th scope='col' id='nombreCliente'>Nombre</th>\n";
+                echo "\t\t\t<th scope='col' id='apellidosCliente'>Apellidos</th>\n";
                 echo "\t\t</tr>\n";
                 echo "\t</thead>\n";
                 echo "\t<tbody>\n";
@@ -244,8 +244,8 @@
 
                     echo "\t\t<tr>\n";
                     echo "\t\t\t<td headers = 'dni'>" . $dni . "</td>\n";
-                    echo "\t\t\t<td headers = 'nombre'>" . $nombre . "</td>\n";
-                    echo "\t\t\t<td headers = 'apellidos'>" . $apellidos . "</td>\n";
+                    echo "\t\t\t<td headers = 'nombreCliente'>" . $nombre . "</td>\n";
+                    echo "\t\t\t<td headers = 'apellidosCliente'>" . $apellidos . "</td>\n";
                     echo "\t\t</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
@@ -282,8 +282,8 @@
                 echo "\t<thead>\n";
                 echo "\t\t<tr>\n";
                 echo "\t\t\t<th scope='col' id='idEmpleado'>ID del empleado</th>\n";
-                echo "\t\t\t<th scope='col' id='nombre'>Nombre</th>\n";
-                echo "\t\t\t<th scope='col' id='genero'>Apellidos</th>\n";
+                echo "\t\t\t<th scope='col' id='nombreEmpleado'>Nombre</th>\n";
+                echo "\t\t\t<th scope='col' id='apellidosEmpleado'>Apellidos</th>\n";
                 echo "\t\t</tr>\n";
                 echo "\t</thead>\n";
                 echo "\t<tbody>\n";
@@ -294,8 +294,8 @@
 
                     echo "\t\t<tr>\n";
                     echo "\t\t\t<td headers = 'idEmpleado'>" . $idEmpleado . "</td>\n";
-                    echo "\t\t\t<td headers = 'nombre'>" . $nombre . "</td>\n";
-                    echo "\t\t\t<td headers = 'apellidos'>" . $apellidos . "</td>\n";
+                    echo "\t\t\t<td headers = 'nombreEmpleado'>" . $nombre . "</td>\n";
+                    echo "\t\t\t<td headers = 'apellidosEmpleado'>" . $apellidos . "</td>\n";
                     echo "\t\t</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
@@ -331,12 +331,12 @@
                 echo "\t<caption>Prestamos realizados</caption>\t";
                 echo "\t<thead>\n";
                 echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='dniCliente'>DNI del cliente</th>\n";
-                echo "\t\t\t<th scope='col' id='idEmpleado'>ID del empleado</th>\n";
-                echo "\t\t\t<th scope='col' id='autor'>Autor</th>\n";
-                echo "\t\t\t<th scope='col' id='titulo'>Título</th>\n";
-                echo "\t\t\t<th scope='col' id='fecha'>Fecha</th>\n";
-                echo "\t\t\t<th scope='col' id='devuelto'>¿Devuelto?</th>\n";
+                echo "\t\t\t<th scope='col' id='dniClientePrestamo'>DNI del cliente</th>\n";
+                echo "\t\t\t<th scope='col' id='idEmpleadoPrestamo'>ID del empleado</th>\n";
+                echo "\t\t\t<th scope='col' id='autorPrestamo'>Autor</th>\n";
+                echo "\t\t\t<th scope='col' id='tituloPrestamo'>Título</th>\n";
+                echo "\t\t\t<th scope='col' id='fechaPrestamo'>Fecha</th>\n";
+                echo "\t\t\t<th scope='col' id='devuelto'>Devuelto</th>\n";
                 echo "\t\t</tr>\n";
                 echo "\t</thead>\n";
                 echo "\t<tbody>\n";
@@ -349,11 +349,11 @@
                     $devuelto = $fila['devuelto'];
 
                     echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'dniCliente'>" . $dniCliente . "</td>\n";
-                    echo "\t\t\t<td headers = 'idEmpleado'>" . $idEmpleado . "</td>\n";
-                    echo "\t\t\t<td headers = 'autor'>" . $autor . "</td>\n";
-                    echo "\t\t\t<td headers = 'titulo'>" . $titulo . "</td>\n";
-                    echo "\t\t\t<td headers = 'fecha'>" . $fecha . "</td>\n";
+                    echo "\t\t\t<td headers = 'dniClientePrestamo'>" . $dniCliente . "</td>\n";
+                    echo "\t\t\t<td headers = 'idEmpleadoPrestamo'>" . $idEmpleado . "</td>\n";
+                    echo "\t\t\t<td headers = 'autorPrestamo'>" . $autor . "</td>\n";
+                    echo "\t\t\t<td headers = 'tituloPrestamo'>" . $titulo . "</td>\n";
+                    echo "\t\t\t<td headers = 'fechaPrestamo'>" . $fecha . "</td>\n";
                     
                     if ($devuelto == TRUE) {
                         echo "\t\t\t<td headers = 'devuelto'>Sí</td>\n";
@@ -395,11 +395,11 @@
                 echo "\t<caption>Devoluciones de libros</caption>\t";
                 echo "\t<thead>\n";
                 echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='dniCliente'>DNI del cliente</th>\n";
-                echo "\t\t\t<th scope='col' id='idEmpleado'>ID del empleado</th>\n";
-                echo "\t\t\t<th scope='col' id='autor'>Autor</th>\n";
-                echo "\t\t\t<th scope='col' id='titulo'>Título</th>\n";
-                echo "\t\t\t<th scope='col' id='fecha'>Fecha</th>\n";
+                echo "\t\t\t<th scope='col' id='dniClienteDevolucion'>DNI del cliente</th>\n";
+                echo "\t\t\t<th scope='col' id='idEmpleadoDevolucion'>ID del empleado</th>\n";
+                echo "\t\t\t<th scope='col' id='autorDevolucion'>Autor</th>\n";
+                echo "\t\t\t<th scope='col' id='tituloDevolucion'>Título</th>\n";
+                echo "\t\t\t<th scope='col' id='fechaDevolucion'>Fecha</th>\n";
                 echo "\t\t\t<th scope='col' id='sancion'>Sanción</th>\n";
                 echo "\t\t</tr>\n";
                 echo "\t</thead>\n";
@@ -413,11 +413,11 @@
                     $sancion = $fila['sancion'];
 
                     echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'dniCliente'>" . $dniCliente . "</td>\n";
-                    echo "\t\t\t<td headers = 'idEmpleado'>" . $idEmpleado . "</td>\n";
-                    echo "\t\t\t<td headers = 'autor'>" . $autor . "</td>\n";
-                    echo "\t\t\t<td headers = 'titulo'>" . $titulo . "</td>\n";
-                    echo "\t\t\t<td headers = 'fecha'>" . $fecha . "</td>\n";
+                    echo "\t\t\t<td headers = 'dniClienteDevolucion'>" . $dniCliente . "</td>\n";
+                    echo "\t\t\t<td headers = 'idEmpleadoDevolucion'>" . $idEmpleado . "</td>\n";
+                    echo "\t\t\t<td headers = 'autorDevolucion'>" . $autor . "</td>\n";
+                    echo "\t\t\t<td headers = 'tituloDevolucion'>" . $titulo . "</td>\n";
+                    echo "\t\t\t<td headers = 'fechaDevolucion'>" . $fecha . "</td>\n";
                     echo "\t\t\t<td headers = 'sancion'>" . $sancion . "</td>\n";
 
                     echo "\t\t</tr>\n";

@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/biblioteca.css" />
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
+    <!--Al cargar las páginas en Opera, se insertan etiquetas de estilo en el elemento head, con lo que el navegador muestra una advertencia-->
 </head>
 
 <body>
@@ -43,26 +44,26 @@
         <h2>Biblioteca</h2>
         <article>
             <h3>Otros juegos</h3>
-            <a href="../memoria.html" accesskey="M" tabindex="8">Memoria</a>
-            <a href="../sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
-            <a href="../crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
-            <a href="../api.html" accesskey="R" tabindex="11">Reproductor de música</a>
-            <a href="biblioteca.php" accesskey="B" tabindex="12">Gestor de biblioteca</a>
+            <a href="memoria.html">Memoria</a>
+            <a href="sudoku.html">Sudoku</a>
+            <a href="crucigrama.php">Crucigrama matemático</a>
+            <a href="api.html">Reproductor de música</a>
+            <a href="php/biblioteca.php">Gestor de biblioteca</a>
         </article>
 
-        <p>Bienvenido al simulador de gestión de una biblioteca.</p>
+        <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Aquí puedes actualizar los datos de la biblioteca</p>
         <p>Se han obtenido los datos correctamente.</p>
 
         <article>
             <h3>Opciones</h3>
-            <a href="consultarBiblioteca.php" accesskey="O" tabindex="13">Consultar informacion de la base de datos</a>
-            <a href="insertarBiblioteca.php" accesskey="T" tabindex="14">Insertar informacion en la base de datos</a>
-            <a href="modificarBiblioteca.php" accesskey="D" tabindex="15">Modificar informacion de la base de datos</a>
-            <a href="borrarBiblioteca.php" accesskey="E" tabindex="16">Borrar informacion de la base de datos</a>
-            <a href="importarBiblioteca.php" accesskey="P" tabindex="17">Importar datos a la base de datos</a>
-            <a href="exportarBiblioteca.php" accesskey="X" tabindex="18">Exportar datos de la base de datos</a>
-            <a href="biblioteca.php" accesskey="D" tabindex="19">Reiniciar la base de datos</a>
+            <a href="consultarBiblioteca.php">Consultar informacion de la base de datos</a>
+            <a href="insertarBiblioteca.php">Insertar informacion en la base de datos</a>
+            <a href="modificarBiblioteca.php">Modificar informacion de la base de datos</a>
+            <a href="borrarBiblioteca.php">Borrar informacion de la base de datos</a>
+            <a href="importarBiblioteca.php">Importar datos a la base de datos</a>
+            <a href="exportarBiblioteca.php">Exportar datos de la base de datos</a>
+            <a href="biblioteca.php">Reiniciar la base de datos</a>
         </article>
 
         <?php
@@ -80,14 +81,14 @@
         
         <h4>Actualizar libro</h4>
         <form action='#' method='post' name='libro'>
-            <label for='autor'>Autor: </label>
-            <input type='text' name='autor'/>
-            <label for='titulo'>Título: </label>
-            <input type='text' name='titulo' />
-            <label for='genero'>Género: </label>
-            <input type='text' name='genero' />
-            <label for='año'>Año: </label>
-            <input type='number' name='año' />
+            <label for='autorCampo'>Autor: </label>
+            <input type='text' name='autor' id='autorCampo'/>
+            <label for='tituloCampo'>Título: </label>
+            <input type='text' name='titulo' id='tituloCampo'/>
+            <label for='generoCampo'>Género: </label>
+            <input type='text' name='genero' id='generoCampo'/>
+            <label for='añoCampo'>Año: </label>
+            <input type='number' name='año' id='añoCampo'/>
             <input type='submit' name='confirmarLibro' value="Confirmar" />
         </form>
 
@@ -103,13 +104,14 @@
             }
         ?>
         
+        <h4>Actualizar cliente</h4>
         <form action='#' method='post' name='cliente'>
-            <label for='dni'>DNI: </label>
-            <input type='text' name='dni' />
-            <label for='nombre'>Nombre: </label>
-            <input type='text' name='nombre' />
-            <label for='apellidos'>Apellidos: </label>
-            <input type='text' name='apellidos' />
+            <label for='dniCampo'>DNI: </label>
+            <input type='text' name='dni' id='dniCampo'/>
+            <label for='nombreClienteCampo'>Nombre: </label>
+            <input type='text' name='nombre' id='nombreClienteCampo'/>
+            <label for='apellidosClienteCampo'>Apellidos: </label>
+            <input type='text' name='apellidos' id='apellidosClienteCampo'/>
             <input type='submit' name='confirmarCliente' value="Confirmar" />
         </form>
 
@@ -125,13 +127,14 @@
             }
         ?>
         
+        <h4>Actualizar empleado</h4>
         <form action='#' method='post' name='empleado'>
-            <label for='idEmpleado'>ID del empleado: </label>
-            <input type='text' name='idEmpleado' />
-            <label for='nombre'>Nombre: </label>
-            <input type='text' name='nombre' />
-            <label for='apellidos'>Apellidos: </label>
-            <input type='text' name='apellidos' />
+            <label for='idEmpleadoCampo'>ID del empleado: </label>
+            <input type='text' name='idEmpleado' id='idEmpleadoCampo'/>
+            <label for='nombreEmpleadoCampo'>Nombre: </label>
+            <input type='text' name='nombre' id='nombreEmpleadoCampo'/>
+            <label for='apellidosEmpleadoCampo'>Apellidos: </label>
+            <input type='text' name='apellidos' id='apellidosEmpleadoCampo'/>
             <input type='submit' name='confirmarEmpleado' value="Confirmar" />
         </form>
 
@@ -150,19 +153,20 @@
             }
         ?>
         
+        <h4>Actualizar prestamo</h4>
         <form action='#' method='post' name='prestamo'>
-            <label for='dniCliente'>DNI: </label>
-            <input type='text' name='dniCliente' />
-            <label for='idEmpleado'>ID del empleado: </label>
-            <input type='text' name='idEmpleado' />
-            <label for='autor'>Autor: </label>
-            <input type='text' name='autor' />
-            <label for='titulo'>Título: </label>
-            <input type='text' name='titulo' />
-            <label for='fecha'>Fecha:</label>
-            <input type='date' name='fecha' />
-            <label for='devuelto'>Devuelto:</label>
-            <input type='checkbox' name='devuelto' />
+            <label for='dniClientePrestamoCampo'>DNI: </label>
+            <input type='text' name='dniCliente' id='dniClientePrestamoCampo'/>
+            <label for='idEmpleadoPrestamoCampo'>ID del empleado: </label>
+            <input type='text' name='idEmpleado' id='idEmpleadoPrestamoCampo'/>
+            <label for='autorPrestamoCampo'>Autor: </label>
+            <input type='text' name='autor' id='autorPrestamoCampo'/>
+            <label for='tituloPrestamoCampo'>Título: </label>
+            <input type='text' name='titulo' id='tituloPrestamoCampo'/>
+            <label for='fechaPrestamoCampo'>Fecha:</label>
+            <input type='date' name='fecha' id='fechaPrestamoCampo'/>
+            <label for='devueltoCampo'>Devuelto:</label>
+            <input type='checkbox' name='devuelto' id='devueltoCampo'/>
             <input type='submit' name='confirmarPrestamo' value="Confirmar" />
         </form>
 
@@ -181,19 +185,20 @@
             }
         ?>
         
+        <h4>Actualizar devolucion</h4>
         <form action='#' method='post' name='devolucion'>
-            <label for='dniCliente'>DNI: </label>
-            <input type='text' name='dniCliente' />
-            <label for='idEmpleado'>ID del empleado: </label>
-            <input type='text' name='idEmpleado' />
-            <label for='autor'>Autor: </label>
-            <input type='text' name='autor' />
-            <label for='titulo'>Título: </label>
-            <input type='text' name='titulo' />
-            <label for='fecha'>Fecha:</label>
-            <input type='date' name='fecha' />
-            <label for='sancion'>Sancion (€):</label>
-            <input type='number' name='sancion' />
+            <label for='dniClienteDevolucionCampo'>DNI: </label>
+            <input type='text' name='dniCliente' id='dniClienteDevolucionCampo'/>
+            <label for='idEmpleadoDevolucionCampo'>ID del empleado: </label>
+            <input type='text' name='idEmpleado' id='idEmpleadoDevolucionCampo'/>
+            <label for='autorDevolucionCampo'>Autor: </label>
+            <input type='text' name='autor' id='autorDevolucionCampo'/>
+            <label for='tituloDevolucionCampo'>Título: </label>
+            <input type='text' name='titulo' id='tituloDevolucionCampo'/>
+            <label for='fechaDevolucionCampo'>Fecha:</label>
+            <input type='date' name='fecha' id='fechaDevolucionCampo'/>
+            <label for='sancionCampo'>Sancion (€):</label>
+            <input type='number' name='sancion' id='sancionCampo'/>
             <input type='submit' name='confirmarDevolucion' value="Confirmar" />
         </form>
     </main>

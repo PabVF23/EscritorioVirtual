@@ -62,3 +62,11 @@ section:last-of-type > p {
 section > audio {
     height: 2em;
 }
+
+@media (max-width: 800px) {
+    /* Especificidad: 011*/
+    section:first-of-type {
+        /* Redefinición de propiedad height */
+        height: 25em;
+    }
+  }

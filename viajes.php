@@ -104,6 +104,7 @@
     <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+    <!--Al cargar las páginas en Opera, se insertan etiquetas de estilo en el elemento head, con lo que el navegador muestra una advertencia-->
 </head>
 
 <body>
@@ -147,14 +148,17 @@
         <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
         <button onclick="viajes.getMapaDinamico()">Cargar mapa dinámico</button>
         <h3>Subir archivos KML</h3>
-        <input type="file" onChange="viajes.añadirKMLs()" multiple/>
+        <label for="cargarKML">Seleccionar archivos KML a cargar: </label>
+        <input type="file" id="cargarKML" onChange="viajes.añadirKMLs()" multiple/>
         <section>
             <h3>Subir archivo XML</h3>
-            <input type="file" onchange="viajes.leerXML()"/>
+            <label for="cargarXML">Seleccionar archivos XML a cargar: </label>
+            <input type="file" id="cargarXML" onchange="viajes.leerXML()"/>
         </section>
         <section>
             <h3>Subir archivos SVG</h3>
-            <input type="file" onchange="viajes.añadirSVG()" multiple/>
+            <label for="cargarSVG">Seleccionar archivos SVG a cargar: </label>
+            <input type="file" id="cargarSVG" onchange="viajes.añadirSVG()" multiple/>
         </section>
     </main>
     <script src="js/viajes.js"></script>

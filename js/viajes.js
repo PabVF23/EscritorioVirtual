@@ -118,7 +118,7 @@ class Viajes {
                 let rutas = lector.result;
                 $("ruta", rutas).each(function() {
                     let nombre = $(this).attr("nombre");
-                    $("section").eq(1).append("<h4>" + nombre + "</h4>");
+                    $("section").eq(2).append("<h4>" + nombre + "</h4>");
                     $("section > h4:last").after("<ul></ul>");
 
                     let tipo = $(this).attr("tipo")

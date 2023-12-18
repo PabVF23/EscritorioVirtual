@@ -65,9 +65,10 @@ class Reproductor {
 
         this.gainNode = audioContext.createGain();
         track.connect(this.gainNode).connect(audioContext.destination);
-        $(event.target).append('<input type="range" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
+        $(event.target).append('<input type="range" id="volume" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
         let volumen = $("input", event.target).val() + "%"
         $("input", event.target).before("<p>Volumen actual: " + volumen + "</p>");
+        $("input", event.target).before('<label for="volume">Cambiar volumen: </label>')
     }
 
     cargarArchivo() {
@@ -89,9 +90,11 @@ class Reproductor {
 
         this.gainNode = audioContext.createGain();
         track.connect(this.gainNode).connect(audioContext.destination);
-        $("section:first").append('<input type="range" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
+        $("section:first").append('<label for="volume>Cambiar volumen </label>')
+        $("section:first").append('<input type="range" id="volume" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
         let volumen = $("input", "section:first").val() + "%"
         $("input", "section:first").before("<p>Volumen actual: " + volumen + "</p>");
+        $("input", "section:first").before('<label for="volume">Cambiar volumen: </label>')
     }
 
     cambiarEstadoReproduccion() {
