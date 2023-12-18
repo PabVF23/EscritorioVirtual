@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <title>Escritorio Virtual - Borrar info de biblioteca</title>
+
+    <meta name="author" content="Pablo Valdés Fernández">
+    <meta name="description" content="Borrar info de la BD de la biblioteca">
+    <meta name="keywords" content="biblioteca, libros, libro, borrar libro, borrar cliente, borrar empleado, borrar prestamo, borrar devolucion, borrar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/biblioteca.css">
+    <link rel="icon" type="image/x-icon" href="../multimedia/imagenes/favicon.ico">
+    <!--Al cargar las páginas en Opera, se insertan etiquetas de estilo en el elemento head, con lo que el navegador muestra una advertencia-->
+</head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+        <h1>Escritorio Virtual</h1>
+
+        <nav>
+            <a href="../index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="../sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="../noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="../agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="../meteorologia.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="../viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="../juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Biblioteca</h2>
+        <article>
+            <h3>Otros juegos</h3>
+            <a href="../memoria.html">Memoria</a>
+            <a href="../sudoku.html">Sudoku</a>
+            <a href="../crucigrama.php">Crucigrama matemático</a>
+            <a href="../api.html">Reproductor de música</a>
+            <a href="biblioteca.php">Gestor de biblioteca</a>
+        </article>
+
+        <p>Bienvenido al gestor de la biblioteca.</p>
+        <p>Aquí puedes borrar datos de la biblioteca</p>
+        <p>Se han obtenido los datos correctamente.</p>
+
+        <article>
+            <h3>Opciones</h3>
+            <a href="consultarBiblioteca.php">Consultar informacion de la base de datos</a>
+            <a href="insertarBiblioteca.php">Insertar informacion en la base de datos</a>
+            <a href="modificarBiblioteca.php">Modificar informacion de la base de datos</a>
+            <a href="borrarBiblioteca.php">Borrar informacion de la base de datos</a>
+            <a href="importarBiblioteca.php">Importar datos a la base de datos</a>
+            <a href="exportarBiblioteca.php">Exportar datos de la base de datos</a>
+            <a href="biblioteca.php">Reiniciar la base de datos</a>
+        </article>
+
+        <section><h3>Libros</h3><table>
+	<caption>Libros disponibles en la biblioteca</caption>		<thead>
+		<tr>
+			<th scope="col" id="autor">Autor</th>
+			<th scope="col" id="titulo">Título</th>
+			<th scope="col" id="genero">Género</th>
+			<th scope="col" id="año">Año</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td headers="autor">Edgar Allan Poe</td>
+			<td headers="titulo">El Cuervo</td>
+			<td headers="genero">Poesía</td>
+			<td headers="año">1845</td>
+		</tr>
+		<tr>
+			<td headers="autor">George Orwell</td>
+			<td headers="titulo">1984</td>
+			<td headers="genero">Ficción</td>
+			<td headers="año">1948</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+        
+        <h4>Borrar libro</h4>
+        <form action="#" method="post" name="libro">
+            <label for="autorCampo">Autor: </label>
+            <input type="text" name="autor" id="autorCampo">
+            <label for="tituloCampo">Título: </label>
+            <input type="text" name="titulo" id="tituloCampo">
+            <input type="submit" name="confirmarLibro" value="Confirmar">
+        </form>
+
+        <section><h3>Clientes</h3><table>
+	<caption>Clientes registrados en la biblioteca</caption>		<thead>
+		<tr>
+			<th scope="col" id="dni">DNI</th>
+			<th scope="col" id="nombreCliente">Nombre</th>
+			<th scope="col" id="apellidosCliente">Apellidos</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td headers="dni">27342158U</td>
+			<td headers="nombreCliente">Paco</td>
+			<td headers="apellidosCliente">Flórez Sanz</td>
+		</tr>
+		<tr>
+			<td headers="dni">72138245T</td>
+			<td headers="nombreCliente">Antonio</td>
+			<td headers="apellidosCliente">Ortega Jiménez</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+        
+        <h4>Borrar cliente</h4>
+        <form action="#" method="post" name="cliente">
+            <label for="dniCampo">DNI: </label>
+            <input type="text" name="dni" id="dniCampo">
+            <input type="submit" name="confirmarCliente" value="Confirmar">
+        </form>
+
+        <section><h3>Empleados</h3><table>
+	<caption>Empleados de la biblioteca</caption>		<thead>
+		<tr>
+			<th scope="col" id="idEmpleado">ID del empleado</th>
+			<th scope="col" id="nombreEmpleado">Nombre</th>
+			<th scope="col" id="apellidosEmpleado">Apellidos</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td headers="idEmpleado">912734586</td>
+			<td headers="nombreEmpleado">Antonio</td>
+			<td headers="apellidosEmpleado">Pérez Ayala</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+        
+        <h4>Borrar empleado</h4>
+        <form action="#" method="post" name="empleado">
+            <label for="idEmpleadoCampo">ID del empleado: </label>
+            <input type="text" name="idEmpleado" id="idEmpleadoCampo">
+            <input type="submit" name="confirmarEmpleado" value="Confirmar">
+        </form>
+
+        <section><h3>Prestamos</h3><table>
+	<caption>Prestamos realizados</caption>		<thead>
+		<tr>
+			<th scope="col" id="dniClientePrestamo">DNI del cliente</th>
+			<th scope="col" id="idEmpleadoPrestamo">ID del empleado</th>
+			<th scope="col" id="autorPrestamo">Autor</th>
+			<th scope="col" id="tituloPrestamo">Título</th>
+			<th scope="col" id="fechaPrestamo">Fecha</th>
+			<th scope="col" id="devuelto">Devuelto</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td headers="dniClientePrestamo">27342158U</td>
+			<td headers="idEmpleadoPrestamo">912734586</td>
+			<td headers="autorPrestamo">Edgar Allan Poe</td>
+			<td headers="tituloPrestamo">El Cuervo</td>
+			<td headers="fechaPrestamo">2023-08-22</td>
+			<td headers="devuelto">Sí</td>
+		</tr>
+		<tr>
+			<td headers="dniClientePrestamo">72138245T</td>
+			<td headers="idEmpleadoPrestamo">912734586</td>
+			<td headers="autorPrestamo">George Orwell</td>
+			<td headers="tituloPrestamo">1984</td>
+			<td headers="fechaPrestamo">2023-10-19</td>
+			<td headers="devuelto">No</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+        
+        <h4>Borrar prestamo</h4>
+        <form action="#" method="post" name="prestamo">
+            <label for="dniClientePrestamoCampo">DNI: </label>
+            <input type="text" name="dniCliente" id="dniClientePrestamoCampo">
+            <label for="idEmpleadoPrestamoCampo">ID del empleado: </label>
+            <input type="text" name="idEmpleado" id="idEmpleadoPrestamoCampo">
+            <label for="autorPrestamoCampo">Autor: </label>
+            <input type="text" name="autor" id="autorPrestamoCampo">
+            <label for="tituloPrestamoCampo">Título: </label>
+            <input type="text" name="titulo" id="tituloPrestamoCampo">
+            <input type="submit" name="confirmarPrestamo" value="Confirmar">
+        </form>
+
+        <section><h3>Devoluciones</h3><table>
+	<caption>Devoluciones de libros</caption>		<thead>
+		<tr>
+			<th scope="col" id="dniClienteDevolucion">DNI del cliente</th>
+			<th scope="col" id="idEmpleadoDevolucion">ID del empleado</th>
+			<th scope="col" id="autorDevolucion">Autor</th>
+			<th scope="col" id="tituloDevolucion">Título</th>
+			<th scope="col" id="fechaDevolucion">Fecha</th>
+			<th scope="col" id="sancion">Sanción</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td headers="dniClienteDevolucion">27342158U</td>
+			<td headers="idEmpleadoDevolucion">912734586</td>
+			<td headers="autorDevolucion">Edgar Allan Poe</td>
+			<td headers="tituloDevolucion">El Cuervo</td>
+			<td headers="fechaDevolucion">2023-11-13</td>
+			<td headers="sancion">15</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+        
+        <h4>Borrar devolucion</h4>
+        <form action="#" method="post" name="devolucion">
+        <label for="dniClienteDevolucionCampo">DNI: </label>
+            <input type="text" name="dniClienteDevolucion" id="dniClienteDevolucionCampo">
+            <label for="idEmpleadoDevolucionCampo">ID del empleado: </label>
+            <input type="text" name="idEmpleado" id="idEmpleadoDevolucionCampo">
+            <label for="autorDevolucionCampo">Autor: </label>
+            <input type="text" name="autor" id="autorDevolucionCampo">
+            <label for="tituloDevolucionCampo">Título: </label>
+            <input type="text" name="titulo" id="tituloDevolucionCampo">
+            <input type="submit" name="confirmarDevolucion" value="Confirmar">
+        </form>
+    </main>
+
+
+</body></html>
