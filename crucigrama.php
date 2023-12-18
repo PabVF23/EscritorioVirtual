@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
-<!-- <?php -->
-    <!-- class Record {
+<?php
+    class Record {
         public function __construct() {
             $this->server = "localhost";
             $this->user = "DBUSER2023";
@@ -84,8 +84,8 @@
             }
         }
         
-    } -->
-<!-- ?> -->
+    }
+?>
 
 <html lang="es">
 <head>
@@ -131,7 +131,7 @@
         <a href="sudoku.html">Sudoku</a>
         <a href="crucigrama.php">Crucigrama matemático</a>
         <a href="api.html">Reproductor de música</a>
-        <!-- <a href="php/biblioteca.php">Gestor de biblioteca</a> -->
+        <a href="php/biblioteca.php">Gestor de biblioteca</a>
     </article>
 
     <p>Este juego es un crucigrama matemático. Se mostrará un crucigrama con una serie de operaciones matemáticas parcialmente vacías que el jugador deberá completar correctamente.</p>
@@ -139,8 +139,8 @@
 
     <main></main>
 
-    <!-- <?php -->
-        <!-- if (count($_POST) > 0) {
+    <?php
+        if (count($_POST) > 0) {
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellidos'];
             $nivel = $_POST['nivel'];
@@ -148,8 +148,8 @@
             $record = new Record();
             $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
             $record->mostrarRegistros();
-        } -->
-    <!-- ?> -->
+        }
+    ?>
     
     <section data-type="botonera">
         <h2>Botonera</h2>
