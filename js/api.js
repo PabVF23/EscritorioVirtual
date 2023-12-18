@@ -65,9 +65,9 @@ class Reproductor {
 
         this.gainNode = audioContext.createGain();
         track.connect(this.gainNode).connect(audioContext.destination);
-        $(event.target).append('<input type="range" id="volume" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
-        let volumen = $("input", event.target).val() + "%"
-        $("input", event.target).before("<p>Volumen actual: " + volumen + "</p>");
+        $(event.target).append('<input type="range" name="volume" min="-1" max="1" value="0" step="0.02" onchange="reproductor.cambiarVolumen()" />')
+        this.gainNode.gain.value = 0;
+        $("input", event.target).before("<p>Volumen actual: 50%</p>");
         $("input", event.target).before('<label for="volume">Cambiar volumen: </label>')
     }
 
@@ -91,9 +91,9 @@ class Reproductor {
         this.gainNode = audioContext.createGain();
         track.connect(this.gainNode).connect(audioContext.destination);
         $("section:first").append('<label for="volume>Cambiar volumen </label>')
-        $("section:first").append('<input type="range" id="volume" name="volume" min="0" max="100" value="50" step="1" onchange="reproductor.cambiarVolumen()" />')
-        let volumen = $("input", "section:first").val() + "%"
-        $("input", "section:first").before("<p>Volumen actual: " + volumen + "</p>");
+        $("section:first").append('<input type="range" name="volume" min="-1" max="1" value="0" step="0.02" onchange="reproductor.cambiarVolumen()" />')
+        this.gainNode.gain.value = 0;
+        $("input", "section:first").before("<p>Volumen actual: 50%</p>");
         $("input", "section:first").before('<label for="volume">Cambiar volumen: </label>')
     }
 
@@ -111,9 +111,9 @@ class Reproductor {
 
     cambiarVolumen() {
         let volumen = $("section:first > input").val();
-        let nuevoVolumen = volumen/50;
-        this.gainNode.gain.value = nuevoVolumen;
-        $("section:first > p:last").text("Volumen actual: " + volumen + "%");
+        this.gainNode.gain.value = volumen;
+        let volumeText = Math.round(((Number(volumen) + 1) * 100)/2);
+        $("section:first > p:last").text("Volumen actual: " + volumeText + "%");
     }
 }
 

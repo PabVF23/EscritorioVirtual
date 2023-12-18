@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/biblioteca.css" />
-    <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="../multimedia/imagenes/favicon.ico"/>
     <!--Al cargar las páginas en Opera, se insertan etiquetas de estilo en el elemento head, con lo que el navegador muestra una advertencia-->
 </head>
 
@@ -30,11 +30,13 @@
         <h1>Escritorio Virtual</h1>
 
         <nav>
-            <a href="memoria.html">Memoria</a>
-            <a href="sudoku.html">Sudoku</a>
-            <a href="crucigrama.php">Crucigrama matemático</a>
-            <a href="api.html">Reproductor de música</a>
-            <a href="php/biblioteca.php">Gestor de biblioteca</a>
+            <a href="../index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="../sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="../noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="../agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="../meteorologia.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="../viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="../juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
 
@@ -42,11 +44,11 @@
         <h2>Biblioteca</h2>
         <article>
             <h3>Otros juegos</h3>
-            <a href="../memoria.html" accesskey="M" tabindex="8">Memoria</a>
-            <a href="../sudoku.html" accesskey="K" tabindex="9">Sudoku</a>
-            <a href="../crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
-            <a href="../api.html" accesskey="R" tabindex="11">Reproductor de música</a>
-            <a href="biblioteca.php" accesskey="B" tabindex="12">Gestor de biblioteca</a>
+            <a href="../memoria.html">Memoria</a>
+            <a href="../sudoku.html">Sudoku</a>
+            <a href="../crucigrama.php">Crucigrama matemático</a>
+            <a href="../api.html">Reproductor de música</a>
+            <a href="biblioteca.php">Gestor de biblioteca</a>
         </article>
 
         <p>Bienvenido al gestor de la biblioteca.</p>
