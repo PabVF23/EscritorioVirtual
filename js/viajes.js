@@ -74,7 +74,7 @@ class Viajes {
         var mapaGeoposicionado = new mapboxgl.Map({
             container: "mapa",
             center: centro,
-            zoom: 14,
+            zoom: 17,
             style: "mapbox://styles/mapbox/streets-v12"
         });
 
@@ -82,9 +82,8 @@ class Viajes {
             navigator.geolocation.getCurrentPosition(function(position) {
                 let pos = [position.coords.longitude, position.coords.latitude]
 
-                let popup = new mapboxgl.Popup({closeOnClick: false})
+                let popup = new mapboxgl.Marker()
                     .setLngLat(pos)
-                    .setHTML("<p>Localización encontrada</p>")
                     .addTo(mapaGeoposicionado)
                     
                 mapaGeoposicionado.setCenter(pos);

@@ -142,6 +142,7 @@
 
         <section>
             <h3>Cargar mapa</h3>
+            <!--Al cargar el mapa dinámico de MapBox desde el botón, el código HTML generado hace que el validador muestre una advertencia-->
             <figure id="mapa"></figure>
         </section>
 

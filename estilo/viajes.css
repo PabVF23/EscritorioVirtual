@@ -38,7 +38,7 @@ section:last-of-type {
 }
 
 /* Especificidad: 001*/
-svg {
+section:last-of-type > svg {
     width: 50em;
     height: 30em;
 }

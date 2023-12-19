@@ -155,8 +155,9 @@
                 $idEmpleado = $_POST['idEmpleado'];
                 $autor = $_POST['autor'];
                 $titulo = $_POST['titulo'];
+                $fecha = $_POST['fecha'];
         
-                $biblioteca->borrarDevolucion($dniCliente, $idEmpleado, $autor, $titulo);
+                $biblioteca->borrarDevolucion($dniCliente, $idEmpleado, $autor, $titulo, $fecha);
             } else {
                 $biblioteca->consultarDevoluciones();
             }
@@ -172,6 +173,8 @@
             <input type='text' name='autor' id='autorDevolucionCampo'/>
             <label for='tituloDevolucionCampo'>Título: </label>
             <input type='text' name='titulo' id='tituloDevolucionCampo'/>
+            <label for='fechaDevolucionCampo'>Fecha:</label>
+            <input type='date' name='fecha' id='fechaDevolucionCampo'/>
             <input type='submit' name='confirmarDevolucion' value="Confirmar" />
         </form>
     </main>

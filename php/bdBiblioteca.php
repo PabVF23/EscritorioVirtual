@@ -93,9 +93,7 @@
                 fecha date NOT NULL,
                 sancion int NOT NULL,
                 PRIMARY KEY (dniCliente, idEmpleado, autor, titulo, fecha),
-                CONSTRAINT fk_devoluciones_dniCliente FOREIGN KEY (dniCliente) REFERENCES clientes(dni),
-                CONSTRAINT fk_devoluciones_idEmpleado FOREIGN KEY (idEmpleado) REFERENCES empleados(idEmpleado),
-                CONSTRAINT fk_devoluciones_autor_titulo FOREIGN KEY (autor, titulo) REFERENCES libros(autor, titulo)
+                CONSTRAINT `fk_devoluciones_autor_titulo` FOREIGN KEY (`dniCliente`, `idEmpleado`, `autor`, `titulo`) REFERENCES `prestamos` (`dniCliente`, `idEmpleado`, `autor`, `titulo`)
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci";
 
             if ($db->query($crearTablaDevoluciones) === FALSE) {
@@ -114,17 +112,17 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $vaciarPrestamos = "DELETE FROM prestamos";
-            
-            if ($db->query($vaciarPrestamos) === FALSE) {
-                echo "<p>Error al vaciar el contenido de la tabla prestamos</p>";
-                exit();
-            }
-
             $vaciarDevoluciones = "DELETE FROM devoluciones";
             
             if ($db->query($vaciarDevoluciones) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla devoluciones</p>";
+                exit();
+            }
+
+            $vaciarPrestamos = "DELETE FROM prestamos";
+            
+            if ($db->query($vaciarPrestamos) === FALSE) {
+                echo "<p>Error al vaciar el contenido de la tabla prestamos</p>";
                 exit();
             }
             
@@ -583,11 +581,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($autor) && !empty($titulo) && !empty($genero)) {
                 try{
                     $stmt = $db->prepare("UPDATE libros SET genero=?, año=? WHERE autor=? AND titulo=?");
                     $stmt->bind_param('siss', $genero, $año, $autor, $titulo);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
@@ -595,6 +596,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha actualizado ninguna entrada, comprueba los valores introducidos</p>';
             }
             
             $this->consultarLibros();
@@ -616,8 +621,8 @@
                 try {
                     $stmt = $db->prepare("UPDATE clientes SET NOMBRE=?, APELLIDOS=? WHERE DNI=?");
                     $stmt->bind_param('sss', $nombre, $apellidos, $dni);
-                    $rows = $stmt->num_rows();
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
@@ -629,6 +634,10 @@
 
             if ($rows == 0) {
                 $message = '<p>No se ha modificado ninguna entrada, comprueba los valores introducidos</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha actualizado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarClientes();
@@ -644,11 +653,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($idEmpleado) && !empty($nombre) && !empty($apellidos)) {
                 try {
                     $stmt = $db->prepare("UPDATE empleados SET NOMBRE=?, APELLIDOS=? WHERE IDEMPLEADO=?");
                     $stmt->bind_param('sss', $nombre, $apellidos, $idEmpleado);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
@@ -656,6 +668,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha actualizado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarEmpleados();
@@ -671,11 +687,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha)) {
                 try {
                     $stmt = $db->prepare("UPDATE prestamos SET DEVUELTO=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=? AND FECHA = ?");
                     $stmt->bind_param('isssss', $devuelto, $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
@@ -683,6 +702,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha actualizado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             echo $devuelto;
@@ -699,11 +722,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+            
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha) && $sancion >= 0) {
                 try {
-                    $stmt = $db->prepare("UPDATE devoluciones SET SANCION=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?, FECHA=?");
-                    $stmt->bind_param('issss', $sancion, $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
+                    $stmt = $db->prepare("UPDATE devoluciones SET SANCION=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=? AND FECHA=?");
+                    $stmt->bind_param('isssss', $sancion, $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
@@ -715,6 +741,10 @@
                 } else {
                     $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
                 }
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha actualizado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarDevoluciones();
@@ -730,11 +760,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($autor) && !empty($titulo)) {
                 try{
                     $stmt = $db->prepare("DELETE FROM libros WHERE AUTOR=? AND TITULO=?");
                     $stmt->bind_param('ss', $autor, $titulo);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
@@ -742,6 +775,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha borrado ninguna entrada, comprueba los valores introducidos</p>';
             }
             
             $this->consultarLibros();
@@ -757,11 +794,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($dni)) {
                 try {
                     $stmt = $db->prepare("DELETE FROM clientes WHERE DNI=?");
                     $stmt->bind_param('s', $dni);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
@@ -769,6 +809,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha borrado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarClientes();
@@ -784,11 +828,14 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($idEmpleado)) {
                 try {
                     $stmt = $db->prepare("DELETE FROM empleados WHERE IDEMPLEADO=?");
                     $stmt->bind_param('s', $idEmpleado);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
@@ -796,6 +843,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha borrado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarEmpleados();
@@ -812,12 +863,13 @@
             }
 
             $rows = -1;
+
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo)) {
                 try {
                     $stmt = $db->prepare("DELETE FROM prestamos WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=? AND FECHA = ?");
                     $stmt->bind_param('sssss', $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
-                    $rows = $stmt->num_rows();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
@@ -828,7 +880,7 @@
             }
 
             if ($rows == 0) {
-                $message = '<p>No se ha modificado ninguna entrada, comprueba los valores introducidos</p>';
+                $message = '<p>No se ha borrado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarPrestamos();
@@ -837,18 +889,21 @@
             $db->close();
         }
 
-        public function borrarDevolucion($dniCliente, $idEmpleado, $autor, $titulo) {
+        public function borrarDevolucion($dniCliente, $idEmpleado, $autor, $titulo, $fecha) {
             $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
             if($db->connect_error) {
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo)) {
                 try {
-                    $stmt = $db->prepare("DELETE FROM devoluciones WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
-                    $stmt->bind_param('ssss', $dniCliente, $idEmpleado, $autor, $titulo);
+                    $stmt = $db->prepare("DELETE FROM devoluciones WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=? AND FECHA = ?");
+                    $stmt->bind_param('sssss', $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
+                    $rows = $stmt->affected_rows;
                     $stmt->close();
                     $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
@@ -860,6 +915,10 @@
                 } else {
                     $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
                 }
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha borrado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarDevoluciones();
