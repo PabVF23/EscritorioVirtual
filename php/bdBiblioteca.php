@@ -727,7 +727,7 @@
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
-                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos, es posible que haya conflicto con claves externas</p>';
+                    $message = '<p>Error al realizar el borrado, comprueba los valores introducidos, es posible que haya pedidos o devoluciones con este libro</p>';
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
@@ -754,7 +754,7 @@
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
-                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos, es posible que haya conflicto con claves externas</p>';
+                    $message = '<p>Error al realizar el borrado, comprueba los valores introducidos, es posible que haya pedidos o devoluciones con este cliente</p>';
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
@@ -781,7 +781,7 @@
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
-                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos, es posible que haya conflicto con claves externas</p>';
+                    $message = '<p>Error al realizar el borrado, comprueba los valores introducidos, es posible que haya pedidos o devoluciones con este empleado</p>';
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
@@ -808,7 +808,7 @@
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
-                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos</p>';
+                    $message = '<p>Error al realizar el borrado, comprueba los valores introducidos</p>';
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
@@ -835,7 +835,7 @@
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
                 } catch (Exception $e) {
-                    $message = '<p>Error al realizar la modificación, comprueba los valores introducidos</p>';
+                    $message = '<p>Error al realizar el borrado, comprueba los valores introducidos</p>';
                 }
             } else {
                 if ($sancion < 0) {
@@ -905,7 +905,7 @@
                                         $stmt->execute();
                                     }
                                 } catch (Exception $e) {
-                                    $message = 'Error al insertar los datos, por favor compruebe que el csv está formateado correctamente o intente reiniciar la base ';
+                                    $message = 'Error al insertar los datos, por favor comprueba que el csv está formateado correctamente y que los valores son correctos';
                                 }
                             }
                         }
@@ -1050,7 +1050,7 @@
                     $fila = $resultado->fetch_assoc();
                 }
             } else {
-                $message = 'Error al encontrar y abrir el archivo';
+                $message = 'Error al crear el archivo a exportar';
             }
 
             echo $message;
