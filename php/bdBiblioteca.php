@@ -981,17 +981,10 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-
-            $path = "biblioteca.csv";
-
-            header('Content-Type: text/csv; charset:utf-8');
-            header('Content-Disposition: attachment; filename="' . $path . '";');
-            
+            $message = 'Datos exportados correctamente';
             $stmt = NULL;
 
-            ob_end_clean();
-
-            if (($archivo = fopen('php://output', 'w')) !== FALSE) {
+            if (($archivo = fopen('biblioteca.csv', 'w')) !== FALSE) {
                 $str = "/Libros\n";
                 fwrite($archivo, $str);
                 $query1 = "SELECT * FROM LIBROS";
@@ -1056,14 +1049,29 @@
                     fputcsv($archivo, $fila);
                     $fila = $resultado->fetch_assoc();
                 }
+            } else {
+                $message = 'Error al encontrar y abrir el archivo';
             }
 
-            fclose($archivo);
-
+            echo $message;
             if($stmt != NULL) {
                 $stmt->close();
             }
 
+            fclose($archivo);
+
+            $db->close();
+
+            $this->descargarArchivo();
+        }
+
+        public function descargarArchivo() {
+            header('Content-Type: text/csv; charset:utf-8');
+            header('Content-Disposition: attachment; filename="biblioteca.csv";');
+
+            ob_end_clean();
+
+            readfile("biblioteca.csv");
             exit;
         }
     }

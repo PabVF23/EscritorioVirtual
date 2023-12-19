@@ -75,10 +75,14 @@
 
         <?php
             if (isset($_POST['exportarArchivo'])) {
-                echo $biblioteca->exportarBiblioteca();
+                $biblioteca->exportarBiblioteca();
             }
 
             $biblioteca->consultarBD();
+
+            if (isset($_POST['exportarArchivo'])) {
+                $biblioteca->descargarArchivo();
+            }
         ?>
     </main>
 
