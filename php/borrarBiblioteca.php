@@ -41,7 +41,7 @@
     </header>
 
     <main>
-        <h2>Biblioteca</h2>
+        <h2>Biblioteca - Borrar</h2>
         <article>
             <h3>Otros juegos</h3>
             <a href="../memoria.html">Memoria</a>
@@ -126,8 +126,9 @@
                 $idEmpleado = $_POST['idEmpleado'];
                 $autor = $_POST['autor'];
                 $titulo = $_POST['titulo'];
+                $fecha = $_POST['fecha'];
         
-                $biblioteca->borrarPrestamo($dniCliente, $idEmpleado, $autor, $titulo);
+                $biblioteca->borrarPrestamo($dniCliente, $idEmpleado, $autor, $titulo, $fecha);
             } else {
                 $biblioteca->consultarPrestamos();
             }
@@ -143,6 +144,8 @@
             <input type='text' name='autor' id='autorPrestamoCampo'/>
             <label for='tituloPrestamoCampo'>Título: </label>
             <input type='text' name='titulo' id='tituloPrestamoCampo'/>
+            <label for='fechaPrestamoCampo'>Fecha:</label>
+            <input type='date' name='fecha' id='fechaPrestamoCampo'/>
             <input type='submit' name='confirmarPrestamo' value="Confirmar" />
         </form>
 
@@ -162,7 +165,7 @@
         <h4>Borrar devolucion</h4>
         <form action='#' method='post' name='devolucion'>
         <label for='dniClienteDevolucionCampo'>DNI: </label>
-            <input type='text' name='dniClienteDevolucion' id='dniClienteDevolucionCampo'/>
+            <input type='text' name='dniCliente' id='dniClienteDevolucionCampo'/>
             <label for='idEmpleadoDevolucionCampo'>ID del empleado: </label>
             <input type='text' name='idEmpleado' id='idEmpleadoDevolucionCampo'/>
             <label for='autorDevolucionCampo'>Autor: </label>
