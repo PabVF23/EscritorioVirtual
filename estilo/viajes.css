@@ -37,7 +37,7 @@ section:last-of-type {
     grid-template-columns: 100%;
 }
 
-/* Especificidad: 001*/
+/* Especificidad: 002*/
 section:last-of-type > svg {
     width: 50em;
     height: 30em;
