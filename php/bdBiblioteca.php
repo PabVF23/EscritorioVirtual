@@ -920,6 +920,9 @@
                 if($stmt != NULL) {
                     $stmt->close();
                 }
+
+                fclose($archivo);
+
                 $db->close();
             } else {
                 echo "Error: el archivo a importar debe ser un archivo .csv";
@@ -978,12 +981,17 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $path = getenv("HOMEDRIVE") . getenv("HOMEPATH") . '\Downloads\biblioteca.csv';
 
-            $message = 'Datos exportados correctamente';
+            $path = "biblioteca.csv";
+
+            header('Content-Type: text/csv; charset:utf-8');
+            header('Content-Disposition: attachment; filename="' . $path . '";');
+            
             $stmt = NULL;
 
-            if (($archivo = fopen($path, 'w')) !== FALSE) {
+            ob_end_clean();
+
+            if (($archivo = fopen('php://output', 'w')) !== FALSE) {
                 $str = "/Libros\n";
                 fwrite($archivo, $str);
                 $query1 = "SELECT * FROM LIBROS";
@@ -1048,15 +1056,15 @@
                     fputcsv($archivo, $fila);
                     $fila = $resultado->fetch_assoc();
                 }
-            } else {
-                $message = 'Error al encontrar y abrir el archivo';
             }
 
-            echo $message;
+            fclose($archivo);
+
             if($stmt != NULL) {
                 $stmt->close();
             }
-            $db->close();
+
+            exit;
         }
     }
 

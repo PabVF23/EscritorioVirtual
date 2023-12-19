@@ -75,7 +75,7 @@
 
         <?php
             if (isset($_POST['exportarArchivo'])) {
-                $biblioteca->exportarBiblioteca();
+                echo $biblioteca->exportarBiblioteca();
             }
 
             $biblioteca->consultarBD();
