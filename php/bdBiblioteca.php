@@ -19,6 +19,7 @@
 
             if ($db->query($query) === TRUE) {
                 $this->crearTablas();
+                echo "<p>Se ha reiniciado la BD correctamente.</p>";
             } else {
                 echo "<p>Error en la creación de la base de datos</p>";
                 exit();

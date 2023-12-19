@@ -4,8 +4,6 @@
     require("bdBiblioteca.php");
 
     $biblioteca = new Biblioteca();
-    $biblioteca->crearBD();
-    $biblioteca->vaciarTablas();
 ?>
 
 <html lang="es">
@@ -54,7 +52,10 @@
         </article>
 
         <p>Bienvenido al gestor de la biblioteca.</p>
-        <p>Se ha reiniciado la BD correctamente.</p>
+        <?php
+            $biblioteca->crearBD();
+            $biblioteca->vaciarTablas();
+        ?>
         <p>Por favor, seleccione lo que desee hacer:</p>
 
         <article>
