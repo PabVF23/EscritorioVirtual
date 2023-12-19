@@ -178,32 +178,32 @@
 
             if ($fila != NULL) {
                 echo "<table>\n";
-                echo "\t<caption>Libros disponibles en la biblioteca</caption>\t";
-                echo "\t<thead>\n";
-                echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='autor'>Autor</th>\n";
-                echo "\t\t\t<th scope='col' id='titulo'>Título</th>\n";
-                echo "\t\t\t<th scope='col' id='genero'>Género</th>\n";
-                echo "\t\t\t<th scope='col' id='año'>Año</th>\n";
-                echo "\t\t</tr>\n";
-                echo "\t</thead>\n";
-                echo "\t<tbody>\n";
+                echo "<caption>Libros disponibles en la biblioteca</caption>";
+                echo "<thead>\n";
+                echo "<tr>\n";
+                echo "<th scope='col' id='autor'>Autor</th>\n";
+                echo "<th scope='col' id='titulo'>Título</th>\n";
+                echo "<th scope='col' id='genero'>Género</th>\n";
+                echo "<th scope='col' id='año'>Año</th>\n";
+                echo "</tr>\n";
+                echo "</thead>\n";
+                echo "<tbody>\n";
                 while ($fila) {
                     $autor = $fila['autor'];
                     $titulo = $fila['titulo'];
                     $genero = $fila['genero'];
                     $año = $fila['año'];
 
-                    echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'autor'>" . $autor . "</td>\n";
-                    echo "\t\t\t<td headers = 'titulo'>" . $titulo . "</td>\n";
-                    echo "\t\t\t<td headers = 'genero'>" . $genero . "</td>\n";
-                    echo "\t\t\t<td headers = 'año'>" . $año . "</td>\n";
-                    echo "\t\t</tr>\n";
+                    echo "<tr>\n";
+                    echo "<td headers = 'autor'>" . $autor . "</td>\n";
+                    echo "<td headers = 'titulo'>" . $titulo . "</td>\n";
+                    echo "<td headers = 'genero'>" . $genero . "</td>\n";
+                    echo "<td headers = 'año'>" . $año . "</td>\n";
+                    echo "</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
                 }
-                echo "\t</tbody>\n";
+                echo "</tbody>\n";
                 echo "</table>\n";
             } else {
                 echo "<p>No se han encontrado libros en la base de datos";
@@ -231,29 +231,29 @@
 
             if ($fila != NULL) {
                 echo "<table>\n";
-                echo "\t<caption>Clientes registrados en la biblioteca</caption>\t";
-                echo "\t<thead>\n";
-                echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='dni'>DNI</th>\n";
-                echo "\t\t\t<th scope='col' id='nombreCliente'>Nombre</th>\n";
-                echo "\t\t\t<th scope='col' id='apellidosCliente'>Apellidos</th>\n";
-                echo "\t\t</tr>\n";
-                echo "\t</thead>\n";
-                echo "\t<tbody>\n";
+                echo "<caption>Clientes registrados en la biblioteca</caption>";
+                echo "<thead>\n";
+                echo "<tr>\n";
+                echo "<th scope='col' id='dni'>DNI</th>\n";
+                echo "<th scope='col' id='nombreCliente'>Nombre</th>\n";
+                echo "<th scope='col' id='apellidosCliente'>Apellidos</th>\n";
+                echo "</tr>\n";
+                echo "</thead>\n";
+                echo "<tbody>\n";
                 while ($fila) {
                     $dni = $fila['dni'];
                     $nombre = $fila['nombre'];
                     $apellidos = $fila['apellidos'];
 
-                    echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'dni'>" . $dni . "</td>\n";
-                    echo "\t\t\t<td headers = 'nombreCliente'>" . $nombre . "</td>\n";
-                    echo "\t\t\t<td headers = 'apellidosCliente'>" . $apellidos . "</td>\n";
-                    echo "\t\t</tr>\n";
+                    echo "<tr>\n";
+                    echo "<td headers = 'dni'>" . $dni . "</td>\n";
+                    echo "<td headers = 'nombreCliente'>" . $nombre . "</td>\n";
+                    echo "<td headers = 'apellidosCliente'>" . $apellidos . "</td>\n";
+                    echo "</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
                 }
-                echo "\t</tbody>\n";
+                echo "</tbody>\n";
                 echo "</table>\n";
             } else {
                 echo "<p>No se han encontrado clientes en la base de datos";
@@ -281,29 +281,29 @@
 
             if ($fila != NULL) {
                 echo "<table>\n";
-                echo "\t<caption>Empleados de la biblioteca</caption>\t";
-                echo "\t<thead>\n";
-                echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='idEmpleado'>ID del empleado</th>\n";
-                echo "\t\t\t<th scope='col' id='nombreEmpleado'>Nombre</th>\n";
-                echo "\t\t\t<th scope='col' id='apellidosEmpleado'>Apellidos</th>\n";
-                echo "\t\t</tr>\n";
-                echo "\t</thead>\n";
-                echo "\t<tbody>\n";
+                echo "<caption>Empleados de la biblioteca</caption>";
+                echo "<thead>\n";
+                echo "<tr>\n";
+                echo "<th scope='col' id='idEmpleado'>ID del empleado</th>\n";
+                echo "<th scope='col' id='nombreEmpleado'>Nombre</th>\n";
+                echo "<th scope='col' id='apellidosEmpleado'>Apellidos</th>\n";
+                echo "</tr>\n";
+                echo "</thead>\n";
+                echo "<tbody>\n";
                 while ($fila) {
                     $idEmpleado = $fila['idEmpleado'];
                     $nombre = $fila['nombre'];
                     $apellidos = $fila['apellidos'];
 
-                    echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'idEmpleado'>" . $idEmpleado . "</td>\n";
-                    echo "\t\t\t<td headers = 'nombreEmpleado'>" . $nombre . "</td>\n";
-                    echo "\t\t\t<td headers = 'apellidosEmpleado'>" . $apellidos . "</td>\n";
-                    echo "\t\t</tr>\n";
+                    echo "<tr>\n";
+                    echo "<td headers = 'idEmpleado'>" . $idEmpleado . "</td>\n";
+                    echo "<td headers = 'nombreEmpleado'>" . $nombre . "</td>\n";
+                    echo "<td headers = 'apellidosEmpleado'>" . $apellidos . "</td>\n";
+                    echo "</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
                 }
-                echo "\t</tbody>\n";
+                echo "</tbody>\n";
                 echo "</table>\n";
             } else {
                 echo "<p>No se han encontrado empleados en la base de datos";
@@ -331,18 +331,18 @@
 
             if ($fila != NULL) {
                 echo "<table>\n";
-                echo "\t<caption>Prestamos realizados</caption>\t";
-                echo "\t<thead>\n";
-                echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='dniClientePrestamo'>DNI del cliente</th>\n";
-                echo "\t\t\t<th scope='col' id='idEmpleadoPrestamo'>ID del empleado</th>\n";
-                echo "\t\t\t<th scope='col' id='autorPrestamo'>Autor</th>\n";
-                echo "\t\t\t<th scope='col' id='tituloPrestamo'>Título</th>\n";
-                echo "\t\t\t<th scope='col' id='fechaPrestamo'>Fecha</th>\n";
-                echo "\t\t\t<th scope='col' id='devuelto'>Devuelto</th>\n";
-                echo "\t\t</tr>\n";
-                echo "\t</thead>\n";
-                echo "\t<tbody>\n";
+                echo "<caption>Prestamos realizados</caption>";
+                echo "<thead>\n";
+                echo "<tr>\n";
+                echo "<th scope='col' id='dniClientePrestamo'>DNI del cliente</th>\n";
+                echo "<th scope='col' id='idEmpleadoPrestamo'>ID del empleado</th>\n";
+                echo "<th scope='col' id='autorPrestamo'>Autor</th>\n";
+                echo "<th scope='col' id='tituloPrestamo'>Título</th>\n";
+                echo "<th scope='col' id='fechaPrestamo'>Fecha</th>\n";
+                echo "<th scope='col' id='devuelto'>Devuelto</th>\n";
+                echo "</tr>\n";
+                echo "</thead>\n";
+                echo "<tbody>\n";
                 while ($fila) {
                     $dniCliente = $fila['dniCliente'];
                     $idEmpleado = $fila['idEmpleado'];
@@ -351,24 +351,24 @@
                     $fecha = $fila['fecha'];
                     $devuelto = $fila['devuelto'];
 
-                    echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'dniClientePrestamo'>" . $dniCliente . "</td>\n";
-                    echo "\t\t\t<td headers = 'idEmpleadoPrestamo'>" . $idEmpleado . "</td>\n";
-                    echo "\t\t\t<td headers = 'autorPrestamo'>" . $autor . "</td>\n";
-                    echo "\t\t\t<td headers = 'tituloPrestamo'>" . $titulo . "</td>\n";
-                    echo "\t\t\t<td headers = 'fechaPrestamo'>" . $fecha . "</td>\n";
+                    echo "<tr>\n";
+                    echo "<td headers = 'dniClientePrestamo'>" . $dniCliente . "</td>\n";
+                    echo "<td headers = 'idEmpleadoPrestamo'>" . $idEmpleado . "</td>\n";
+                    echo "<td headers = 'autorPrestamo'>" . $autor . "</td>\n";
+                    echo "<td headers = 'tituloPrestamo'>" . $titulo . "</td>\n";
+                    echo "<td headers = 'fechaPrestamo'>" . $fecha . "</td>\n";
                     
                     if ($devuelto == TRUE) {
-                        echo "\t\t\t<td headers = 'devuelto'>Sí</td>\n";
+                        echo "<td headers = 'devuelto'>Sí</td>\n";
                     } else {
-                        echo "\t\t\t<td headers = 'devuelto'>No</td>\n";
+                        echo "<td headers = 'devuelto'>No</td>\n";
                     }
 
-                    echo "\t\t</tr>\n";
+                    echo "</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
                 }
-                echo "\t</tbody>\n";
+                echo "</tbody>\n";
                 echo "</table>\n";
             } else {
                 echo "<p>No se han encontrado prestamos en la base de datos";
@@ -395,18 +395,18 @@
 
             if ($fila != NULL) {
                 echo "<table>\n";
-                echo "\t<caption>Devoluciones de libros</caption>\t";
-                echo "\t<thead>\n";
-                echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='dniClienteDevolucion'>DNI del cliente</th>\n";
-                echo "\t\t\t<th scope='col' id='idEmpleadoDevolucion'>ID del empleado</th>\n";
-                echo "\t\t\t<th scope='col' id='autorDevolucion'>Autor</th>\n";
-                echo "\t\t\t<th scope='col' id='tituloDevolucion'>Título</th>\n";
-                echo "\t\t\t<th scope='col' id='fechaDevolucion'>Fecha</th>\n";
-                echo "\t\t\t<th scope='col' id='sancion'>Sanción</th>\n";
-                echo "\t\t</tr>\n";
-                echo "\t</thead>\n";
-                echo "\t<tbody>\n";
+                echo "<caption>Devoluciones de libros</caption>";
+                echo "<thead>\n";
+                echo "<tr>\n";
+                echo "<th scope='col' id='dniClienteDevolucion'>DNI del cliente</th>\n";
+                echo "<th scope='col' id='idEmpleadoDevolucion'>ID del empleado</th>\n";
+                echo "<th scope='col' id='autorDevolucion'>Autor</th>\n";
+                echo "<th scope='col' id='tituloDevolucion'>Título</th>\n";
+                echo "<th scope='col' id='fechaDevolucion'>Fecha</th>\n";
+                echo "<th scope='col' id='sancion'>Sanción</th>\n";
+                echo "</tr>\n";
+                echo "</thead>\n";
+                echo "<tbody>\n";
                 while ($fila) {
                     $dniCliente = $fila['dniCliente'];
                     $idEmpleado = $fila['idEmpleado'];
@@ -415,19 +415,19 @@
                     $fecha = $fila['fecha'];
                     $sancion = $fila['sancion'];
 
-                    echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'dniClienteDevolucion'>" . $dniCliente . "</td>\n";
-                    echo "\t\t\t<td headers = 'idEmpleadoDevolucion'>" . $idEmpleado . "</td>\n";
-                    echo "\t\t\t<td headers = 'autorDevolucion'>" . $autor . "</td>\n";
-                    echo "\t\t\t<td headers = 'tituloDevolucion'>" . $titulo . "</td>\n";
-                    echo "\t\t\t<td headers = 'fechaDevolucion'>" . $fecha . "</td>\n";
-                    echo "\t\t\t<td headers = 'sancion'>" . $sancion . "</td>\n";
+                    echo "<tr>\n";
+                    echo "<td headers = 'dniClienteDevolucion'>" . $dniCliente . "</td>\n";
+                    echo "<td headers = 'idEmpleadoDevolucion'>" . $idEmpleado . "</td>\n";
+                    echo "<td headers = 'autorDevolucion'>" . $autor . "</td>\n";
+                    echo "<td headers = 'tituloDevolucion'>" . $titulo . "</td>\n";
+                    echo "<td headers = 'fechaDevolucion'>" . $fecha . "</td>\n";
+                    echo "<td headers = 'sancion'>" . $sancion . "</td>\n";
 
-                    echo "\t\t</tr>\n";
+                    echo "</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
                 }
-                echo "\t</tbody>\n";
+                echo "</tbody>\n";
                 echo "</table>\n";
             } else {
                 echo "<p>No se han encontrado devoluciones en la base de datos";

@@ -51,16 +51,16 @@
                 }
 
                 echo "<table>\n";
-                echo "\t<caption>10 mejores resultados en el crucigrama</caption>\t";
-                echo "\t<thead>\n";
-                echo "\t\t<tr>\n";
-                echo "\t\t\t<th scope='col' id='nombre'>Nombre</th>\n";
-                echo "\t\t\t<th scope='col' id='apellidos'>Apellidos</th>\n";
-                echo "\t\t\t<th scope='col' id='nivel'>Nivel</th>\n";
-                echo "\t\t\t<th scope='col' id='tiempo'>Tiempo</th>\n";
-                echo "\t\t</tr>\n";
-                echo "\t</thead>\n";
-                echo "\t<tbody>\n";
+                echo "<caption>10 mejores resultados en el crucigrama</caption>";
+                echo "<thead>\n";
+                echo "<tr>\n";
+                echo "<th scope='col' id='nombre'>Nombre</th>\n";
+                echo "<th scope='col' id='apellidos'>Apellidos</th>\n";
+                echo "<th scope='col' id='nivel'>Nivel</th>\n";
+                echo "<th scope='col' id='tiempo'>Tiempo</th>\n";
+                echo "</tr>\n";
+                echo "</thead>\n";
+                echo "<tbody>\n";
 
                 while ($fila) {
                     $nombre = $fila['nombre'];
@@ -68,17 +68,17 @@
                     $nivel = $fila['nivel'];
                     $tiempo = $fila['tiempo'];
 
-                    echo "\t\t<tr>\n";
-                    echo "\t\t\t<td headers = 'nombre'>" . $nombre . "</td>\n";
-                    echo "\t\t\t<td headers = 'apellidos'>" . $apellidos . "</td>\n";
-                    echo "\t\t\t<td headers = 'nivel'>" . $nivel . "</td>\n";
-                    echo "\t\t\t<td headers = 'tiempo'>" . $tiempo . "</td>\n";
-                    echo "\t\t</tr>\n";
+                    echo "<tr>\n";
+                    echo "<td headers = 'nombre'>" . $nombre . "</td>\n";
+                    echo "<td headers = 'apellidos'>" . $apellidos . "</td>\n";
+                    echo "<td headers = 'nivel'>" . $nivel . "</td>\n";
+                    echo "<td headers = 'tiempo'>" . $tiempo . "</td>\n";
+                    echo "</tr>\n";
 
                     $fila = $resultado->fetch_assoc();
                 }
 
-                echo "\t</tbody>\n";
+                echo "</tbody>\n";
                 echo "</table>\n";
                 echo "</section>\n";
             }

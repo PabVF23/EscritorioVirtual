@@ -52,9 +52,9 @@ class Pais {
 
     getInformacionSecundaria() {
         let aux = "<ul>"
-        aux += "\t<li>Población: " + this.getPoblacion() + " habitantes</li>\n";
-        aux += "\t<li>Forma de gobierno: " + this.getTipoGobierno() + "</li>\n";
-        aux += "\t<li>Religión mayoritaria: " + this.getReligion() + "</li>\n";
+        aux += "<li>Población: " + this.getPoblacion() + " habitantes</li>\n";
+        aux += "<li>Forma de gobierno: " + this.getTipoGobierno() + "</li>\n";
+        aux += "<li>Religión mayoritaria: " + this.getReligion() + "</li>\n";
         aux +="</ul>\n";
 
         return aux;
@@ -63,9 +63,9 @@ class Pais {
     escribirCoordenadas() {
         let aux = "<h4>Coordenadas de " + this.getCapital() +"</h4>\n";
         aux += "<ul>\n"
-        aux += "\t<li>Longitud: " + this.coordenadasCapital[0] + "</li>\n";
-        aux += "\t<li>Latitud: " + this.coordenadasCapital[1] + "</li>\n";
-        aux += "\t<li>Altitud: " + this.coordenadasCapital[2] + "</li>\n";
+        aux += "<li>Longitud: " + this.coordenadasCapital[0] + "</li>\n";
+        aux += "<li>Latitud: " + this.coordenadasCapital[1] + "</li>\n";
+        aux += "<li>Altitud: " + this.coordenadasCapital[2] + "</li>\n";
         aux += "</ul>\n";
 
         document.write(aux);
