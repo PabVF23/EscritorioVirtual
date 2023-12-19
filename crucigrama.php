@@ -17,7 +17,7 @@
             }
 
             if (!empty($nombre) && !empty($apellidos)) {
-                $stmt = $db->prepare("INSERT INTO REGISTRO VALUES (?, ?, ?, ?)");
+                $stmt = $db->prepare("INSERT INTO registro VALUES (?, ?, ?, ?)");
                 $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
                 $stmt->execute();
                 $stmt->close();
@@ -36,9 +36,9 @@
                 exit ("<h2>ERROR de conexión:".$db->connect_error."</h2>");  
             }
 
-            $query = "SELECT * FROM REGISTRO ORDER BY TIEMPO LIMIT 10";
+            $query = "SELECT * FROM registro ORDER BY TIEMPO LIMIT 10";
             $resultado = $db->query($query);
-
+            
             $fila = $resultado->fetch_assoc();
             if ($fila != NULL) {
                 echo "<section>";

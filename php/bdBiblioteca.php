@@ -102,6 +102,8 @@
                 echo "<p>Error en la creación de la tabla devoluciones</p>";
                 exit();
             }              
+
+            $db->close();
         }
 
         public function vaciarTablas() {
@@ -112,40 +114,42 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $vaciarPrestamos = "DELETE FROM PRESTAMOS";
+            $vaciarPrestamos = "DELETE FROM prestamos";
             
             if ($db->query($vaciarPrestamos) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla prestamos</p>";
                 exit();
             }
 
-            $vaciarDevoluciones = "DELETE FROM DEVOLUCIONES";
+            $vaciarDevoluciones = "DELETE FROM devoluciones";
             
             if ($db->query($vaciarDevoluciones) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla devoluciones</p>";
                 exit();
             }
             
-            $vaciarLibros = "DELETE FROM LIBROS";
+            $vaciarLibros = "DELETE FROM libros";
             
             if ($db->query($vaciarLibros) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla libros</p>";
                 exit();
             }
 
-            $vaciarClientes = "DELETE FROM CLIENTES";
+            $vaciarClientes = "DELETE FROM clientes";
             
             if ($db->query($vaciarClientes) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla clientes</p>";
                 exit();
             }
 
-            $vaciarEmpleados = "DELETE FROM EMPLEADOS";
+            $vaciarEmpleados = "DELETE FROM empleados";
             
             if ($db->query($vaciarEmpleados) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla empleados</p>";
                 exit();
             }
+
+            $db->close();
         }
 
         public function consultarBD() {
@@ -164,7 +168,7 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $query = "SELECT * FROM LIBROS";
+            $query = "SELECT * FROM libros";
 
             $resultado = $db->query($query);
 
@@ -217,7 +221,7 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $query = "SELECT * FROM CLIENTES";
+            $query = "SELECT * FROM clientes";
 
             $resultado = $db->query($query);
 
@@ -267,7 +271,7 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $query = "SELECT * FROM EMPLEADOS";
+            $query = "SELECT * FROM empleados";
 
             $resultado = $db->query($query);
 
@@ -317,7 +321,7 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $query = "SELECT * FROM PRESTAMOS";
+            $query = "SELECT * FROM prestamos";
 
             $resultado = $db->query($query);
 
@@ -381,7 +385,7 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $query = "SELECT * FROM DEVOLUCIONES";
+            $query = "SELECT * FROM devoluciones";
 
             $resultado = $db->query($query);
 
@@ -442,7 +446,7 @@
 
             if(!empty($autor) && !empty($titulo) && !empty($genero)) {
                 try{
-                    $stmt = $db->prepare("INSERT INTO LIBROS VALUES (?, ?, ?, ?)");
+                    $stmt = $db->prepare("INSERT INTO libros VALUES (?, ?, ?, ?)");
                     $stmt->bind_param('sssi', $autor, $titulo, $genero, $año);
                     $stmt->execute();
                     $stmt->close();
@@ -469,7 +473,7 @@
 
             if(!empty($dni) && !empty($nombre) && !empty($apellidos)) {
                 try {
-                    $stmt = $db->prepare("INSERT INTO CLIENTES VALUES (?, ?, ?)");
+                    $stmt = $db->prepare("INSERT INTO clientes VALUES (?, ?, ?)");
                     $stmt->bind_param('sss', $dni, $nombre, $apellidos);
                     $stmt->execute();
                     $stmt->close();
@@ -496,7 +500,7 @@
 
             if(!empty($idEmpleado) && !empty($nombre) && !empty($apellidos)) {
                 try {
-                    $stmt = $db->prepare("INSERT INTO EMPLEADOS VALUES (?, ?, ?)");
+                    $stmt = $db->prepare("INSERT INTO empleados VALUES (?, ?, ?)");
                     $stmt->bind_param('sss', $idEmpleado, $nombre, $apellidos);
                     $stmt->execute();
                     $stmt->close();
@@ -514,7 +518,7 @@
             $db->close();
         }
 
-        public function insertarPrestamo($dniCliente, $idEmpleado, $autor, $titulo, $fecha) {
+        public function insertarPrestamo($dniCliente, $idEmpleado, $autor, $titulo, $fecha, $devuelto) {
             $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
             if($db->connect_error) {
@@ -523,8 +527,7 @@
 
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha)) {
                 try {
-                    $devuelto = FALSE;
-                    $stmt = $db->prepare("INSERT INTO PRESTAMOS VALUES (?, ?, ?, ?, ?, ?)");
+                    $stmt = $db->prepare("INSERT INTO prestamos VALUES (?, ?, ?, ?, ?, ?)");
                     $stmt->bind_param('sssssi', $dniCliente, $idEmpleado, $autor, $titulo, $fecha, $devuelto);
                     $stmt->execute();
                     $stmt->close();
@@ -551,7 +554,7 @@
 
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha) && $sancion >= 0) {
                 try {
-                    $stmt = $db->prepare("INSERT INTO DEVOLUCIONES VALUES (?, ?, ?, ?, ?, ?)");
+                    $stmt = $db->prepare("INSERT INTO devoluciones VALUES (?, ?, ?, ?, ?, ?)");
                     $stmt->bind_param('sssssi', $dniCliente, $idEmpleado, $autor, $titulo, $fecha, $sancion);
                     $stmt->execute();
                     $stmt->close();
@@ -582,7 +585,7 @@
 
             if(!empty($autor) && !empty($titulo) && !empty($genero)) {
                 try{
-                    $stmt = $db->prepare("UPDATE LIBROS SET GENERO=?, AÑO=? WHERE AUTOR=? AND TITULO=?");
+                    $stmt = $db->prepare("UPDATE libros SET genero=?, año=? WHERE autor=? AND titulo=?");
                     $stmt->bind_param('siss', $genero, $año, $autor, $titulo);
                     $stmt->execute();
                     $stmt->close();
@@ -607,10 +610,13 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
+
             if(!empty($dni) && !empty($nombre) && !empty($apellidos)) {
                 try {
-                    $stmt = $db->prepare("UPDATE CLIENTES SET NOMBRE=?, APELLIDOS=? WHERE DNI=?");
+                    $stmt = $db->prepare("UPDATE clientes SET NOMBRE=?, APELLIDOS=? WHERE DNI=?");
                     $stmt->bind_param('sss', $nombre, $apellidos, $dni);
+                    $rows = $stmt->num_rows();
                     $stmt->execute();
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
@@ -619,6 +625,10 @@
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha modificado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarClientes();
@@ -636,7 +646,7 @@
 
             if(!empty($idEmpleado) && !empty($nombre) && !empty($apellidos)) {
                 try {
-                    $stmt = $db->prepare("UPDATE EMPLEADOS SET NOMBRE=?, APELLIDOS=? WHERE IDEMPLEADO=?");
+                    $stmt = $db->prepare("UPDATE empleados SET NOMBRE=?, APELLIDOS=? WHERE IDEMPLEADO=?");
                     $stmt->bind_param('sss', $nombre, $apellidos, $idEmpleado);
                     $stmt->execute();
                     $stmt->close();
@@ -663,8 +673,8 @@
 
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha)) {
                 try {
-                    $stmt = $db->prepare("UPDATE PRESTAMOS SET FECHA=?, DEVUELTO=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
-                    $stmt->bind_param('sissss', $fecha, $devuelto, $dniCliente, $idEmpleado, $autor, $titulo);
+                    $stmt = $db->prepare("UPDATE prestamos SET DEVUELTO=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=? AND FECHA = ?");
+                    $stmt->bind_param('isssss', $devuelto, $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
@@ -675,6 +685,7 @@
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
             }
 
+            echo $devuelto;
             $this->consultarPrestamos();
             echo $message;
 
@@ -690,8 +701,8 @@
 
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo) && !empty($fecha) && $sancion >= 0) {
                 try {
-                    $stmt = $db->prepare("UPDATE DEVOLUCIONES SET FECHA=?, SANCION=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
-                    $stmt->bind_param('sissss', $fecha, $sancion, $dniCliente, $idEmpleado, $autor, $titulo);
+                    $stmt = $db->prepare("UPDATE devoluciones SET SANCION=? WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?, FECHA=?");
+                    $stmt->bind_param('issss', $sancion, $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
                     $stmt->close();
                     $message = '<p>Datos actualizados correctamente</p>';
@@ -721,11 +732,11 @@
 
             if(!empty($autor) && !empty($titulo)) {
                 try{
-                    $stmt = $db->prepare("DELETE FROM LIBROS WHERE AUTOR=? AND TITULO=?");
+                    $stmt = $db->prepare("DELETE FROM libros WHERE AUTOR=? AND TITULO=?");
                     $stmt->bind_param('ss', $autor, $titulo);
                     $stmt->execute();
                     $stmt->close();
-                    $message = '<p>Datos actualizados correctamente</p>';
+                    $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
                     $message = '<p>Error al realizar el borrado, comprueba los valores introducidos, es posible que haya pedidos o devoluciones con este libro</p>';
                 }
@@ -748,11 +759,11 @@
 
             if(!empty($dni)) {
                 try {
-                    $stmt = $db->prepare("DELETE FROM CLIENTES WHERE DNI=?");
+                    $stmt = $db->prepare("DELETE FROM clientes WHERE DNI=?");
                     $stmt->bind_param('s', $dni);
                     $stmt->execute();
                     $stmt->close();
-                    $message = '<p>Datos actualizados correctamente</p>';
+                    $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
                     $message = '<p>Error al realizar el borrado, comprueba los valores introducidos, es posible que haya pedidos o devoluciones con este cliente</p>';
                 }
@@ -775,11 +786,11 @@
 
             if(!empty($idEmpleado)) {
                 try {
-                    $stmt = $db->prepare("DELETE FROM EMPLEADOS WHERE IDEMPLEADO=?");
+                    $stmt = $db->prepare("DELETE FROM empleados WHERE IDEMPLEADO=?");
                     $stmt->bind_param('s', $idEmpleado);
                     $stmt->execute();
                     $stmt->close();
-                    $message = '<p>Datos actualizados correctamente</p>';
+                    $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
                     $message = '<p>Error al realizar el borrado, comprueba los valores introducidos, es posible que haya pedidos o devoluciones con este empleado</p>';
                 }
@@ -793,25 +804,31 @@
             $db->close();
         }
 
-        public function borrarPrestamo($dniCliente, $idEmpleado, $autor, $titulo,) {
+        public function borrarPrestamo($dniCliente, $idEmpleado, $autor, $titulo, $fecha) {
             $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
             if($db->connect_error) {
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
+            $rows = -1;
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo)) {
                 try {
-                    $stmt = $db->prepare("DELETE FROM PRESTAMOS WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
-                    $stmt->bind_param('ssss', $dniCliente, $idEmpleado, $autor, $titulo);
+                    $stmt = $db->prepare("DELETE FROM prestamos WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=? AND FECHA = ?");
+                    $stmt->bind_param('sssss', $dniCliente, $idEmpleado, $autor, $titulo, $fecha);
                     $stmt->execute();
+                    $rows = $stmt->num_rows();
                     $stmt->close();
-                    $message = '<p>Datos actualizados correctamente</p>';
+                    $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
                     $message = '<p>Error al realizar el borrado, comprueba los valores introducidos</p>';
                 }
             } else {
                 $message = '<p>Advertencia: No pueden quedar campos en blanco</p>';
+            }
+
+            if ($rows == 0) {
+                $message = '<p>No se ha modificado ninguna entrada, comprueba los valores introducidos</p>';
             }
 
             $this->consultarPrestamos();
@@ -829,11 +846,11 @@
 
             if(!empty($dniCliente) && !empty($idEmpleado) && !empty($autor) && !empty($titulo)) {
                 try {
-                    $stmt = $db->prepare("DELETE FROM DEVOLUCIONES WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt = $db->prepare("DELETE FROM devoluciones WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
                     $stmt->bind_param('ssss', $dniCliente, $idEmpleado, $autor, $titulo);
                     $stmt->execute();
                     $stmt->close();
-                    $message = '<p>Datos actualizados correctamente</p>';
+                    $message = '<p>Datos borrados correctamente</p>';
                 } catch (Exception $e) {
                     $message = '<p>Error al realizar el borrado, comprueba los valores introducidos</p>';
                 }
@@ -875,29 +892,29 @@
                                         switch ($tabla) {
                                             case 'Libros':
                                                 $año = intval($linea[3]);
-                                                $stmt = $db->prepare("INSERT INTO LIBROS VALUES (?,?,?,?)");
+                                                $stmt = $db->prepare("INSERT INTO libros VALUES (?,?,?,?)");
                                                 $stmt->bind_param('sssi', $linea[0], $linea[1], $linea[2], $año);
                                                 break;
                                             
                                             case 'Clientes':
-                                                $stmt = $db->prepare("INSERT INTO CLIENTES VALUES (?,?,?)");
+                                                $stmt = $db->prepare("INSERT INTO clientes VALUES (?,?,?)");
                                                 $stmt->bind_param('sss', $linea[0], $linea[1], $linea[2]);
                                                 break;
         
                                             case 'Empleados':
-                                                $stmt = $db->prepare("INSERT INTO EMPLEADOS VALUES (?,?,?)");
+                                                $stmt = $db->prepare("INSERT INTO empleados VALUES (?,?,?)");
                                                 $stmt->bind_param('sss', $linea[0], $linea[1], $linea[2]);
                                                 break;
         
                                             case 'Prestamos':
                                                 $devuelto = boolval($linea[5]);
-                                                $stmt = $db->prepare("INSERT INTO PRESTAMOS VALUES (?,?,?,?,?,?)");
+                                                $stmt = $db->prepare("INSERT INTO prestamos VALUES (?,?,?,?,?,?)");
                                                 $stmt->bind_param('sssssi', $linea[0], $linea[1], $linea[2], $linea[3], $linea[4], $devuelto);
                                                 break;
                                             
                                             case 'Devoluciones':
                                                 $sancion = intval($linea[5]);
-                                                $stmt = $db->prepare("INSERT INTO DEVOLUCIONES VALUES (?,?,?,?,?,?)");
+                                                $stmt = $db->prepare("INSERT INTO devoluciones VALUES (?,?,?,?,?,?)");
                                                 $stmt->bind_param('sssssi', $linea[0], $linea[1], $linea[2], $linea[3], $linea[4], $sancion);
                                                 break;
                                         }
@@ -938,29 +955,29 @@
 
             switch ($tabla) {
                 case 'Libros':
-                    $stmt = $db->prepare("SELECT * FROM LIBROS WHERE AUTOR=? AND TITULO=?");
+                    $stmt = $db->prepare("SELECT * FROM libros WHERE AUTOR=? AND TITULO=?");
                     $stmt->bind_param('ss', $linea[0], $linea[1]);
                     break;
                 
                 case 'Clientes':
-                    $stmt = $db->prepare("SELECT * FROM CLIENTES WHERE DNI=?");
+                    $stmt = $db->prepare("SELECT * FROM clientes WHERE DNI=?");
                     $stmt->bind_param('s', $linea[0]);
                     break;
 
                 case 'Empleados':
-                    $stmt = $db->prepare("SELECT * FROM EMPLEADOS WHERE IDEMPLEADO=?");
+                    $stmt = $db->prepare("SELECT * FROM empleados WHERE IDEMPLEADO=?");
                     $stmt->bind_param('s', $linea[0]);
                     break;
 
                 case 'Prestamos':
                     $devuelto = boolval($linea[5]);
-                    $stmt = $db->prepare("SELECT * FROM PRESTAMOS WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt = $db->prepare("SELECT * FROM prestamos WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
                     $stmt->bind_param('ssss', $linea[0], $linea[1], $linea[2], $linea[3]);
                     break;
                 
                 case 'Devoluciones':
                     $sancion = intval($linea[5]);
-                    $stmt = $db->prepare("SELECT * FROM DEVOLUCIONES WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
+                    $stmt = $db->prepare("SELECT * FROM devoluciones WHERE DNICLIENTE=? AND IDEMPLEADO=? AND AUTOR=? AND TITULO=?");
                     $stmt->bind_param('ssss', $linea[0], $linea[1], $linea[2], $linea[3]);
                     break;
             }
@@ -981,13 +998,18 @@
                 exit ("<h3>ERROR de conexión:".$db->connect_error."</h3>");  
             }
 
-            $message = 'Datos exportados correctamente';
+            header('Content-Type: text/csv; charset:utf-8');
+            header('Content-Disposition: attachment; filename="biblioteca.csv";');
+
             $stmt = NULL;
 
-            if (($archivo = fopen('biblioteca.csv', 'w')) !== FALSE) {
+            ob_end_clean();
+
+            ob_start();
+            if (($archivo = fopen('php://output', 'w')) !== FALSE) {
                 $str = "/Libros\n";
                 fwrite($archivo, $str);
-                $query1 = "SELECT * FROM LIBROS";
+                $query1 = "SELECT * FROM libros";
 
                 $resultado = $db->query($query1);
 
@@ -1000,7 +1022,7 @@
 
                 $str = "\n/Clientes\n";
                 fwrite($archivo, $str);
-                $query1 = "SELECT * FROM CLIENTES";
+                $query1 = "SELECT * FROM clientes";
 
                 $resultado = $db->query($query1);
 
@@ -1013,7 +1035,7 @@
 
                 $str = "\n/Empleados\n";
                 fwrite($archivo, $str);
-                $query1 = "SELECT * FROM EMPLEADOS";
+                $query1 = "SELECT * FROM empleados";
 
                 $resultado = $db->query($query1);
 
@@ -1026,7 +1048,7 @@
 
                 $str = "\n/Prestamos\n";
                 fwrite($archivo, $str);
-                $query1 = "SELECT * FROM PRESTAMOS";
+                $query1 = "SELECT * FROM prestamos";
 
                 $resultado = $db->query($query1);
 
@@ -1039,7 +1061,7 @@
 
                 $str = "\n/Devoluciones\n";
                 fwrite($archivo, $str);
-                $query1 = "SELECT * FROM DEVOLUCIONES";
+                $query1 = "SELECT * FROM devoluciones";
 
                 $resultado = $db->query($query1);
 
@@ -1049,30 +1071,16 @@
                     fputcsv($archivo, $fila);
                     $fila = $resultado->fetch_assoc();
                 }
-            } else {
-                $message = 'Error al crear el archivo a exportar';
             }
 
-            echo $message;
             if($stmt != NULL) {
                 $stmt->close();
             }
 
-            fclose($archivo);
-
             $db->close();
 
-            $this->descargarArchivo();
-        }
-
-        public function descargarArchivo() {
-            header('Content-Type: text/csv; charset:utf-8');
-            header('Content-Disposition: attachment; filename="biblioteca.csv";');
-
-            ob_end_clean();
-
-            readfile("biblioteca.csv");
             exit;
+
         }
     }
 

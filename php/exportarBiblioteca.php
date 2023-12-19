@@ -41,7 +41,7 @@
     </header>
 
     <main>
-        <h2>Biblioteca</h2>
+        <h2>Biblioteca - Exportar</h2>
         <article>
             <h3>Otros juegos</h3>
             <a href="../memoria.html">Memoria</a>
@@ -79,10 +79,6 @@
             }
 
             $biblioteca->consultarBD();
-
-            if (isset($_POST['exportarArchivo'])) {
-                $biblioteca->descargarArchivo();
-            }
         ?>
     </main>
 

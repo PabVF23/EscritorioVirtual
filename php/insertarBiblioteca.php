@@ -41,7 +41,7 @@
     </header>
 
     <main>
-        <h2>Biblioteca</h2>
+        <h2>Biblioteca - Insertar</h2>
         <article>
             <h3>Otros juegos</h3>
             <a href="../memoria.html">Memoria</a>
@@ -111,7 +111,7 @@
             <label for='nombreClienteCampo'>Nombre: </label>
             <input type='text' name='nombre' id='nombreClienteCampo'/>
             <label for='apellidosClienteCampo'>Apellidos: </label>
-            <input type='text' name='apellidosCliente' id='apellidosClienteCampo' />
+            <input type='text' name='apellidos' id='apellidosClienteCampo' />
             <input type='submit' name='confirmarCliente' value="Confirmar" />
         </form>
 
@@ -145,8 +145,9 @@
                 $autor = $_POST['autor'];
                 $titulo = $_POST['titulo'];
                 $fecha = $_POST['fecha'];
+                $devuelto = isset($_POST['devuelto']);
         
-                $biblioteca->insertarPrestamo($dniCliente, $idEmpleado, $autor, $titulo, $fecha);
+                $biblioteca->insertarPrestamo($dniCliente, $idEmpleado, $autor, $titulo, $fecha, $devuelto);
             } else {
                 $biblioteca->consultarPrestamos();
             }
@@ -164,6 +165,8 @@
             <input type='text' name='titulo' id='tituloPrestamoCampo'/>
             <label for='fechaPrestamoCampo'>Fecha:</label>
             <input type='date' name='fecha' id='fechaPrestamoCampo'/>
+            <label for='devueltoCampo'>Devuelto:</label>
+            <input type='checkbox' name='devuelto' id='devueltoCampo'/>
             <input type='submit' name='confirmarPrestamo' value="Confirmar" />
         </form>
 
