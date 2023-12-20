@@ -42,14 +42,6 @@
 
     <main>
         <h2>Biblioteca - Consultar</h2>
-        <article>
-            <h3>Otros juegos</h3>
-            <a href="../memoria.html">Memoria</a>
-            <a href="../sudoku.html">Sudoku</a>
-            <a href="../crucigrama.php">Crucigrama matemático</a>
-            <a href="../api.html">Reproductor de música</a>
-            <a href="biblioteca.php">Gestor de biblioteca</a>
-        </article>
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <p>Aquí puedes consultar los datos de la biblioteca</p>
