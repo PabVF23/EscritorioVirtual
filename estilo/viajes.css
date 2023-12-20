@@ -119,7 +119,7 @@ article > button {
     width:75vw;
   }
 
-  @media (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     /* Especificidad: 011*/
     section:nth-of-type(2) {
         /* Redefinición de propiedad width */

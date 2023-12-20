@@ -123,7 +123,6 @@ table {
   border-collapse: collapse;
   border-style: solid;
   border-color: #000000;
-  width: 95vw
   }
 
 /* Especificidad: 002 */
@@ -159,4 +158,11 @@ video {
 /* Especificidad: 001 */
 audio {
   max-width: 100%;
+}
+
+@media screen and (max-width: 550px) {
+  /* Especificidad: 001 */
+  table {
+    width: 90vw;
+  }
 }
