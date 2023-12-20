@@ -103,8 +103,6 @@
                 echo "<p>Error en la creación de la tabla devoluciones</p>";
                 exit();
             }              
-
-            $db->close();
         }
 
         public function vaciarTablas() {
