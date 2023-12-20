@@ -42,8 +42,6 @@ main > p {
     border-bottom: 0.15em solid black;
     border-left: 0.15em solid black;
     border-right: 0.15em solid black;
-    font-size: 1.1em;
-    font-weight: bold;
 }
 
 /* Especificidad: 012*/
