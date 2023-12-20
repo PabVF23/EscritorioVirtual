@@ -37,15 +37,16 @@
     <main>
         <h2>Viajes</h2>
 
-        <article><h3>Carrusel de imágenes</h3><img src="https://live.staticflickr.com/65535/52734862767_cac644c060_b.png" alt="Imagen 1 Carrusel" data-visibility="visible"><img src="https://live.staticflickr.com/65535/52734860817_913bc7ce31_b.png" alt="Imagen 2 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735377016_3f52fde771_b.png" alt="Imagen 3 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735788930_5a48fe1b92_b.png" alt="Imagen 4 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735847588_478ca72f50_b.png" alt="Imagen 5 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52734813907_1ab34e90d3_b.png" alt="Imagen 6 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735735705_4e6b970abf_b.png" alt="Imagen 7 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735734780_bc03a043e5_b.png" alt="Imagen 8 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735570949_efa9c7480a_b.png" alt="Imagen 9 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735569704_4c4e2677ff_b.png" alt="Imagen 10 Carrusel" data-visibility="hidden"><button data-action="next"> &gt; </button><button data-action="prev"> &lt; </button></article>
+        <article><h3>Carrusel de imágenes</h3><img src="https://live.staticflickr.com/65535/52734862767_cac644c060_b.png" alt="Imagen 1 Carrusel" data-visibility="visible"><img src="https://live.staticflickr.com/65535/52734860817_913bc7ce31_b.png" alt="Imagen 2 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735377016_3f52fde771_b.png" alt="Imagen 3 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735788930_5a48fe1b92_b.png" alt="Imagen 4 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735847588_478ca72f50_b.png" alt="Imagen 5 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52734813907_1ab34e90d3_b.png" alt="Imagen 6 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735735705_4e6b970abf_b.png" alt="Imagen 7 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735570949_efa9c7480a_b.png" alt="Imagen 8 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52735569704_4c4e2677ff_b.png" alt="Imagen 9 Carrusel" data-visibility="hidden"><img src="https://live.staticflickr.com/65535/52734793817_afde1d27e6_b.png" alt="Imagen 10 Carrusel" data-visibility="hidden"><button data-action="next"> &gt; </button><button data-action="prev"> &lt; </button></article>
         <section>
             <h3>Tipo de cambio</h3>
 
-            <p>Tasa de cambio obtenida: 1 EUR = 2.5297 TOP</p>        </section>
+            <p>Tasa de cambio obtenida: 1 EUR = 2.5552 TOP</p>        </section>
 
         <section>
-            <h3>Mapa estático</h3>
-            <figure id="mapa" class="mapboxgl-map"><img src="https://maps.googleapis.com/maps/api/staticmap?center=43.371921,-5.829125&amp;zoom=15&amp;size=800x600&amp;markers=color:red%7Clabel:S%7C43.371921,-5.829125&amp;sensor=false&amp;key=AIzaSyD-7oLBwHqNquoUpIjkwg4aVXr24ZTiEM0" alt="Mapa estático de Google"></figure>
+            <h3>Cargar mapa</h3>
+            <!--Al cargar el mapa dinámico de MapBox desde el botón, el código HTML generado hace que el validador muestre una advertencia-->
+            <figure id="mapa"></figure>
         </section>
 
         <button onclick="viajes.getMapaEstatico()">Cargar mapa estático</button>
@@ -57,132 +58,30 @@
             <h3>Subir archivo XML</h3>
             <label for="cargarXML">Seleccionar archivos XML a cargar: </label>
             <input type="file" id="cargarXML" onchange="viajes.leerXML()">
-        <h4>Ruta por Nuku'Alofa</h4><ul><li>Tipo: Senderismo</li><li>Medio: A pie</li><li>Fecha: 2023-12-15</li><li>Hora: 12:00:00</li><li>Tiempo: 6 horas </li><li>Agencia: RutasTonga</li><li>Descripcion: Se visitarán los lugares más destacados de la capital de la isla</li><li>Personas: Se puede ir con niños</li><li>Lugar: Palacio Real de Tonga</li><li>Direccion: VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</li><li>Coordenadas: -21.13117063262022, -175.2005886457105, 4</li><li>Referencias:<ul><li><a href="
+        <h4>Ruta por Nuku'Alofa</h4><p>Tipo: Senderismo</p><p>Medio: A pie</p><p>Fecha: 2023-12-15</p><p>Hora: 12:00:00</p><p>Tiempo: 6 horas </p><p>Agencia: RutasTonga</p><p>Descripcion: Se visitarán los lugares más destacados de la capital de la isla</p><p>Personas: Se puede ir con niños</p><p>Lugar: Palacio Real de Tonga</p><p>Direccion: VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</p><p>Coordenadas: -21.13117063262022, -175.2005886457105, 4</p><p>Referencias:</p><ul><li><a href="
                 https://es.wikipedia.org/wiki/Nukualofa
-            ">
-                https://es.wikipedia.org/wiki/Nukualofa
-            </a></li><li><a href="
+            ">Referencia 1</a></li><li><a href="
                 https://es.wikipedia.org/wiki/Palacio_Real_de_Tonga
-            ">
-                https://es.wikipedia.org/wiki/Palacio_Real_de_Tonga
-            </a></li><li><a href="
+            ">Referencia 2</a></li><li><a href="
                 https://www.royalpalace.to/
-            ">
-                https://www.royalpalace.to/
-            </a></li></ul></li><li>Recomendación: 7</li><li>Hitos:<ul><li>Palacio Real de Tonga<ul><li>Descripcion: Residencia de Tupou VI, Rey de Tonga</li><li>Coordenadas: -21.13117063262022, -175.2005886457105, 4</li><li>Distancia del último punto: 0 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/palacio.png" alt="palacio.png"></li></ul></li></ul></li><li>Telekava European Cemetery<ul><li>Descripcion: Cementerio a los caidos en la Segunda Guerra Mundial</li><li>Coordenadas: -21.13421725022125, -175.20945121535524, 7</li><li>Distancia del último punto: 963.99 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/cementerio.png" alt="cementerio.png"></li></ul></li></ul></li><li>Tonga National Museum<ul><li>Descripcion: Museo nacional de Tonga</li><li>Coordenadas: -21.13844583593113, -175.20396822904885, 7</li><li>Distancia del último punto: 733.22 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/museo.png" alt="museo.png"></li></ul></li></ul></li></ul></li></ul><h4>Visita Playa Ha'atafu</h4><ul><li>Tipo: Paisajística</li><li>Medio: En bici</li><li>Fecha: 2023-12-13</li><li>Hora: 10:00:00</li><li>Tiempo: 16 horas </li><li>Agencia: Sin agencia</li><li>Descripcion: Un viaje en bici para visitar la playa de Ha'atafu, con la posibilidad de bañarse en ella</li><li>Personas: Personas en buena forma física</li><li>Lugar: ANT Bicycles Tonga</li><li>Direccion: Railway Rd, Nuku'alofa, Tonga</li><li>Coordenadas: -21.13718666160756, -175.20163424666714, 7</li><li>Referencias:<ul><li><a href="
+            ">Referencia 3</a></li></ul><p>Recomendación: 7</p><h5>Hito: Palacio Real de Tonga</h5><p>Descripcion: Residencia de Tupou VI, Rey de Tonga</p><p>Coordenadas: -21.13117063262022, -175.2005886457105, 4</p><p>Distancia del último punto: 0 m</p><h6>Galería de fotos: </h6><img src="xml/palacio.png" alt="palacio.png"><h5>Hito: Telekava European Cemetery</h5><p>Descripcion: Cementerio a los caidos en la Segunda Guerra Mundial</p><p>Coordenadas: -21.13421725022125, -175.20945121535524, 7</p><p>Distancia del último punto: 963.99 m</p><h6>Galería de fotos: </h6><img src="xml/cementerio.png" alt="cementerio.png"><h5>Hito: Tonga National Museum</h5><p>Descripcion: Museo nacional de Tonga</p><p>Coordenadas: -21.13844583593113, -175.20396822904885, 7</p><p>Distancia del último punto: 733.22 m</p><h6>Galería de fotos: </h6><img src="xml/museo.png" alt="museo.png"><h4>Visita Playa Ha'atafu</h4><p>Tipo: Paisajística</p><p>Medio: En bici</p><p>Fecha: 2023-12-13</p><p>Hora: 10:00:00</p><p>Tiempo: 16 horas </p><p>Agencia: Sin agencia</p><p>Descripcion: Un viaje en bici para visitar la playa de Ha'atafu, con la posibilidad de bañarse en ella</p><p>Personas: Personas en buena forma física</p><p>Lugar: ANT Bicycles Tonga</p><p>Direccion: Railway Rd, Nuku'alofa, Tonga</p><p>Coordenadas: -21.13718666160756, -175.20163424666714, 7</p><p>Referencias:</p><ul><li><a href="
                 https://www.tripadvisor.es/Attraction_Review-g317040-d315301-Reviews-Ha_atafu_Beach-Tongatapu_Island.html
-            ">
-                https://www.tripadvisor.es/Attraction_Review-g317040-d315301-Reviews-Ha_atafu_Beach-Tongatapu_Island.html
-            </a></li><li><a href="
+            ">Referencia 1</a></li><li><a href="
                 https://www.surfingtonga.com/index.html
-            ">
-                https://www.surfingtonga.com/index.html
-            </a></li><li><a href="
+            ">Referencia 2</a></li><li><a href="
                 https://www.lonelyplanet.es/oceania/tonga/imprescindible/playa-de-haatafu
-            ">
-                https://www.lonelyplanet.es/oceania/tonga/imprescindible/playa-de-haatafu
-            </a></li></ul></li><li>Recomendación: 10</li><li>Hitos:<ul><li>Coco de 3 cabezas<ul><li>Descripcion: Una atracción turística muy visitada, un arbol de cocos con 3 cabezas</li><li>Coordenadas: -21.157854674108894, -175.27755641907672, 11</li><li>Distancia del último punto: 0 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/coco.png" alt="coco.png"></li></ul></li></ul></li><li>Heilala Holiday Lodge<ul><li>Descripcion: Resort vacacional de Heilala</li><li>Coordenadas: -21.07158149791907, -175.33522905520314, 14</li><li>Distancia del último punto: 733.22 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/heilala.png" alt="heilala.png"></li></ul></li></ul></li><li>Playa de Ha'atafu<ul><li>Descripcion: Playa protegida para nadar y hacer surf</li><li>Coordenadas: -21.06976568669056, -175.3349976690178, 6</li><li>Distancia del último punto: 963.99 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/haatafu.png" alt="haatafu.png"></li></ul></li></ul></li></ul></li></ul><h4>Visita a las islas</h4><ul><li>Tipo: Senderismo</li><li>Medio: A pie (con trayectos en barco entre las islas)</li><li>Fecha: 2023-12-19</li><li>Hora: 20:00:00</li><li>Tiempo: 20 horas </li><li>Agencia: Nukunukumotu Tours</li><li>Descripcion: Una visita guiada a algunas de las distintas islas que conforman Tonga</li><li>Personas: Se pueden llevar niños</li><li>Lugar: Palacio Real de Tonga</li><li>Direccion: VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</li><li>Coordenadas: -21.13117063262022, -175.2005886457105, 4</li><li>Referencias:<ul><li><a href="
+            ">Referencia 3</a></li></ul><p>Recomendación: 10</p><h5>Hito: Coco de 3 cabezas</h5><p>Descripcion: Una atracción turística muy visitada, un arbol de cocos con 3 cabezas</p><p>Coordenadas: -21.157854674108894, -175.27755641907672, 11</p><p>Distancia del último punto: 0 m</p><h6>Galería de fotos: </h6><img src="xml/coco.png" alt="coco.png"><h5>Hito: Heilala Holiday Lodge</h5><p>Descripcion: Resort vacacional de Heilala</p><p>Coordenadas: -21.07158149791907, -175.33522905520314, 14</p><p>Distancia del último punto: 733.22 m</p><h6>Galería de fotos: </h6><img src="xml/heilala.png" alt="heilala.png"><h5>Hito: Playa de Ha'atafu</h5><p>Descripcion: Playa protegida para nadar y hacer surf</p><p>Coordenadas: -21.06976568669056, -175.3349976690178, 6</p><p>Distancia del último punto: 963.99 m</p><h6>Galería de fotos: </h6><img src="xml/haatafu.png" alt="haatafu.png"><h4>Visita a las islas</h4><p>Tipo: Senderismo</p><p>Medio: A pie (con trayectos en barco entre las islas)</p><p>Fecha: 2023-12-19</p><p>Hora: 20:00:00</p><p>Tiempo: 20 horas </p><p>Agencia: Nukunukumotu Tours</p><p>Descripcion: Una visita guiada a algunas de las distintas islas que conforman Tonga</p><p>Personas: Se pueden llevar niños</p><p>Lugar: Palacio Real de Tonga</p><p>Direccion: VQ9X+FQ2, Vuna Rd, Nuku'alofa, Tonga</p><p>Coordenadas: -21.13117063262022, -175.2005886457105, 4</p><p>Referencias:</p><ul><li><a href="
                 https://to.geoview.info/nukunukumotu_island,4032391
-            ">
-                https://to.geoview.info/nukunukumotu_island,4032391
-            </a></li><li><a href="
+            ">Referencia 1</a></li><li><a href="
                 https://en.wikipedia.org/wiki/Pangaimotu_(Vava%CA%BBu)
-            ">
-                https://en.wikipedia.org/wiki/Pangaimotu_(Vava%CA%BBu)
-            </a></li><li><a href="
+            ">Referencia 2</a></li><li><a href="
                 https://mapcarta.com/20410440
-            ">
-                https://mapcarta.com/20410440
-            </a></li></ul></li><li>Recomendación: 9</li><li>Hitos:<ul><li>Isla de Nukunukumotu<ul><li>Descripcion: Isla localizada a una corta distancia al este de Nukualofa</li><li>Coordenadas: -21.14200661114548, -175.1460399023326, 7</li><li>Distancia del último punto: 0 m</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/nukunukumotu.png" alt="nukunukumotu.png"></li></ul></li></ul></li><li>Isla de Oneata<ul><li>Descripcion: Isla localizada al norte de Nukunukumotu</li><li>Coordenadas: -21.129241417647656, -175.14618839323603, 7</li><li>Distancia del último punto: 1.46 km</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/oneata.png" alt="oneata.png"></li></ul></li></ul></li><li>Isla de Pangaimotu<ul><li>Descripcion: Isla localizada al noroeste de Oneata</li><li>Coordenadas: -21.124028934272, -175.1590628165866, 7</li><li>Distancia del último punto: 1.40 km</li><li>Galería de fotos: <ul><li><img src="multimedia/imagenes/pangaimotu.png" alt="pangaimotu.png"></li></ul></li><li>Galería de videos: <ul><li><video controls="" preload="auto"><source src="multimedia/videos/pangaimotu.mp4" type="video/mp4"></video></li></ul></li></ul></li></ul></li></ul></section>
+            ">Referencia 3</a></li></ul><p>Recomendación: 9</p><h5>Hito: Isla de Nukunukumotu</h5><p>Descripcion: Isla localizada a una corta distancia al este de Nukualofa</p><p>Coordenadas: -21.14200661114548, -175.1460399023326, 7</p><p>Distancia del último punto: 0 m</p><h6>Galería de fotos: </h6><img src="xml/nukunukumotu.png" alt="nukunukumotu.png"><h5>Hito: Isla de Oneata</h5><p>Descripcion: Isla localizada al norte de Nukunukumotu</p><p>Coordenadas: -21.129241417647656, -175.14618839323603, 7</p><p>Distancia del último punto: 1.46 km</p><h6>Galería de fotos: </h6><img src="xml/oneata.png" alt="oneata.png"><h5>Hito: Isla de Pangaimotu</h5><p>Descripcion: Isla localizada al noroeste de Oneata</p><p>Coordenadas: -21.124028934272, -175.1590628165866, 7</p><p>Distancia del último punto: 1.40 km</p><h6>Galería de fotos: </h6><img src="xml/pangaimotu.png" alt="pangaimotu.png"><h6>Galería de videos: </h6><video controls="" preload="auto"><source src="xml/pangaimotu.mp4" type="video/mp4"></video></section>
         <section>
             <h3>Subir archivos SVG</h3>
             <label for="cargarSVG">Seleccionar archivos SVG a cargar: </label>
             <input type="file" id="cargarSVG" onchange="viajes.añadirSVG()" multiple="">
-        <!--?xml version="1.0" encoding="UTF-8"?-->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-	<polyline points="
-		50,128.0
-		130,128.0
-		210,104.0
-		290,104.0
-		370,128.0
-		370,160
-		50,160
-		50,128.0
-		" style="fill:white;stroke:red;stroke-width:4"></polyline>
-		<text x="50" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Palacio Real de Tonga
-		</text>
-		<text x="130" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Palacio Real de Tonga
-		</text>
-		<text x="210" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Telekava European Cemetery
-		</text>
-		<text x="290" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Tonga National Museum
-		</text>
-		<text x="370" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Palacio Real de Tonga
-		</text>
-</svg>
-<!--?xml version="1.0" encoding="UTF-8"?-->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-	<polyline points="
-		50,104.0
-		130,72.0
-		210,48.0
-		290,112.0
-		370,104.0
-		370,160
-		50,160
-		50,104.0
-		" style="fill:white;stroke:red;stroke-width:4"></polyline>
-		<text x="50" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			ANT Bicycles Tonga
-		</text>
-		<text x="130" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Coco de 3 cabezas
-		</text>
-		<text x="210" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Heilala Holiday Lodge
-		</text>
-		<text x="290" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Playa de Ha'atafu
-		</text>
-		<text x="370" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			ANT Bicycles Tonga
-		</text>
-</svg>
-<!--?xml version="1.0" encoding="UTF-8"?-->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-	<polyline points="
-		50,128.0
-		130,104.0
-		210,104.0
-		290,104.0
-		370,128.0
-		370,160
-		50,160
-		50,128.0
-		" style="fill:white;stroke:red;stroke-width:4"></polyline>
-		<text x="50" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Palacio Real de Tonga
-		</text>
-		<text x="130" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Isla de Nukunukumotu
-		</text>
-		<text x="210" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Isla de Oneata
-		</text>
-		<text x="290" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Isla de Pangaimotu
-		</text>
-		<text x="370" y="170" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-			Palacio Real de Tonga
-		</text>
-</svg>
-</section>
+        </section>
     </main>
     <script src="js/viajes.js"></script>
 

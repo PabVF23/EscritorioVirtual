@@ -2,6 +2,15 @@
 
 <?php
     require("bdBiblioteca.php");
+
+    session_start();
+    if (isset($_SERVER['HTTP_REFERER']) ) {
+        if (explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER'])) - 2] != "php") {
+            session_destroy();
+        }
+    } else {
+        session_destroy();
+    }
 ?>
 
 <html lang="es">
@@ -47,11 +56,6 @@
             if (isset($_SESSION['biblioteca'])) {
                 $biblioteca = $_SESSION['biblioteca'];
             } else {
-                $biblioteca = new Biblioteca();
-                $_SESSION['biblioteca'] = $biblioteca;
-            }
-
-            if (isset($_POST["reiniciarBD"])) {
                 $biblioteca = new Biblioteca();
                 $_SESSION['biblioteca'] = $biblioteca;
             }

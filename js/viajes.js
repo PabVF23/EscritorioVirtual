@@ -1,8 +1,3 @@
-
-/**
- * Importante: Preguntar duda css
- */
-
 class Viajes {
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));
@@ -118,19 +113,18 @@ class Viajes {
                 $("ruta", rutas).each(function() {
                     let nombre = $(this).attr("nombre");
                     $("section").eq(2).append("<h4>" + nombre + "</h4>");
-                    $("section > h4:last").after("<ul></ul>");
 
                     let tipo = $(this).attr("tipo")
-                    $("section > ul:last").append("<li>Tipo: " + tipo + "</li>")
+                    $("section").eq(2).append("<p>Tipo: " + tipo + "</p>")
 
                     let medio = $(this).attr("medio")
-                    $("section > ul:last").append("<li>Medio: " + medio + "</li>")
+                    $("section").eq(2).append("<p>Medio: " + medio + "</p>")
 
                     let fecha = $("fecha", this).text();
-                    $("section > ul:last").append("<li>Fecha: " + fecha + "</li>")
+                    $("section").eq(2).append("<p>Fecha: " + fecha + "</p>")
 
                     let hora = $("hora", this).text();
-                    $("section > ul:last").append("<li>Hora: " + hora + "</li>")
+                    $("section").eq(2).append("<p>Hora: " + hora + "</p>")
 
                     let duracion = $("tiempo", this).text();
                     duracion = duracion.slice(1);
@@ -175,74 +169,70 @@ class Viajes {
                         }
                     }
 
-                    $("section > ul:last").append("<li>Tiempo: " + tiempo + "</li>")
+                    $("section").eq(2).append("<p>Tiempo: " + tiempo + "</p>")
 
                     let agencia = $("agencia", this).text();
-                    $("section > ul:last").append("<li>Agencia: " + agencia + "</li>")
+                    $("section").eq(2).append("<p>Agencia: " + agencia + "</p>")
 
                     let descripcion = $("descripcion:first", this).text();
-                    $("section > ul:last").append("<li>Descripcion: " + descripcion + "</li>")
+                    $("section").eq(2).append("<p>Descripcion: " + descripcion + "</p>")
                     
                     let personas = $("personas", this).text();
-                    $("section > ul:last").append("<li>Personas: " + personas + "</li>")
+                    $("section").eq(2).append("<p>Personas: " + personas + "</p>")
 
                     let lugar = $("lugar", this).text();
-                    $("section > ul:last").append("<li>Lugar: " + lugar + "</li>")
+                    $("section").eq(2).append("<p>Lugar: " + lugar + "</p>")
 
                     let direccion = $("direccion", this).text();
-                    $("section > ul:last").append("<li>Direccion: " + direccion + "</li>")
+                    $("section").eq(2).append("<p>Direccion: " + direccion + "</p>")
 
                     let latitud = $("coordenadas:first", this).attr("latitud");
                     let longitud = $("coordenadas:first", this).attr("longitud");
                     let altitud = $("coordenadas:first", this).attr("altitud");
-                    $("section > ul:last").append("<li>Coordenadas: " + latitud + ", " + longitud  + ", " + altitud + "</li>")
+                    $("section").eq(2).append("<p>Coordenadas: " + latitud + ", " + longitud  + ", " + altitud + "</p>")
 
-                    $("section > ul:last").append("<li>Referencias:</li>")
-                    $("section > ul > li:last").append("<ul></ul>")
+                    $("section").eq(2).append("<p>Referencias:</p>")
+                    $("section:nth-of-type(3) > p:last").after("<ul></ul>")
+                    let contador = 1;
                     $("referencia", this).each(function() {
-                        let referencia = "<a href='" + $(this).text() + "'>" + $(this).text() + "</a>";
-                        $("section > ul > li:last > ul").append("<li>" + referencia + "</li>")
+                        let referencia = "<a href='" + $(this).text() + "'>Referencia " + contador + "</a>";
+                        $("section > ul:last").append("<li>" + referencia + "</li>")
+                        contador++;
                     })
 
                     let recomendacion = $("recomendacion", this).text();
-                    $("section > ul:last").append("<li>Recomendación: " + recomendacion + "</li>")
+                    $("section").eq(2).append("<p>Recomendación: " + recomendacion + "</p>")
 
-                    $("section > ul:last").append("<li>Hitos:</li>")
-                    $("section > ul > li:last").append("<ul></ul>")
 
                     $("hito", this).each(function() {
                         let nombre = $(this).attr("nombre");
-                        $("section > ul > li:last > ul").append("<li>" + nombre + "</li>")
-                        $("section > ul > li:last > ul > li:last").append("<ul></ul>")
+                        $("section").eq(2).append("<h5>Hito: " + nombre + "</h5>")
 
                         let descripcion = $("descripcion", this).text();
-                        $("section > ul > li:last > ul > li:last > ul").append("<li>Descripcion: " + descripcion + "</li>");
+                        $("section").eq(2).append("<p>Descripcion: " + descripcion + "</p>");
 
                         let latitud = $("coordenadas", this).attr("latitud");
                         let longitud = $("coordenadas", this).attr("longitud");
                         let altitud = $("coordenadas", this).attr("altitud");
-                        $("section > ul > li:last > ul > li:last > ul").append("<li>Coordenadas: " + latitud + ", " + longitud  + ", " + altitud + "</li>");
+                        $("section").eq(2).append("<p>Coordenadas: " + latitud + ", " + longitud  + ", " + altitud + "</p>");
 
                         let distancia = $("distancia", this).text() + " " + $("distancia", this).attr("unidades");
-                        $("section > ul > li:last > ul > li:last > ul").append("<li>Distancia del último punto: " + distancia + "</li>");
+                        $("section").eq(2).append("<p>Distancia del último punto: " + distancia + "</p>");
 
-                        $("section > ul > li:last > ul > li:last > ul").append("<li>Galería de fotos: </li>");
-                        $("section > ul > li:last > ul > li:last > ul > li:last").append("<ul></ul>")
+                        $("section").eq(2).append("<h6>Galería de fotos: </h6>");
 
                         $("foto", this).each(function() {
                             let foto = "<img src='xml/" + $(this).text() + "' alt = '" + $(this).text() + "' />"
-                            $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li>" + foto + "</li>")
+                            $("section").eq(2).append(foto)
                         })
 
                         if ($("galeriaVideos", this).length) {
-                            $("section > ul > li:last > ul > li:last > ul").append("<li>Galería de videos: </li>");
-                            $("section > ul > li:last > ul > li:last > ul > li:last").append("<ul></ul>")
+                            $("section").eq(2).append("<h6>Galería de videos: </h6>");
 
                             $("video", this).each(function() {
-                                $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li></li>")
-                                $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last").append('<video controls preload="auto"></video>')
+                                $("section").eq(2).append('<video controls preload="auto"></video>')
                                 let src = "xml/" + $(this).text();
-                                $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last > video").append("<source src='" + src + "' type='video/mp4'>");
+                                $("section > video:last").append("<source src='" + src + "' type='video/mp4'>");
                             })
                         }
                     })
