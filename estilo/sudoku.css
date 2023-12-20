@@ -57,7 +57,40 @@ p:nth-child(n+19):nth-child(-n+27), p:nth-child(n+46):nth-child(-n+54) {
     border-bottom: 0.2em solid black;
 }
 
+/* Especificidad: 011*/
+section[data-type=botonera] {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    visibility: hidden;
+}
+
+/* Especificidad: 012*/
+section[data-type=botonera] h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.3em;
+    margin-bottom: 0.1em;
+}
+
+/* Especificidad: 012*/
+section[data-type=botonera] button {
+    width: calc(15% - 1em);
+    height: 4em;
+    text-align: center;
+    background-color: #000;
+    color: #FFF;
+}
+
 @media screen and (max-width: 800px) {
+    /* Especificidad: 011 */
+    section[data-type=botonera] {
+        /* Redefinición de propiedad visibility */
+        visibility: visible;
+    }
+
     main {
         /* Redefinición de propiedad width */
         width: 80vw;
