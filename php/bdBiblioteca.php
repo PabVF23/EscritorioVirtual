@@ -144,7 +144,7 @@
                 echo "<p>Error al vaciar el contenido de la tabla empleados</p>";
             }
 
-            echo "<p>Se ha reiniciado la base de datos</p>";
+            echo "<p>Se ha inicializado la base de datos</p>";
             $db->close();
         }
 

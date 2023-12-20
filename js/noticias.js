@@ -44,11 +44,17 @@ class Noticias {
         let texto = $("input[type='text']").eq(2).val();
         let autor = $("input[type='text']").eq(3).val();
 
-        $("section").before("<article></article>");
+        $("section > p").remove();
 
-        $("article:last").append("<h3>" + titular + "</h3>");
-        $("article:last").append("<h4>" + entradilla + "</h3>");
-        $("article:last").append("<p>" + texto + "</p>");
-        $("article:last").append("<p>" + autor + "</p>")
+        if (titular.length === 0 || entradilla.length === 0 || texto.length === 0 || autor.length === 0) {
+            $("section > h3").after("<p>Advertencia: No pueden quedar campos en blanco</p>");
+        } else {
+            $("section").before("<article></article>");
+
+            $("article:last").append("<h3>" + titular + "</h3>");
+            $("article:last").append("<h4>" + entradilla + "</h3>");
+            $("article:last").append("<p>" + texto + "</p>");
+            $("article:last").append("<p>" + autor + "</p>");
+        }
     }
 }
