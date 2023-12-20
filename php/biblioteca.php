@@ -2,8 +2,6 @@
 
 <?php
     require("bdBiblioteca.php");
-
-    $biblioteca = new Biblioteca();
 ?>
 
 <html lang="es">
@@ -45,9 +43,20 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <?php
-            $biblioteca->crearBD();
-            $biblioteca->vaciarTablas();
+            session_start();
+            if (isset($_SESSION['biblioteca'])) {
+                $biblioteca = $_SESSION['biblioteca'];
+            } else {
+                $biblioteca = new Biblioteca();
+                $_SESSION['biblioteca'] = $biblioteca;
+            }
+
+            if (isset($_POST["reiniciarBD"])) {
+                $biblioteca = new Biblioteca();
+                $_SESSION['biblioteca'] = $biblioteca;
+            }
         ?>
+
         <p>Por favor, seleccione lo que desee hacer:</p>
 
         <article>
@@ -60,6 +69,13 @@
             <a href="exportarBiblioteca.php">Exportar datos de la base de datos</a>
             <a href="biblioteca.php">Reiniciar la base de datos</a>
         </article>
+
+        <section>
+            <h3>Reiniciar la base de datos</h3>
+            <form action='#' method='post' name='reiniciar'>
+                <input type="submit" name="reiniciarBD" value='Reiniciar la base de datos'/>
+            </form>
+        </section>
     </main>
 
 

@@ -230,7 +230,7 @@ class Viajes {
                         $("section > ul > li:last > ul > li:last > ul > li:last").append("<ul></ul>")
 
                         $("foto", this).each(function() {
-                            let foto = "<img src='multimedia/imagenes/" + $(this).text() + "' alt = '" + $(this).text() + "' />"
+                            let foto = "<img src='xml/" + $(this).text() + "' alt = '" + $(this).text() + "' />"
                             $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li>" + foto + "</li>")
                         })
 
@@ -241,7 +241,7 @@ class Viajes {
                             $("video", this).each(function() {
                                 $("section > ul > li:last > ul > li:last > ul > li:last > ul").append("<li></li>")
                                 $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last").append('<video controls preload="auto"></video>')
-                                let src = "multimedia/videos/" + $(this).text();
+                                let src = "xml/" + $(this).text();
                                 $("section > ul > li:last > ul > li:last > ul > li:last > ul > li:last > video").append("<source src='" + src + "' type='video/mp4'>");
                             })
                         }

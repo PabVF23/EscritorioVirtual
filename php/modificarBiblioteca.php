@@ -2,8 +2,6 @@
 
 <?php
     require("bdBiblioteca.php");
-
-    $biblioteca = new Biblioteca();
 ?>
 
 <html lang="es">
@@ -44,6 +42,15 @@
         <h2>Biblioteca - Modificar</h2>
 
         <p>Bienvenido al gestor de la biblioteca.</p>
+        <?php
+            session_start();
+            if (isset($_SESSION['biblioteca'])) {
+                $biblioteca = $_SESSION['biblioteca'];
+            } else {
+                $biblioteca = new Biblioteca();
+                $_SESSION['biblioteca'] = $biblioteca;
+            }
+        ?>
         <p>Aquí puedes actualizar los datos de la biblioteca</p>
         <p>Se han obtenido los datos correctamente.</p>
 

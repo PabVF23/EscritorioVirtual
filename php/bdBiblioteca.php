@@ -6,6 +6,9 @@
             $this->user = "DBUSER2023";
             $this->pass = "DBPSWD2023";
             $this->dbname = "biblioteca";
+
+            $this->crearBD();
+            $this->vaciarTablas();
         }
 
         public function crearBD() {
@@ -19,7 +22,6 @@
 
             if ($db->query($query) === TRUE) {
                 $this->crearTablas();
-                echo "<p>Se ha reiniciado la BD correctamente.</p>";
             } else {
                 echo "<p>Error en la creación de la base de datos</p>";
                 exit();
@@ -117,37 +119,33 @@
             
             if ($db->query($vaciarDevoluciones) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla devoluciones</p>";
-                exit();
             }
 
             $vaciarPrestamos = "DELETE FROM prestamos";
             
             if ($db->query($vaciarPrestamos) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla prestamos</p>";
-                exit();
             }
             
             $vaciarLibros = "DELETE FROM libros";
             
             if ($db->query($vaciarLibros) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla libros</p>";
-                exit();
             }
 
             $vaciarClientes = "DELETE FROM clientes";
             
             if ($db->query($vaciarClientes) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla clientes</p>";
-                exit();
             }
 
             $vaciarEmpleados = "DELETE FROM empleados";
             
             if ($db->query($vaciarEmpleados) === FALSE) {
                 echo "<p>Error al vaciar el contenido de la tabla empleados</p>";
-                exit();
             }
 
+            echo "<p>Se ha reiniciado la base de datos</p>";
             $db->close();
         }
 

@@ -53,6 +53,6 @@ form > input[type="checkbox"] {
 
 /* Especificidad: 012*/
 form > input[type="submit"] {
-    width: 10em;
+    width: 15em;
     height: 2em;
 }
