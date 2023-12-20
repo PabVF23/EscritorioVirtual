@@ -119,7 +119,7 @@ class Pais {
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let max = datos[i].main.temp_max;
-                    let td = '<td headers="' + date + ' max">' + max + "</th>"
+                    let td = '<td headers="' + date + ' max">' + max + "</td>"
 
                     $("tr:last").append(td);
                 }
@@ -129,7 +129,7 @@ class Pais {
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let min = datos[i].main.temp_min;
-                    let td = '<td headers="' + date + ' min">' + min + "</th>"
+                    let td = '<td headers="' + date + ' min">' + min + "</td>"
 
                     $("tr:last").append(td);
                 }
@@ -149,7 +149,7 @@ class Pais {
                 for (let i = 0; i < datos.length; i++) {
                     let date = datos[i].dt_txt.split(' ')[0];
                     let tiempo = "https://openweathermap.org/img/w/" + datos[i].weather[0].icon + ".png";
-                    let td = '<td headers="' + date + ' tiempo"></th>'
+                    let td = '<td headers="' + date + ' tiempo"></td>'
 
                     $("tr:last").append(td);
 
@@ -164,7 +164,7 @@ class Pais {
                     if(typeof datos[i].rain !== 'undefined') {
                         lluvia = datos[i].rain['3h']
                     }
-                    let td = '<td headers="' + date + ' lluvia">' + lluvia + " mm</th>"
+                    let td = '<td headers="' + date + ' lluvia">' + lluvia + " mm</td>"
 
                     $("tr:last").append(td);
                 }
