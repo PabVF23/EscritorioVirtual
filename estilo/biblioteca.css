@@ -56,3 +56,15 @@ form > input[type="submit"] {
     width: 15em;
     height: 2em;
 }
+
+table {
+    width: 50vw;
+}
+
+@media (max-width: 800px) {
+    table {
+        /* Redefinición de propiedad width */
+        width: 90vw;
+        font-size: 0.90em;
+    }
+}
