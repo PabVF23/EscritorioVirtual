@@ -21,13 +21,12 @@
             $query = "CREATE DATABASE IF NOT EXISTS " . $this->dbname . " COLLATE utf8_spanish_ci";
 
             if ($db->query($query) === TRUE) {
+                $db->close();
                 $this->crearTablas();
             } else {
                 echo "<p>Error en la creación de la base de datos</p>";
                 exit();
             }
-
-            $db->close();
         }
 
         public function crearTablas() {
@@ -103,6 +102,8 @@
                 echo "<p>Error en la creación de la tabla devoluciones</p>";
                 exit();
             }              
+
+            $db->close();
         }
 
         public function vaciarTablas() {
@@ -1128,6 +1129,8 @@
                     $fila = $resultado->fetch_assoc();
                 }
             }
+
+            fclose($archivo);
 
             if($stmt != NULL) {
                 $stmt->close();
