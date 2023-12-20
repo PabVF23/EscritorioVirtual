@@ -1,3 +1,4 @@
+"use strict";
 class Memoria {
     elements = [
         {"element": "HTML5", "source": "https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg"},

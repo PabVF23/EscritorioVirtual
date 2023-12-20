@@ -1,3 +1,4 @@
+"use strict";
 class Fondo {
     constructor(pais, capital, coordenadas) {
         this.pais = pais;

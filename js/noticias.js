@@ -1,3 +1,4 @@
+"use strict";
 class Noticias {
     constructor() {
         if (window.File && window.FileReader && window.FileList && window.Blob) {

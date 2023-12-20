@@ -1,3 +1,4 @@
+"use strict";
 class Sudoku {
     cadena =  "";
     filas = 9;
@@ -111,6 +112,8 @@ class Sudoku {
             parrafos[pos].setAttribute("data-state", "correct");
             parrafos[pos].innerHTML = key;
             this.cadena = this.cadena.substring(0, pos) + key + this.cadena.substring(pos + 1);
+        } else {
+            alert("El valor introducido no es correcto");
         }
 
         if (!this.cadena.includes(".")) {

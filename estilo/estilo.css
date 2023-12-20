@@ -163,6 +163,7 @@ audio {
 @media screen and (max-width: 550px) {
   /* Especificidad: 001 */
   table {
-    width: 90vw;
+    width: 80vw;
+    font-size:0.8em;
   }
 }

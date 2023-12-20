@@ -1,3 +1,4 @@
+"use strict";
 class Viajes {
     constructor() {
         navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.manejarErrores.bind(this));

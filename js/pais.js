@@ -1,3 +1,4 @@
+"use strict";
 class Pais {
     constructor(nombre, capital, poblacion) {
         this.nombre = nombre;

@@ -90,7 +90,8 @@ section[data-type=botonera] button {
         /* Redefinición de propiedad visibility */
         visibility: visible;
     }
-
+    
+    /* Especificidad: 001 */
     main {
         /* Redefinición de propiedad width */
         width: 80vw;

@@ -1,4 +1,4 @@
-
+"use strict";
 class Agenda {
     last_api_call = null;
     last_api_result = null;
