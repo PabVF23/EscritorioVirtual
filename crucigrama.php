@@ -127,11 +127,11 @@
 
     <article>
         <h3>Otros juegos</h3>
-        <a href="memoria.html">Memoria</a>
-        <a href="sudoku.html">Sudoku</a>
-        <a href="crucigrama.php">Crucigrama matemático</a>
-        <a href="api.html">Reproductor de música</a>
-        <a href="php/biblioteca.php">Gestor de biblioteca</a>
+        <a href="memoria.html" accesskey="E" tabindex="8">Memoria</a>
+        <a href="sudoku.html" accesskey="U" tabindex="9">Sudoku</a>
+        <a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a>
+        <a href="api.html" accesskey="R" tabindex="11">Reproductor de música</a>
+        <a href="php/biblioteca.php" accesskey="G" tabindex="12">Gestor de biblioteca</a>
     </article>
 
     <p>Este juego es un crucigrama matemático. Se mostrará un crucigrama con una serie de operaciones matemáticas parcialmente vacías que el jugador deberá completar correctamente.</p>

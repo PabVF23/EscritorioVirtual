@@ -70,13 +70,13 @@
 
         <article>
             <h3>Opciones</h3>
-            <a href="consultarBiblioteca.php">Consultar informacion de la base de datos</a>
-            <a href="insertarBiblioteca.php">Insertar informacion en la base de datos</a>
-            <a href="modificarBiblioteca.php">Modificar informacion de la base de datos</a>
-            <a href="borrarBiblioteca.php">Borrar informacion de la base de datos</a>
-            <a href="importarBiblioteca.php">Importar datos a la base de datos</a>
-            <a href="exportarBiblioteca.php">Exportar datos de la base de datos</a>
-            <a href="biblioteca.php">Reiniciar la base de datos</a>
+            <a href="consultarBiblioteca.php" accesskey="C" tabindex="8">Consultar informacion de la base de datos</a>
+            <a href="insertarBiblioteca.php" accesskey="E" tabindex="9">Insertar informacion en la base de datos</a>
+            <a href="modificarBiblioteca.php" accesskey="O" tabindex="10">Modificar informacion de la base de datos</a>
+            <a href="borrarBiblioteca.php" accesskey="B" tabindex="11">Borrar informacion de la base de datos</a>
+            <a href="importarBiblioteca.php" accesskey="P" tabindex="12">Importar datos a la base de datos</a>
+            <a href="exportarBiblioteca.php" accesskey="X" tabindex="13">Exportar datos de la base de datos</a>
+            <a href="biblioteca.php" accesskey="R" tabindex="14">Reiniciar la base de datos</a>
         </article>
 
         <section>
