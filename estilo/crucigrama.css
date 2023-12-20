@@ -2,7 +2,7 @@
 
 /* Especificidad: 001*/
 main {
-    width: 100vw;
+    width: 50vw;
     height: auto;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
@@ -13,6 +13,26 @@ main {
     border-right: 0.15em solid black;
 }
 
+/* Especificidad: 001*/
+article {
+    display: flex;
+    margin-bottom: 1.5em;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Especificidad: 002*/
+article>h3 {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Especificidad: 002*/
+article>a {
+    margin-right: 1em;
+}
 
 /* Especificidad: 002*/
 main > p {
@@ -24,6 +44,8 @@ main > p {
     border-bottom: 0.15em solid black;
     border-left: 0.15em solid black;
     border-right: 0.15em solid black;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 /* Especificidad: 012*/
@@ -35,7 +57,7 @@ main > p[data-state=empty] {
 /* Especificidad: 012*/
 main > p[data-state=clicked] {
     /* El color se hereda del elemento body: #000000 */
-    background-color: #0077FF;
+    background-color: #0099FF;
 }
 
 /* Especificidad: 011*/
@@ -84,7 +106,8 @@ form > input[type="submit"] {
     margin-top: 2em;
 }
 
-@media (max-width: 800px) {
+
+@media screen and (max-width: 800px) {
     /* Especificidad: 011 */
     section[data-type=botonera] {
         /* Redefinición de propiedad visibility */
@@ -95,5 +118,10 @@ form > input[type="submit"] {
     form > input[type="text"] {
         /* Redefinición de propiedad width */
         width: 60vw;
+    }
+    /* Especificidad: 001*/
+    main {
+        /* Redefinición de propiedad width */
+        width: 90vw;
     }
 }
