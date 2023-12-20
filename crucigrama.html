@@ -1,91 +1,5 @@
 <!DOCTYPE HTML>
 
-<?php
-    class Record {
-        public function __construct() {
-            $this->server = "localhost";
-            $this->user = "DBUSER2023";
-            $this->pass = "DBPSWD2023";
-            $this->dbname = "records";
-        }
-
-        public function insertarDatos($nombre, $apellidos, $nivel, $tiempo) {
-            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
-
-            if($db->connect_error) {
-                exit ("<h2>ERROR de conexión:".$db->connect_error."</h2>");  
-            }
-
-            if (!empty($nombre) && !empty($apellidos)) {
-                $stmt = $db->prepare("INSERT INTO registro VALUES (?, ?, ?, ?)");
-                $stmt->bind_param('sssi', $nombre, $apellidos, $nivel, $tiempo);
-                $stmt->execute();
-                $stmt->close();
-                $this->insercionRealizada = TRUE;
-            } else {
-                $this->insercionRealizada = FALSE;
-            }
-
-            $db->close();
-        }
-
-        public function mostrarRegistros() {
-            $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
-
-            if($db->connect_error) {
-                exit ("<h2>ERROR de conexión:".$db->connect_error."</h2>");  
-            }
-
-            $query = "SELECT * FROM registro ORDER BY TIEMPO LIMIT 10";
-            $resultado = $db->query($query);
-            
-            $fila = $resultado->fetch_assoc();
-            if ($fila != NULL) {
-                echo "<section>";
-                echo "<h3>Records</h3>";
-
-                if ($this->insercionRealizada) {
-                    echo "<p>¡Datos insertados correctamente!</p>";
-                } else {
-                    echo "<p>Advertencia: No deben quedar campos en blanco en el formulario</p>";
-                }
-
-                echo "<table>\n";
-                echo "<caption>10 mejores resultados en el crucigrama</caption>";
-                echo "<thead>\n";
-                echo "<tr>\n";
-                echo "<th scope='col' id='nombre'>Nombre</th>\n";
-                echo "<th scope='col' id='apellidos'>Apellidos</th>\n";
-                echo "<th scope='col' id='nivel'>Nivel</th>\n";
-                echo "<th scope='col' id='tiempo'>Tiempo</th>\n";
-                echo "</tr>\n";
-                echo "</thead>\n";
-                echo "<tbody>\n";
-
-                while ($fila) {
-                    $nombre = $fila['nombre'];
-                    $apellidos = $fila['apellidos'];
-                    $nivel = $fila['nivel'];
-                    $tiempo = $fila['tiempo'];
-
-                    echo "<tr>\n";
-                    echo "<td headers = 'nombre'>" . $nombre . "</td>\n";
-                    echo "<td headers = 'apellidos'>" . $apellidos . "</td>\n";
-                    echo "<td headers = 'nivel'>" . $nivel . "</td>\n";
-                    echo "<td headers = 'tiempo'>" . $tiempo . "</td>\n";
-                    echo "</tr>\n";
-
-                    $fila = $resultado->fetch_assoc();
-                }
-
-                echo "</tbody>\n";
-                echo "</table>\n";
-                echo "</section>\n";
-            }
-        }
-        
-    }
-?>
 
 <html lang="es">
 <head>
@@ -137,18 +51,6 @@
     <p>En dispositivos móviles, se mostrará una botonera que el usuario podrá emplear para insertar los valores necesarios para resolver el crucigrama. </p>
 
     <main></main>
-
-    <?php
-        if (count($_POST) > 0) {
-            $nombre = $_POST['nombre'];
-            $apellidos = $_POST['apellidos'];
-            $nivel = $_POST['nivel'];
-            $tiempo = $_POST['tiempo'];
-            $record = new Record();
-            $record->insertarDatos($nombre, $apellidos, $nivel, $tiempo);
-            $record->mostrarRegistros();
-        }
-    ?>
     
     <section data-type="botonera">
         <h2>Botonera</h2>
