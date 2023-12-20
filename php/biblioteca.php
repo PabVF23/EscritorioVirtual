@@ -3,13 +3,13 @@
 <?php
     require("bdBiblioteca.php");
 
-    session_start();
+    if(session_id() === "") session_start();
+
+    // Comprobar si la llamada viene de fuera o de dentro de la aplicación, y borrar
     if (isset($_SERVER['HTTP_REFERER']) ) {
         if (explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER'])) - 2] != "php") {
             session_destroy();
         }
-    } else {
-        session_destroy();
     }
 ?>
 
@@ -52,10 +52,15 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <?php
-            session_start();
+            if(session_id() === "") session_start();
             if (isset($_SESSION['biblioteca'])) {
                 $biblioteca = $_SESSION['biblioteca'];
             } else {
+                $biblioteca = new Biblioteca();
+                $_SESSION['biblioteca'] = $biblioteca;
+            }
+
+            if (isset($_POST["reiniciarBD"])) {
                 $biblioteca = new Biblioteca();
                 $_SESSION['biblioteca'] = $biblioteca;
             }

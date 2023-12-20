@@ -43,7 +43,7 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <?php
-            session_start();
+            if(session_id() === "") session_start();
             if (isset($_SESSION['biblioteca'])) {
                 $biblioteca = $_SESSION['biblioteca'];
             } else {
