@@ -2,6 +2,9 @@
 
 <?php
     require("bdBiblioteca.php");
+    require("gestorSesion.php");
+
+    $gestorSesion = new GestorSesion();
 ?>
 
 <html lang="es">
@@ -43,13 +46,7 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <?php
-            if(session_id() === "") session_start();
-            if (isset($_SESSION['biblioteca'])) {
-                $biblioteca = $_SESSION['biblioteca'];
-            } else {
-                $biblioteca = new Biblioteca();
-                $_SESSION['biblioteca'] = $biblioteca;
-            }
+            $biblioteca = $gestorSesion->obtenerBiblioteca();
         ?>
         <p>Aquí puedes importar datos mediante un archivo CSV.</p>
 

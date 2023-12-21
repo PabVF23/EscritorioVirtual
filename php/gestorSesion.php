@@ -11,5 +11,18 @@
                 }
             }
         }
+
+        public function obtenerBiblioteca() {
+            if(session_id() === "") session_start();
+
+            if (isset($_SESSION['biblioteca'])) {
+                $biblioteca = $_SESSION['biblioteca'];
+            } else {
+                $biblioteca = new Biblioteca();
+                $_SESSION['biblioteca'] = $biblioteca;
+            }
+
+            return $biblioteca;
+        }
     }
 ?>

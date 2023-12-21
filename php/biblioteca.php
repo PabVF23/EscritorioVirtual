@@ -47,13 +47,7 @@
 
         <p>Bienvenido al gestor de la biblioteca.</p>
         <?php
-            if(session_id() === "") session_start();
-            if (isset($_SESSION['biblioteca'])) {
-                $biblioteca = $_SESSION['biblioteca'];
-            } else {
-                $biblioteca = new Biblioteca();
-                $_SESSION['biblioteca'] = $biblioteca;
-            }
+            $biblioteca = $gestorSesion->obtenerBiblioteca();
 
             if (isset($_POST["reiniciarBD"])) {
                 $biblioteca = new Biblioteca();
