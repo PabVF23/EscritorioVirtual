@@ -233,7 +233,7 @@ class Viajes {
                             $("video", this).each(function() {
                                 $("section").eq(2).append('<video controls preload="auto"></video>')
                                 let src = "xml/" + $(this).text();
-                                $("section > video:last").append("<source src='" + src + "' type='video/mp4'>");
+                                $("section > video:last").append("<source src='" + src + "' type='video/mp4'/>");
                             })
                         }
                     })
