@@ -2,15 +2,10 @@
 
 <?php
     require("bdBiblioteca.php");
+    require("gestorSesion.php");
 
-    if(session_id() === "") session_start();
-
-    // Comprobar si la llamada viene de fuera o de dentro de la aplicación, y borrar si viene de fuera
-    if (isset($_SERVER['HTTP_REFERER']) ) {
-        if (explode("/", $_SERVER['HTTP_REFERER'])[count(explode("/", $_SERVER['HTTP_REFERER'])) - 2] != "php") {
-            session_destroy();
-        }
-    }
+    $gestorSesion = new GestorSesion();
+    $gestorSesion->gestionarSesion();
 ?>
 
 <html lang="es">
